@@ -1,0 +1,24 @@
+D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\DataAccess\bin\Debug\net6.0\DataAccess.dll
+D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\DataAccess\bin\Debug\net6.0\DataAccess.pdb
+D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.dll
+D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
+D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
+D:\DEV FILES\CAPSTONE\MinimalAPIFxApp\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+D:\DEV FILES\CAPSTONE\MinimalAPIFxApp\DataAccess\bin\Debug\net6.0\DataAccess.dll
+D:\DEV FILES\CAPSTONE\MinimalAPIFxApp\DataAccess\bin\Debug\net6.0\DataAccess.pdb
+D:\DEV FILES\CAPSTONE\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+D:\DEV FILES\CAPSTONE\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\DEV FILES\CAPSTONE\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+D:\DEV FILES\CAPSTONE\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+D:\DEV FILES\CAPSTONE\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+D:\DEV FILES\CAPSTONE\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.dll
+D:\DEV FILES\CAPSTONE\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
+D:\DEV FILES\CAPSTONE\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+D:\DEV FILES\CAPSTONE\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll

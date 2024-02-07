@@ -1,0 +1,6 @@
+D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\FalconxDB\bin\Debug\FalconxDB.dacpac
+D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\FalconxDB\bin\Debug\FalconxDB.dll
+D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\FalconxDB\bin\Debug\FalconxDB.pdb
+D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\FalconxDB\obj\Debug\FalconxDB.sqlproj.AssemblyReference.cache
+D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\FalconxDB\obj\Debug\FalconxDB.dll
+D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\FalconxDB\obj\Debug\FalconxDB.pdb
