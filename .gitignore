@@ -4,6 +4,7 @@ build/
 # Ignore IDE settings
 .vscode/
 .idea/
+MinimalAPIFxApp/FalconxDB/FalconxDB.dbmdl
 
 # Ignore compiled binaries
 *.exe
