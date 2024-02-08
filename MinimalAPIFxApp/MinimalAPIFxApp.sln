@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34302.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPIFx", "MinimalAPIFx\MinimalAPIFx.csproj", "{F094675D-6AD2-4043-B04C-4B7B367BEC78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalAPIFx", "MinimalAPIFx\MinimalAPIFx.csproj", "{F094675D-6AD2-4043-B04C-4B7B367BEC78}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "FalconxDB", "FalconxDB\FalconxDB.sqlproj", "{BA2C4C4A-98DB-4601-BB6C-9BD9FFB727AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{BA3DB6D7-016B-4692-B595-57FF556FAFC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{BA3DB6D7-016B-4692-B595-57FF556FAFC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

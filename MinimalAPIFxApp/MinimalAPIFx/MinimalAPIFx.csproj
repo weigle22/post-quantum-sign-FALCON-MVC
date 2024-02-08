@@ -7,12 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="JsonModelBinder" Version="2.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Upload\" />
   </ItemGroup>
 
 </Project>

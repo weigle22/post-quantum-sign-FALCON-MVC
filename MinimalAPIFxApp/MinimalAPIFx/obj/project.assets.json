@@ -15,6 +15,68 @@
           }
         }
       },
+      "JsonModelBinder/2.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "3.0.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/JsonModelBinder.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/JsonModelBinder.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Microsoft.AspNetCore.JsonPatch/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.6.0",
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Mvc.NewtonsoftJson/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.JsonPatch": "3.0.0",
+          "Newtonsoft.Json": "12.0.2",
+          "Newtonsoft.Json.Bson": "1.0.2"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Microsoft.CSharp/4.6.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
+        }
+      },
       "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
         "type": "package",
         "build": {
@@ -123,6 +185,22 @@
         "runtime": {
           "lib/net6.0/Newtonsoft.Json.dll": {
             "related": ".xml"
+          }
+        }
+      },
+      "Newtonsoft.Json.Bson/1.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
+            "related": ".pdb;.xml"
           }
         }
       },
@@ -351,6 +429,115 @@
         "lib/netstandard2.0/Dapper.dll",
         "lib/netstandard2.0/Dapper.xml",
         "readme.md"
+      ]
+    },
+    "JsonModelBinder/2.1.1": {
+      "sha512": "OZ/3V+cwFZuUA09QF1B0XX4QM35VKLSIQ6cMKt+BFwsRhFoD24uhUoEDzEF1RBCrSX+BJLJxWJ2UxzDNch4S9Q==",
+      "type": "package",
+      "path": "jsonmodelbinder/2.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "jsonmodelbinder.2.1.1.nupkg.sha512",
+        "jsonmodelbinder.nuspec",
+        "lib/netcoreapp1.0/JsonModelBinder.dll",
+        "lib/netcoreapp2.0/JsonModelBinder.dll",
+        "lib/netcoreapp3.0/JsonModelBinder.dll"
+      ]
+    },
+    "Microsoft.AspNetCore.JsonPatch/3.0.0": {
+      "sha512": "LQVXEPxV4jIUiVHHUgBzZxOePSdD7wxV1ndtjg1a76JMqoK3siFka2pVfJXwRq0G4hxbYVWxvamqO733wUhQiA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.jsonpatch/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.xml",
+        "microsoft.aspnetcore.jsonpatch.3.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.jsonpatch.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Mvc.NewtonsoftJson/3.0.0": {
+      "sha512": "euuKDPev8bb87dzyyDd252jxafKkCNCU0Yh1ujLq7DT7g4sUwUsq1bVnow9isaYFFx+DBWSywUcL8ngSra0QHg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.mvc.newtonsoftjson/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp3.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll",
+        "lib/netcoreapp3.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.xml",
+        "microsoft.aspnetcore.mvc.newtonsoftjson.3.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.mvc.newtonsoftjson.nuspec"
+      ]
+    },
+    "Microsoft.CSharp/4.6.0": {
+      "sha512": "kxn3M2rnAGy5N5DgcIwcE8QTePWU/XiYcQVzn9HqTls2NKluVzVSmVWRjK7OUPWbljCXuZxHyhEz9kPRIQeXow==",
+      "type": "package",
+      "path": "microsoft.csharp/4.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/Microsoft.CSharp.dll",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.3/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.xml",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/uap10.0.16299/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "microsoft.csharp.4.6.0.nupkg.sha512",
+        "microsoft.csharp.nuspec",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/Microsoft.CSharp.dll",
+        "ref/netcore50/Microsoft.CSharp.xml",
+        "ref/netcore50/de/Microsoft.CSharp.xml",
+        "ref/netcore50/es/Microsoft.CSharp.xml",
+        "ref/netcore50/fr/Microsoft.CSharp.xml",
+        "ref/netcore50/it/Microsoft.CSharp.xml",
+        "ref/netcore50/ja/Microsoft.CSharp.xml",
+        "ref/netcore50/ko/Microsoft.CSharp.xml",
+        "ref/netcore50/ru/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hans/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hant/Microsoft.CSharp.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.0/Microsoft.CSharp.dll",
+        "ref/netstandard1.0/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/de/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/es/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/fr/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/it/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ja/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ko/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ru/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hans/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hant/Microsoft.CSharp.xml",
+        "ref/netstandard2.0/Microsoft.CSharp.dll",
+        "ref/netstandard2.0/Microsoft.CSharp.xml",
+        "ref/portable-net45+win8+wp8+wpa81/_._",
+        "ref/uap10.0.16299/_._",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
@@ -755,6 +942,27 @@
         "packageIcon.png"
       ]
     },
+    "Newtonsoft.Json.Bson/1.0.2": {
+      "sha512": "QYFyxhaABwmq3p/21VrZNYvCg3DaEoN/wUuw5nmfAf0X3HLjgupwhkEWdgfb9nvGAUIv3osmZoD3kKl4jxEmYQ==",
+      "type": "package",
+      "path": "newtonsoft.json.bson/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net45/Newtonsoft.Json.Bson.dll",
+        "lib/net45/Newtonsoft.Json.Bson.pdb",
+        "lib/net45/Newtonsoft.Json.Bson.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.Bson.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.Bson.pdb",
+        "lib/netstandard1.3/Newtonsoft.Json.Bson.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.Bson.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.Bson.pdb",
+        "lib/netstandard2.0/Newtonsoft.Json.Bson.xml",
+        "newtonsoft.json.bson.1.0.2.nupkg.sha512",
+        "newtonsoft.json.bson.nuspec"
+      ]
+    },
     "runtime.native.System.Data.SqlClient.sni/4.7.0": {
       "sha512": "9kyFSIdN3T0qjDQ2R0HRXYIhS3l5psBzQi6qqhdLz+SzFyEy4sVxNOke+yyYv8Cu8rPER12c3RDjLT8wF3WBYQ==",
       "type": "package",
@@ -1128,6 +1336,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "DataAccess >= 1.0.0",
+      "JsonModelBinder >= 2.1.1",
       "Newtonsoft.Json >= 13.0.3",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
@@ -1138,11 +1347,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DEV FILES\\CAPSTONE\\MinimalAPIFxApp\\MinimalAPIFx\\MinimalAPIFx.csproj",
+      "projectUniqueName": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\MinimalAPIFx\\MinimalAPIFx.csproj",
       "projectName": "MinimalAPIFx",
-      "projectPath": "D:\\DEV FILES\\CAPSTONE\\MinimalAPIFxApp\\MinimalAPIFx\\MinimalAPIFx.csproj",
+      "projectPath": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\MinimalAPIFx\\MinimalAPIFx.csproj",
       "packagesPath": "C:\\Users\\emman\\.nuget\\packages\\",
-      "outputPath": "D:\\DEV FILES\\CAPSTONE\\MinimalAPIFxApp\\MinimalAPIFx\\obj\\",
+      "outputPath": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\MinimalAPIFx\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\emman\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1159,8 +1368,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\DEV FILES\\CAPSTONE\\MinimalAPIFxApp\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "D:\\DEV FILES\\CAPSTONE\\MinimalAPIFxApp\\DataAccess\\DataAccess.csproj"
+            "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\DataAccess\\DataAccess.csproj"
             }
           }
         }
@@ -1175,6 +1384,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "JsonModelBinder": {
+            "target": "Package",
+            "version": "[2.1.1, )"
+          },
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
