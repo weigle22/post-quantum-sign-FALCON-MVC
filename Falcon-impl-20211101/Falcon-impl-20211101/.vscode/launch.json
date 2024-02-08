@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/LEARNING MANAGEMENT/Falcon-impl-20211101/Falcon-impl-20211101",
-      "program": "d:/LEARNING MANAGEMENT/Falcon-impl-20211101/Falcon-impl-20211101/build/Debug/outDebug",
+      "cwd": "d:/DEV FILES/MIT CAPSTONE/MIT CAPSTONE-repo/Falcon-impl-20211101/Falcon-impl-20211101",
+      "program": "d:/DEV FILES/MIT CAPSTONE/MIT CAPSTONE-repo/Falcon-impl-20211101/Falcon-impl-20211101/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
