@@ -1,0 +1,11 @@
+# Ignore build artifacts
+build/
+
+# Ignore IDE settings
+.vscode/
+.idea/
+
+# Ignore compiled binaries
+*.exe
+*.o
+
