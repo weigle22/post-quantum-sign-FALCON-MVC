@@ -4,10 +4,13 @@ build/
 # Ignore IDE settings
 .vscode/
 .idea/
-MinimalAPIFxApp/FalconxDB/FalconxDB.dbmdl
-
+/MinimalAPIFxApp/FalconxDB/FalconxDB.dbmdl
 # Ignore compiled binaries
 *.exe
 *.o
+
+# SQL Server files
+*.mdf
+*.ldf
 *.dbmdl
 

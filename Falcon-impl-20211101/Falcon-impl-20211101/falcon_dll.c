@@ -559,3 +559,135 @@ __declspec(dllexport) char *verifySignature(const char *message, const char *sig
 
     return verification_result_str;
 }
+
+// Entry point to generate signature from a file
+__declspec(dllexport) char *generateSignatureFromFile(const char *file_path, const char *private_key_str, unsigned logn)
+{
+    if (file_path == NULL || private_key_str == NULL)
+    {
+        fprintf(stderr, "Invalid input: file path or private key string is NULL\n");
+        return NULL;
+    }
+
+    // Open the file
+    FILE *file = fopen(file_path, "rb");
+    if (file == NULL)
+    {
+        fprintf(stderr, "Error opening file: \"%s\"\n", file_path);
+        return NULL;
+    }
+
+    // Get the file size
+    fseek(file, 0, SEEK_END);
+    size_t file_size = ftell(file);
+    rewind(file);
+
+    // Allocate memory for the file content
+    char *file_content = (char *)malloc(file_size);
+    if (file_content == NULL)
+    {
+        fprintf(stderr, "Memory allocation failed\n");
+        fclose(file);
+        return NULL;
+    }
+
+    // Read the file content
+    if (fread(file_content, 1, file_size, file) != file_size)
+    {
+        fprintf(stderr, "Error reading file: \"%s\"\n", file_path);
+        fclose(file);
+        free(file_content);
+        return NULL;
+    }
+
+    fclose(file);
+
+    // Generate signature from the file content
+    char *signature_str = generateSignature(file_content, private_key_str, logn);
+
+    // Clean up
+    free(file_content);
+
+    return signature_str;
+}
+
+// Entry point to verify signature of a file
+__declspec(dllexport) char *verifySignatureOfFile(const char *file_path, const char *signature_str, const char *public_key_str, unsigned logn)
+{
+    if (file_path == NULL || signature_str == NULL || public_key_str == NULL)
+    {
+        fprintf(stderr, "Invalid input: file path, signature string, or public key string is NULL\n");
+        return NULL;
+    }
+
+    // Open the file
+    FILE *file = fopen(file_path, "rb");
+    if (file == NULL)
+    {
+        fprintf(stderr, "Error opening file: \"%s\"\n", file_path);
+        return NULL;
+    }
+
+    // Get the file size
+    fseek(file, 0, SEEK_END);
+    size_t file_size = ftell(file);
+    rewind(file);
+
+    // Allocate memory for the file content
+    char *file_content = (char *)malloc(file_size);
+    if (file_content == NULL)
+    {
+        fprintf(stderr, "Memory allocation failed\n");
+        fclose(file);
+        return NULL;
+    }
+
+    // Read the file content
+    if (fread(file_content, 1, file_size, file) != file_size)
+    {
+        fprintf(stderr, "Error reading file: \"%s\"\n", file_path);
+        fclose(file);
+        free(file_content);
+        return NULL;
+    }
+
+    fclose(file);
+
+    // Verify signature of the file content
+    char *verification_result_str = verifySignature(file_content, signature_str, public_key_str, logn);
+
+    // Clean up
+    free(file_content);
+
+    return verification_result_str;
+}
+
+// Entry point to generate signature from MemoryStream
+__declspec(dllexport) char *generateSignatureFromMemoryStream(const char *file_data, const char *private_key_str, unsigned logn)
+{
+    if (file_data == NULL || private_key_str == NULL)
+    {
+        fprintf(stderr, "Invalid input: file data or private key string is NULL\n");
+        return NULL;
+    }
+
+    // Generate signature from the file data
+    char *signature_str = generateSignature(file_data, private_key_str, logn);
+
+    return signature_str;
+}
+
+// Entry point to verify signature of file from MemoryStream
+__declspec(dllexport) char *verifySignatureFromMemoryStream(const char *file_data, const char *signature_str, const char *public_key_str, unsigned logn)
+{
+    if (file_data == NULL || signature_str == NULL || public_key_str == NULL)
+    {
+        fprintf(stderr, "Invalid input: file data, signature string, or public key string is NULL\n");
+        return NULL;
+    }
+
+    // Verify signature of the file content
+    char *verification_result_str = verifySignature(file_data, signature_str, public_key_str, logn);
+
+    return verification_result_str;
+}

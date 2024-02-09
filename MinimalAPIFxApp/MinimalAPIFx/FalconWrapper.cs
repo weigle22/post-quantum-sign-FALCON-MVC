@@ -6,6 +6,7 @@ namespace MinimalAPIFx
     {
         private const string DllPath = "falcon_full.dll";
 
+        // string message
         [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
         public static extern uint falcon_dll_falcon_privkey_size(uint logn);
 
@@ -38,5 +39,18 @@ namespace MinimalAPIFx
 
         [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
         public static extern string verifySignature(string message, string signature_str, string public_key_str, uint logn);
+
+        // file message
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern string generateSignatureFromFile(string file_path, string private_key_str, uint logn);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern string verifySignatureOfFile(string file_path, string signature_str, string public_key_str, uint logn);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern string generateSignatureFromMemoryStream(byte[] file_data, string private_key_str, uint logn);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern string verifySignatureFromMemoryStream(byte[] file_data, string signature_str, string public_key_str, uint logn);
     }
 }

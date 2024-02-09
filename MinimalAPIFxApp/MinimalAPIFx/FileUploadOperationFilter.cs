@@ -43,9 +43,27 @@ namespace MinimalAPIFx
                                     Type = "string",
                                     Format = "text"
                                 }
+                            },
+                            ["public_key_str"] = new OpenApiSchema
+                            {
+                                Type = "string",
+                                Items = new OpenApiSchema
+                                {
+                                    Type = "string",
+                                    Format = "text"
+                                }
+                            },
+                            ["signature_str"] = new OpenApiSchema
+                            {
+                                Type = "string",
+                                Items = new OpenApiSchema
+                                {
+                                    Type = "string",
+                                    Format = "text"
+                                }
                             }
                         },
-                        Required = new HashSet<string>() { "files", "private_key_str" }
+                        Required = new HashSet<string>() { "files", "private_key_str", "public_key_str", "signature_str" }
                     }
                 };
                 operation.RequestBody = new OpenApiRequestBody()

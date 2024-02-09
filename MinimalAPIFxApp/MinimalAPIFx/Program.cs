@@ -28,7 +28,7 @@ app.UseHttpsRedirection();
 
 app.ConfigureApi();
 app.ConfigureApiDynamic();
-app.ConfigureDemoDB();
-app.ConfigureApiFileHandler();
+//app.ConfigureDemoDB();
+app.ConfigureApiFile();
 
 app.Run();
