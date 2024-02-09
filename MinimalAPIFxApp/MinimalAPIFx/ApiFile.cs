@@ -154,7 +154,6 @@ public static class ApiFile
         try
         {
             const int logn = 10;
-            string uploadPath = "Upload/";
             var results = "";
 
             // Check if private key is provided
@@ -166,10 +165,6 @@ public static class ApiFile
             // Check if there are files is attached
             if (!request.Form.Files.Any())
                 return Results.BadRequest("At least one file is required");
-
-            // Create directory if it doesn't exist
-            if (!Directory.Exists(uploadPath))
-                Directory.CreateDirectory(uploadPath);
 
             // List to store any file upload problems
             List<string> uploadProblems = new List<string>();
@@ -217,7 +212,6 @@ public static class ApiFile
         try
         {
             const int logn = 10;
-            string uploadPath = "Upload/";
             var results = "";
 
             // Check if private key is provided
@@ -235,10 +229,6 @@ public static class ApiFile
             // Check if there are files is attached
             if (!request.Form.Files.Any())
                 return Results.BadRequest("At least one file is required");
-
-            // Create directory if it doesn't exist
-            if (!Directory.Exists(uploadPath))
-                Directory.CreateDirectory(uploadPath);
 
             // List to store any file upload problems
             List<string> uploadProblems = new List<string>();
