@@ -6,16 +6,16 @@ public static class ApiFile
     public static void ConfigureApiFile(this WebApplication app)
     {
         // Mappings
-        app.MapPost("api/file/GetMessageSignature", GetMessageSignature)
+        app.MapGet("api/file/GetMessageSignature", GetMessageSignature)
             .Accepts<IFormFile>("multipart/form-data");
 
-        app.MapPost("api/file/GetMessageVerification", GetMessageVerification)
+        app.MapGet("api/file/GetMessageVerification", GetMessageVerification)
             .Accepts<IFormFile>("multipart/form-data");
 
-        app.MapPost("api/file/GetMessageSignatureStream", GetMessageSignatureStream)
+        app.MapGet("api/file/GetMessageSignatureStream", GetMessageSignatureStream)
             .Accepts<IFormFile>("multipart/form-data");
 
-        app.MapPost("api/file/GetMessageVerificationStream", GetMessageVerificationStream)
+        app.MapGet("api/file/GetMessageVerificationStream", GetMessageVerificationStream)
             .Accepts<IFormFile>("multipart/form-data");
     }
 
