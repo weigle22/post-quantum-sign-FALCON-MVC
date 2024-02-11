@@ -26,7 +26,11 @@ namespace MinimalAPIFx
                 .Accepts<IFormFile>("multipart/form-data");
             app.MapPost("api/purefile/GetMessageSignature", GetMessageSignature)
                 .Accepts<IFormFile>("multipart/form-data");
+
             app.MapPost("api/purefile/GetMessageVerification", GetMessageVerification)
+                .Accepts<IFormFile>("multipart/form-data");
+
+            app.MapPost("api/purefile/GetMessageSignature2", GetMessageSignature2)
                 .Accepts<IFormFile>("multipart/form-data");
         }
 
@@ -171,6 +175,8 @@ namespace MinimalAPIFx
             }
         }
 
+
+        //userFile, privatKey_file
         private static async Task<IResult> GetMessageSignature(HttpRequest request)
         {
             try
@@ -182,6 +188,10 @@ namespace MinimalAPIFx
                 // Check if there are files attached
                 if (!request.Form.Files.Any())
                     return Results.BadRequest("At least one file is required");
+
+                var userFile = request.Form.Files[0];
+                if (userFile == null)
+                    return Results.BadRequest("User file is required");
 
                 // Check if private key is provided
                 var private_key_File = request.Form.Files[1];
@@ -209,43 +219,44 @@ namespace MinimalAPIFx
                         using (var zipArchive = new ZipArchive(zipMemoryStream, ZipArchiveMode.Create, true))
                         {
                             // Process each file asynchronously
-                            foreach (var file in request.Form.Files)
+                            //foreach (var file in request.Form.Files)
+                            //{
+                            try
                             {
-                                try
+                                // Process each file asynchronously
+                                using (var memoryStream = new MemoryStream())
                                 {
-                                    // Process each file asynchronously
-                                    using (var memoryStream = new MemoryStream())
+                                    await userFile.CopyToAsync(memoryStream);
+
+                                    // Convert MemoryStream content to byte array
+                                    byte[] fileData = memoryStream.ToArray();
+                                    string fileDataAsString = BitConverter.ToString(fileData).Replace("-", "");
+
+                                    // Generate signature
+                                    signature = FalconWrapper.generateSignatureFromMemoryStream(fileDataAsString, private_key_str, logn);
+
+                                    // Save original file to zip archive
+                                    var entry = zipArchive.CreateEntry(userFile.FileName);
+                                    using (var entryStream = entry.Open())
                                     {
-                                        await file.CopyToAsync(memoryStream);
+                                        entryStream.Write(fileData, 0, fileData.Length);
+                                    }
 
-                                        // Convert MemoryStream content to byte array
-                                        byte[] fileData = memoryStream.ToArray();
-
-                                        // Generate signature
-                                        signature = FalconWrapper.generateSignatureFromMemoryStream(fileData, private_key_str, logn);
-
-                                        // Save original file to zip archive
-                                        var entry = zipArchive.CreateEntry(file.FileName);
-                                        using (var entryStream = entry.Open())
-                                        {
-                                            entryStream.Write(fileData, 0, fileData.Length);
-                                        }
-
-                                        // Save signature to .sig file
-                                        string sigFileName = Path.GetFileNameWithoutExtension(file.FileName) + ".sig";
-                                        var sigEntry = zipArchive.CreateEntry(sigFileName);
-                                        using (var sigEntryStream = sigEntry.Open())
-                                        using (var writer = new StreamWriter(sigEntryStream))
-                                        {
-                                            await writer.WriteAsync(signature);
-                                        }
+                                    // Save signature to .sig file
+                                    string sigFileName = Path.GetFileNameWithoutExtension(userFile.FileName) + ".sig";
+                                    var sigEntry = zipArchive.CreateEntry(sigFileName);
+                                    using (var sigEntryStream = sigEntry.Open())
+                                    using (var writer = new StreamWriter(sigEntryStream))
+                                    {
+                                        await writer.WriteAsync(signature);
                                     }
                                 }
-                                catch (Exception ex)
-                                {
-                                    uploadProblems.Add($"Error uploading file '{file.FileName}': {ex.Message}");
-                                }
                             }
+                            catch (Exception ex)
+                            {
+                                uploadProblems.Add($"Error uploading file '{userFile.FileName}': {ex.Message}");
+                            }
+                            //}
                         }
 
                         if (uploadProblems.Any())
@@ -312,8 +323,10 @@ namespace MinimalAPIFx
                     {
                         await userFile.CopyToAsync(userMemoryStream);
                         byte[] file_data = userMemoryStream.ToArray();
+                        string fileDataAsString = BitConverter.ToString(file_data).Replace("-", "");
 
-                        results = FalconWrapper.verifySignatureFromMemoryStream(file_data, signature_str, public_key_str, logn);
+
+                        results = FalconWrapper.verifySignatureFromMemoryStream(fileDataAsString, signature_str, public_key_str, logn);
                     }
                 }
                 catch (Exception ex)
@@ -322,6 +335,105 @@ namespace MinimalAPIFx
                 }
 
                 return Results.Ok(results);
+            }
+            catch (Exception ex)
+            {
+                // Catch any unexpected exception and return a problem result
+                return Results.Problem(ex.Message);
+            }
+        }
+
+        private static async Task<IResult> GetMessageSignature2(HttpRequest request)
+        {
+            try
+            {
+                const int logn = 10;
+                var signature = "";
+                string private_key_str;
+
+                // Check if there are files attached
+                if (!request.Form.Files.Any())
+                    return Results.BadRequest("At least one file is required");
+
+                // Check if private key is provided
+                var private_key_File = request.Form.Files[1];
+                // Check if the user file and sig file are present
+                if (private_key_File == null)
+                    return Results.BadRequest("Private key file is required");
+
+                // List to store any file upload problems
+                List<string> uploadProblems = new List<string>();
+
+                // Get the first file name to use for naming the zip file
+                string firstFileName = request.Form.Files[0].FileName;
+                string zipFileName = Path.GetFileNameWithoutExtension(firstFileName) + ".zip";
+
+                // Read the content of the sig file
+                using (var privateKeyMemoryStream = new MemoryStream())
+                {
+                    await private_key_File.CopyToAsync(privateKeyMemoryStream);
+                    private_key_str = Encoding.UTF8.GetString(privateKeyMemoryStream.ToArray());
+
+                    // Create a memory stream to hold the zip file content
+                    using (var zipMemoryStream = new MemoryStream())
+                    {
+                        // Create a zip archive
+                        using (var zipArchive = new ZipArchive(zipMemoryStream, ZipArchiveMode.Create, true))
+                        {
+                            // Process each file asynchronously
+                            foreach (var file in request.Form.Files)
+                            {
+                                try
+                                {
+                                    // Process each file asynchronously
+                                    using (var memoryStream = new MemoryStream())
+                                    {
+                                        await file.CopyToAsync(memoryStream);
+
+                                        // Convert MemoryStream content to byte array
+                                        byte[] fileData = memoryStream.ToArray();
+                                        string fileDataAsString = BitConverter.ToString(fileData).Replace("-", "");
+
+                                        // Generate signature
+                                        signature = FalconWrapper.generateSignatureFromMemoryStream(fileDataAsString, private_key_str, logn);
+
+                                        // Save original file to zip archive
+                                        var entry = zipArchive.CreateEntry(file.FileName);
+                                        using (var entryStream = entry.Open())
+                                        {
+                                            entryStream.Write(fileData, 0, fileData.Length);
+                                        }
+
+                                        // Save signature to .sig file
+                                        string sigFileName = Path.GetFileNameWithoutExtension(file.FileName) + ".sig";
+                                        var sigEntry = zipArchive.CreateEntry(sigFileName);
+                                        using (var sigEntryStream = sigEntry.Open())
+                                        using (var writer = new StreamWriter(sigEntryStream))
+                                        {
+                                            await writer.WriteAsync(signature);
+                                        }
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    uploadProblems.Add($"Error uploading file '{file.FileName}': {ex.Message}");
+                                }
+                            }
+                        }
+
+                        if (uploadProblems.Any())
+                        {
+                            // If any upload problem occurred, return a problem result
+                            return Results.Problem(string.Join("\n", uploadProblems));
+                        }
+
+                        // Reset memory stream position to beginning
+                        zipMemoryStream.Seek(0, SeekOrigin.Begin);
+
+                        // Return the zip file as a custom IResult
+                        return new ZipFileResult(zipMemoryStream.ToArray(), zipFileName);
+                    }
+                }
             }
             catch (Exception ex)
             {

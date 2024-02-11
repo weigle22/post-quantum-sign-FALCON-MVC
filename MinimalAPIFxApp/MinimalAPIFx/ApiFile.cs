@@ -181,8 +181,9 @@ public static class ApiFile
 
                         // Convert MemoryStream content to byte array
                         byte[] file_data = memoryStream.ToArray();
+                        string fileDataAsString = BitConverter.ToString(file_data).Replace("-", "");
 
-                        results = FalconWrapper.generateSignatureFromMemoryStream(file_data, private_key_str, logn);
+                        results = FalconWrapper.generateSignatureFromMemoryStream(fileDataAsString, private_key_str, logn);
 
                     }
                 }
@@ -245,8 +246,9 @@ public static class ApiFile
 
                         // Convert MemoryStream content to byte array
                         byte[] file_data = memoryStream.ToArray();
+                        string fileDataAsString = BitConverter.ToString(file_data).Replace("-", "");
 
-                        results = FalconWrapper.verifySignatureFromMemoryStream(file_data, signature_str, public_key_str, logn);
+                        results = FalconWrapper.verifySignatureFromMemoryStream(fileDataAsString, signature_str, public_key_str, logn);
 
                     }
                 }
