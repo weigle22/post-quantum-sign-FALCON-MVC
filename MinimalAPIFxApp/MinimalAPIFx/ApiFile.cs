@@ -29,7 +29,7 @@ public static class ApiFile
             var results = "";
 
             // Check if private key is provided
-            var private_key_str = request.Form["private_key_str"];
+            string private_key_str = request.Form["private_key_str"].ToString() ?? "";
 
             if (string.IsNullOrEmpty(private_key_str))
                 return Results.BadRequest("Private key is required");
@@ -90,13 +90,13 @@ public static class ApiFile
             var results = "";
 
             // Check if private key is provided
-            var public_key_str = request.Form["public_key_str"];
+            var public_key_str = request.Form["public_key_str"].ToString() ?? "";
 
             if (string.IsNullOrEmpty(public_key_str))
                 return Results.BadRequest("Public key is required");
 
             // Check if signature is provided
-            var signature_str = request.Form["signature_str"];
+            string signature_str = request.Form["signature_str"].ToString() ?? "";
 
             if (string.IsNullOrEmpty(signature_str))
                 return Results.BadRequest("Signature is required");
@@ -157,7 +157,7 @@ public static class ApiFile
             var results = "";
 
             // Check if private key is provided
-            var private_key_str = request.Form["private_key_str"];
+            string private_key_str = request.Form["private_key_str"].ToString() ?? "";
 
             if (string.IsNullOrEmpty(private_key_str))
                 return Results.BadRequest("Private key is required");
@@ -216,13 +216,13 @@ public static class ApiFile
             var results = "";
 
             // Check if private key is provided
-            var public_key_str = request.Form["public_key_str"];
+            string public_key_str = request.Form["public_key_str"].ToString() ?? "";
 
             if (string.IsNullOrEmpty(public_key_str))
                 return Results.BadRequest("Public key is required");
 
             // Check if signature is provided
-            var signature_str = request.Form["signature_str"];
+            var signature_str = request.Form["signature_str"].ToString() ?? "";
 
             if (string.IsNullOrEmpty(signature_str))
                 return Results.BadRequest("Signature is required");

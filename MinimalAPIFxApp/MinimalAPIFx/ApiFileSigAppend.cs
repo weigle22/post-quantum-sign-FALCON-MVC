@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿
 using System.IO.Compression;
-using System.Net.Mime;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Builder;
 using System.Text;
-using Microsoft.AspNetCore.Mvc;
-using System.Net.Http.Headers;
-using static MinimalAPIFx.FalconModels;
 
 namespace MinimalAPIFx
 {
@@ -298,7 +289,7 @@ namespace MinimalAPIFx
 
                 // Check if the user file and sig file are present
                 if (userFile == null || sigFile == null)
-                    return Results.BadRequest("User file and Signature file are required");
+                    return Results.BadRequest("User file and signature file are required");
 
                 try
                 {
