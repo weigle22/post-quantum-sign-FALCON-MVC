@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\falconx\\falconx\\content\\tinydash\\light\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\content\\tinydash\\light\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\falconx\\falconx\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\falconx\\falconx\\views\\account\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\account\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\falconx\\falconx\\views\\account\\signin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\account\\signin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\falconx\\falconx\\content\\play-tailwind-main\\assets\\js\\main.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\content\\play-tailwind-main\\assets\\js\\main.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\falconx\\falconx\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,58 +38,118 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "index.html",
-              "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Content\\tinydash\\light\\index.html",
-              "RelativeDocumentMoniker": "FALCONx\\Content\\tinydash\\light\\index.html",
-              "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Content\\tinydash\\light\\index.html",
-              "RelativeToolTip": "FALCONx\\Content\\tinydash\\light\\index.html",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-02-17T14:05:01.974Z",
+              "DocumentIndex": 4,
+              "Title": "main.js",
+              "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Content\\play-tailwind-main\\assets\\js\\main.js",
+              "RelativeDocumentMoniker": "FALCONx\\Content\\play-tailwind-main\\assets\\js\\main.js",
+              "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Content\\play-tailwind-main\\assets\\js\\main.js",
+              "RelativeToolTip": "FALCONx\\Content\\play-tailwind-main\\assets\\js\\main.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-02-18T02:25:19.396Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "SignUp.cshtml",
+              "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Account\\SignUp.cshtml",
+              "RelativeDocumentMoniker": "FALCONx\\Views\\Account\\SignUp.cshtml",
+              "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Account\\SignUp.cshtml",
+              "RelativeToolTip": "FALCONx\\Views\\Account\\SignUp.cshtml",
+              "ViewState": "AQIAADsAAAAAAAAAAAAMwHgAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-18T02:02:41.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SignIn.cshtml",
+              "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Account\\SignIn.cshtml",
+              "RelativeDocumentMoniker": "FALCONx\\Views\\Account\\SignIn.cshtml",
+              "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Account\\SignIn.cshtml",
+              "RelativeToolTip": "FALCONx\\Views\\Account\\SignIn.cshtml",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAMwEcAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-18T01:39:54.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "FALCONx\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "FALCONx\\Controllers\\AccountController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-18T01:39:27.467Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "FALCONx\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "FALCONx\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAEAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAD0AAABbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-02-17T10:48:41.524Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "FALCONx\\Views\\Home\\Index.cshtml",
-              "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "FALCONx\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAADAAAAAAAAAAAAAAAF4AAABAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-02-16T03:11:29.16Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "HomeController.cs",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "FALCONx\\Controllers\\HomeController.cs",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Controllers\\HomeController.cs",
               "RelativeToolTip": "FALCONx\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-15T02:01:19.31Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "f96b4431-bc2f-4566-9ee3-a8a7aab0a2a6",
+        "Display": 0,
+        "X": 1237,
+        "Y": 63,
+        "Width": 1496,
+        "Height": 1253,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "FALCONx\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "FALCONx\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAACUAAAAAAAAAAAAUwDsAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-16T03:11:29.16Z",
               "EditorCaption": ""
             }
           ]
