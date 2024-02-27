@@ -123,7 +123,6 @@ D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\obj\Deb
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\obj\Debug\net6.0\staticwebassets.build.json
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\obj\Debug\net6.0\staticwebassets.development.json
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\obj\Debug\net6.0\scopedcss\bundle\MinimalAPIFx.styles.css
-D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\obj\Debug\net6.0\MinimalAPIFx.csproj.CopyComplete
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\obj\Debug\net6.0\MinimalAPIFx.dll
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\obj\Debug\net6.0\refint\MinimalAPIFx.dll
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\obj\Debug\net6.0\MinimalAPIFx.pdb
@@ -133,3 +132,5 @@ D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\bin\Deb
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\obj\Debug\net6.0\MinimalAPIFx.sourcelink.json
+D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\obj\Debug\net6.0\MinimalA.267EEEC7.Up2Date

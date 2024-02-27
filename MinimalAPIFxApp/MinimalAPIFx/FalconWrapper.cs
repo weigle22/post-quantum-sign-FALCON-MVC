@@ -40,13 +40,14 @@ namespace MinimalAPIFx
         [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
         public static extern string verifySignature(string message, string signature_str, string public_key_str, uint logn);
 
-        // file message
+        // file message: from PATH
         [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
         public static extern string generateSignatureFromFile(string file_path, string private_key_str, uint logn);
 
         [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
         public static extern string verifySignatureOfFile(string file_path, string signature_str, string public_key_str, uint logn);
 
+        // file message: from STREAM
         [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
         public static extern string generateSignatureFromMemoryStream(string file_data, string private_key_str, uint logn);
 

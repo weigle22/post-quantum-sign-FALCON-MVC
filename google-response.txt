@@ -1,0 +1,10 @@
+{ 
+	"id": "115515638210184697099", 
+	"email": "emmanuelotacan95@gmail.com", 
+	"verified_email": true, 
+	"name": "Emmanuel Otacan", 
+	"given_name": "Emmanuel", 
+	"family_name": "Otacan", 
+	"picture": "https://lh3.googleusercontent.com/a/ACg8ocLgsEnaJ3iAh5DCCEmbDj15aZrUuvVTBobktUqDSUAXG2I=s96-c", 
+	"locale": "en" 
+}
