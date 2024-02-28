@@ -5,31 +5,47 @@ app.controller('SignUpController', ['$scope', '$http', function (_s, _h) {
         _s.user = {};
     }
 
+    _s.checkPasswordMatch = function () {
+        _s.SignUpForm.confirmPassword.$setValidity('passwordMismatch', _s.user.password === _s.user.confirmPassword);
+    };
+
     _s.SignUpUser = function (user) {
-        _h.post('../Account/SignUpUser', { _tUser: user }).then(function (response) {
-            if (response.data.message == 'success') {
-                window.location.href = "../Home/About?code=" + response.data.response;
-            } else if (response.data.message == 'exists') {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Exists',
-                    text: 'Email account already exists!',
-                })
-            } else if (response.data.message == 'invalid') {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Invalid',
-                    text: 'Request invalid!',
-                })
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: 'An error occured while processing your request',
-                })
-            }
-            
-        });
+
+        if (_s.SignUpForm.$valid) {
+            // Form is valid, proceed with submission
+            _h.post('../Account/SignUpUser', { _tUser: user }).then(function (response) {
+
+                if (response.data.message == 'success') {
+                    window.location.href = "/Account/SignIn";
+                } else if (response.data.message == 'exists') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Exists',
+                        text: 'Email account already exists!',
+                    })
+                } else if (response.data.message == 'invalid') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Invalid',
+                        text: 'Request invalid!',
+                    })
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'An error occured while processing your request',
+                    })
+                }
+
+            });
+        } else {
+            // Form is invalid, display error messages
+            Swal.fire({
+                icon: 'warning',
+                title: 'Invalid',
+                text: 'Please ensure valid form entries',
+            })
+        }
     }
     
     _s.Login = function () {

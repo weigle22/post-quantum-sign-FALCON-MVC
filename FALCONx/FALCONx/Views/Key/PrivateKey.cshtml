@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "PrivateKey";
+}
+
+<div class="col-12" ng-app="" ng-controller="PrivateKeyController" ng-init="onLoad();">
+    <h2 class="page-title">Private Key</h2>
+    <p class="text-muted">Let's generate your private key</p>
+
+    <div class="row align-items-center mb-2">
+        <div class="col-md-12">
+            <div class="card shadow mb-4">
+                <div class="card-header">
+                    <strong class="card-title">**IMPORTANT NOTICE: You can only generate your private key once after confirmation.</strong>
+                </div>
+                <div class="card-body">
+                    <form class="needs-validation" novalidate="">
+                        <div class="form-group mb-3">
+                            <label for="validationTextarea">
+                                Your private key is the secret counterpart to your public key. Think of it as the key to your digital vault.
+                                It's used to decrypt secure messages sent to you, generate signatures to prove authenticity, and access encrypted information.
+                                Just like you gurad the physical key to your home, safeguarding your private key is crucial for maintaining the security and integrity of your digital identity and communications.
+                                Click the "Generate" button to get your private key.
+                            </label>
+                            <textarea class="form-control" id="validationTextarea" disabled placeholder="Empty ..." rows="20" ng-model="key.private_key_str"></textarea>
+                            <div class="invalid-feedback"> Please enter a message in the textarea. </div>
+                        </div>
+                        @*<button class="btn btn-primary" type="submit">Generate</button>*@
+                        <button type="button" class="btn mb-2 btn-primary" ng-click="generatePrivateKey()"><span class="fe fe-hash fe-16 mr-2" type="submit"></span>Generate</button>
+                        <button type="button" class="btn mb-2 btn-primary"><span class="fe fe-download fe-16 mr-2"></span>Download</button>
+                    </form>
+                </div> <!-- /.card-body -->
+            </div> <!-- /.card -->
+        </div>
+    </div>
+</div> <!-- .col-12 -->
+
+@section scripts{
+    <script src="~/Scripts/AngularJS/Key/PrivateKey.js"></script>
+}

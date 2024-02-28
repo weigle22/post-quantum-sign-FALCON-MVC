@@ -23,12 +23,12 @@
     <link href="~/Content/tinydash/light/css/app-light.css" rel="stylesheet" id="lightTheme" />
 
     @*<link rel="stylesheet" href="css/app-dark.css" id="darkTheme" disabled>*@
-    <link href="~/Content/tinydash/light/css/app-dark.css" rel="stylesheet" id="darkTheme" disabled/>
+    <link href="~/Content/tinydash/light/css/app-dark.css" rel="stylesheet" id="darkTheme" disabled />
 
     <link href="~/Scripts/SweetAlert2/sweetalert2.min.css" rel="stylesheet" />
 </head>
 
-<body class="vertical light">
+<body class="vertical light" ng-app="SIGNAapp">
     <div class="wrapper">
         <nav class="topnav navbar navbar-light">
             <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
@@ -105,6 +105,47 @@
                         </ul>
                     </li>
                 </ul>
+
+                <p class="text-muted nav-heading mt-4 mb-1">
+                    <span>Generate Keys</span>
+                </p>
+                <ul class="navbar-nav flex-fill w-100 mb-2">
+                    <li class="nav-item dropdown">
+                        <a href="#keys" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                            <i class="fe fe-key fe-16"></i>
+                            <span class="ml-3 item-text">Standard Keys</span>
+                        </a>
+                        <ul class="collapse list-unstyled pl-4 w-100" id="keys">
+                            <li class="nav-item">
+                                <a class="nav-link pl-3" href="/Key/PrivateKey"><span class="ml-1 item-text">Private Key</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link pl-3" href="./chart-chartjs.html"><span class="ml-1 item-text">Public Key</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link pl-3" href="./chart-apexcharts.html"><span class="ml-1 item-text">Key Pair</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#dynamickeys" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                            <i class="fe fe-key fe-16"></i>
+                            <span class="ml-3 item-text">Dynamic Keys</span>
+                        </a>
+                        <ul class="collapse list-unstyled pl-4 w-100" id="dynamickeys">
+                            <li class="nav-item">
+                                <a class="nav-link pl-3" href="./chart-inline.html"><span class="ml-1 item-text">Private Key</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link pl-3" href="./chart-chartjs.html"><span class="ml-1 item-text">Public Key</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link pl-3" href="./chart-apexcharts.html"><span class="ml-1 item-text">Key Pair</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
                 <p class="text-muted nav-heading mt-4 mb-1">
                     <span>Components</span>
                 </p>
@@ -364,10 +405,7 @@
         <main role="main" class="main-content">
             <div class="container-fluid">
                 <div class="row justify-content-center">
-                    <div class="col-12">
-                        @*<h1 class="page-title">Let's start</h1>*@
-                        @RenderBody()
-                    </div> <!-- .col-12 -->
+                    @RenderBody()
                 </div> <!-- .row -->
             </div> <!-- .container-fluid -->
             <div class="modal fade modal-notif modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
@@ -510,4 +548,5 @@
     <script src="~/Content/tinydash/light/js/apps.js"></script>
     <script src="~/Scripts/SweetAlert2/sweetalert2.min.js"></script>
 </body>
+@RenderSection("scripts", required: false)
 </html>
