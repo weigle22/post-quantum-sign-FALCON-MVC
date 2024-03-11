@@ -16,6 +16,13 @@ namespace FALCONx.Controllers
         FLCNX_DBEntities dbFlcn = new FLCNX_DBEntities();
         private DateTime dtNow = DateTime.Now;
 
+
+        public ActionResult SignOut()
+        {
+            Session.RemoveAll();
+            return RedirectToAction("Index", "Home");
+        }
+
         // GET: Account
         public ActionResult SignIn()
         {
@@ -24,11 +31,6 @@ namespace FALCONx.Controllers
             var response = GoogleAuth.GetAuthUrl(clientId, url);
             ViewBag.response = response;
 
-            return View();
-        }
-
-        public ActionResult SignInCallBack()
-        {
             return View();
         }
 
@@ -64,7 +66,7 @@ namespace FALCONx.Controllers
 
             tUser user = new tUser
             {
-                id = "FLCN" + Guid.NewGuid().ToString().Replace("-", string.Empty).Replace("+", string.Empty).Substring(0, 26).ToUpper(),
+                userID = "FLCN" + Guid.NewGuid().ToString().Replace("-", string.Empty).Replace("+", string.Empty).Substring(0, 26).ToUpper(),
                 email = _tUser.email,
                 password = hashedPassword,
                 dtAdded = dtNow,
@@ -108,6 +110,16 @@ namespace FALCONx.Controllers
 
             if(record.email == _tUser.email && Hasher.VerifyPassword(hashedPassword, _tUser.password))
             {
+                var key = dbFlcn.tUserKeys.Where(a => a.userID == _tUser.userID && (a.revoked == false || a.revoked == null)).FirstOrDefault();
+
+                Session["userID"] = record.userID;
+                Session["username"] = record.username ?? "";
+                Session["role"] = record.role ?? "";
+                Session["family_name"] = record.family_name ?? "";
+                Session["signature"] = record.signature ?? "";
+                Session["picture"] = record.picture ?? "";
+                Session["publicKey"] = key != null ? key.publicKey : "";
+
                 return Json(new { message, response }, JsonRequestBehavior.AllowGet);
             }
             else

@@ -28,8 +28,9 @@ namespace FALCONx.Models
         }
     
         public virtual DbSet<C__RefactorLog> C__RefactorLog { get; set; }
-        public virtual DbSet<tUser> tUsers { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<tUser> tUsers { get; set; }
+        public virtual DbSet<tUserKey> tUserKeys { get; set; }
     
         public virtual int spUser_Delete(Nullable<int> id)
         {

@@ -1,4 +1,5 @@
-﻿using static MinimalAPIFx.FalconModels;
+﻿using Microsoft.AspNetCore.Mvc;
+using static MinimalAPIFx.FalconModels;
 
 namespace MinimalAPIFx;
 

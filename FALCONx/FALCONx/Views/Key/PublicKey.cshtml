@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewBag.Title = "PublicKey";
+}
+
+<div class="col-12" ng-app="" ng-controller="PublicKeyController" ng-init="onLoad();">
+    <h2 class="page-title">Public Key</h2>
+    <p class="text-muted">Let's generate your public key</p>
+
+    <div class="row align-items-center mb-2">
+        <div class="col-md-12">
+            <div class="card shadow mb-4">
+                <div class="card-header">
+                    <strong class="card-title">**IMPORTANT NOTICE: You can only download, copy and regenerate your private key once after acceptance.</strong>
+                </div>
+                <div class="card-body">
+
+                    <div class="mx-auto text-center" ng-show="userKey.publicKey != null">
+                        <h1 class="display-1 m-0 font-weight-bolder text-muted" style="font-size:80px;">Accepted</h1>
+                        <h1 class="mb-1 text-muted font-weight-bold">Private Key Already Accepted</h1>
+                        <h6 class="mb-3 text-muted">You already have a copy of your private key</h6>
+                        @*<a href="./index.html" class="btn btn-lg btn-primary px-5">Back to Dashboard</a>*@
+                    </div>
+
+                    <form class="needs-validation" novalidate="" ng-show="userKey.publicKey == null">
+
+                        <div class="form-group mb-3">
+                            <p>
+                                Your private key is a crucial component in public key cryptography. It's essentially a secret, unique code that only you possess and keep confidential. This key is used for decrypting messages that have been encrypted using your corresponding public key. Think of it as the key to your own personal lockbox – it's what allows you to securely access and read messages intended only for you. Without your private key, others cannot decrypt the messages encrypted with your public key, ensuring the confidentiality and security of your communication.
+                                Your private key is the main requirement to generate your public key.
+                                Click the "Generate" button to get your private key.
+                            </p>
+                            <textarea class="form-control" id="validationTextarea" disabled placeholder="Empty ..." rows="15" ng-model="userKey.privateKey"></textarea>
+                            <div class="invalid-feedback"> Please enter a message in the textarea. </div>
+                        </div>
+                        <button type="button" class="btn mb-2 btn-primary"
+                                ng-show="userKey.privateKey == null"
+                                ng-click="generatePrivateKey()">
+                            <span class="fe fe-hash fe-16 mr-2" type="submit"></span>Generate
+                        </button>
+
+                        <button type="button" class="btn mb-2 btn-primary"
+                                ng-show="userKey.privateKey != null && !userKey.accepted"
+                                ng-click="generatePrivateKey()">
+                            <span class="fe fe-repeat fe-16 mr-2" type="submit"></span>Regenerate
+                        </button>
+
+                        <button type="button" class="btn mb-2 btn-info"
+                                ng-show="userKey.privateKey != null && !userKey.accepted"
+                                ng-click="acceptPrivateKey(userKey)">
+                            <span class="fe fe-check fe-16 mr-2" type="submit"></span>Accept
+                        </button>
+
+                        <button type="button" class="btn mb-2 btn-success"
+                                ng-show="userKey.privateKey != null && userKey.accepted"
+                                ng-click="downloadPrivateKey(userKey)" title="Download">
+                            <span class="fe fe-download fe-16"></span>
+                        </button>
+
+                        <button type="button" class="btn mb-2 btn-secondary"
+                                ng-show="userKey.privateKey != null && userKey.accepted"
+                                ng-click="copyToClipboard(userKey)" title="Copy to clipboard">
+                            <span class="fe fe-copy fe-16"></span>
+                        </button>
+                    </form>
+                </div> <!-- /.card-body -->
+            </div> <!-- /.card -->
+        </div>
+    </div>
+
+    <div class="row align-items-center mb-2">
+        <div class="col-md-12">
+            <div class="card shadow mb-4">
+                <div class="card-header">
+                    <strong class="card-title">Download or copy your public key here.</strong>
+                </div>
+                <div class="card-body">
+                    <form class="needs-validation" novalidate="">
+
+                        <div class="form-group mb-3">
+                            <p>
+                                Your public key is a fundamental element in public key cryptography, serving as the counterpart to your private key. Unlike the private key, which you keep secret, your public key is freely shared with others. It's essentially a piece of information that allows anyone to encrypt messages intended for you securely. Once encrypted with your public key, only your corresponding private key can decrypt these messages, ensuring that only you can access the information. The public key serves as a digital identifier, enabling secure communication and data exchange in a variety of contexts, from email encryption to online transactions.
+                                Click the "Generate" button to get your public key.
+                            </p>
+                            <h2>Your public key</h2>
+                            <textarea class="form-control" id="validationTextarea" disabled placeholder="Empty ..." rows="15" ng-model="userKey.publicKey"></textarea>
+                            <div class="invalid-feedback"> Please enter a message in the textarea. </div>
+                        </div>
+                        <button type="button" class="btn mb-2 btn-primary" ng-show="userKey.publicKey == null" ng-click="generatePublicKey(userKey)"><span class="fe fe-hash fe-16 mr-2" type="submit"></span>Generate</button>
+                        <button type="button" class="btn mb-2 btn-info" ng-show="userKey.publicKey != null && userKey.accepted && userKey.privateKey != null" ng-click="acceptPublicKey(userKey)"><span class="fe fe-check fe-16 mr-2" type="submit"></span>Accept</button>
+
+                        <button type="button" class="btn mb-2 btn-success" ng-show="userKey.publicKey != null && userKey.privateKey == null" ng-click="downloadPrivateKey(userKey)" title="Download"><span class="fe fe-download fe-16"><span></span></span></button>
+                        <button type="button" class="btn mb-2 btn-secondary" ng-show="userKey.publicKey != null && userKey.privateKey == null" ng-click="copyToClipboardPublicKey(userKey)" title="Copy to clipboard"><span class="fe fe-copy fe-16"><span></span></span></button>
+                    </form>
+                </div> <!-- /.card-body -->
+            </div> <!-- /.card -->
+        </div>
+    </div>
+
+</div> <!-- .col-12 -->
+
+@section scripts{
+    <script src="~/Scripts/AngularJS/Key/PublicKey.js"></script>
+}
+

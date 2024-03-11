@@ -24,13 +24,23 @@
 
     @*<link rel="stylesheet" href="css/app-dark.css" id="darkTheme" disabled>*@
     <link href="~/Content/tinydash/light/css/app-dark.css" rel="stylesheet" id="darkTheme" disabled />
-
     <link href="~/Scripts/SweetAlert2/sweetalert2.min.css" rel="stylesheet" />
+    <link href="~/Content/tinydash/light/css/dropzone.css" rel="stylesheet" />
+    <link href="~/Content/tinydash/light/css/uppy.min.css" rel="stylesheet" />
+
+    <link href="~/Content/tinydash/light/css/select2.css" rel="stylesheet" />
+
+    <link href="~/Content/tinydash/light/css/jquery.steps.css" rel="stylesheet" />
+
+    <link href="~/Content/tinydash/light/css/jquery.timepicker.css" rel="stylesheet" />
+
+    <link href="~/Content/tinydash/light/css/quill.snow.css" rel="stylesheet" />
+
 </head>
 
 <body class="vertical light" ng-app="SIGNAapp">
     <div class="wrapper">
-        <nav class="topnav navbar navbar-light">
+        <nav class="topnav navbar navbar-light" ng-controller="MenuController" ng-init="onLoad()">
             <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
                 <i class="fe fe-menu navbar-toggler-icon"></i>
             </button>
@@ -57,7 +67,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="avatar avatar-sm mt-2">
-                            <img src="~/Content/tinydash/light/assets/avatars/face-1.jpg" alt="..." class="avatar-img rounded-circle">
+                            <img ng-src={{session.picture}} alt="..." class="avatar-img rounded-circle">
 
                         </span>
                     </a>
@@ -69,7 +79,7 @@
                 </li>
             </ul>
         </nav>
-        <aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
+        <aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar ng-controller="MenuController" ng-init="onLoad()">
             <a href="#" class="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
                 <i class="fe fe-x"><span class="sr-only"></span></i>
             </a>
@@ -79,6 +89,9 @@
                     <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./index.html">
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="165" height="30" viewBox="0 0 2000 520"><g transform="matrix(1,0,0,1,-1.2121212121212466,0.29548828668407623)"><svg viewBox="0 0 396 103" data-background-color="#ffffff" preserveAspectRatio="xMidYMid meet" height="520" width="2000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="tight-bounds" transform="matrix(1,0,0,1,0.2400000000000091,-0.058529410631649625)"><svg viewBox="0 0 395.52 103.11705882126333" height="103.11705882126333" width="395.52"><g><svg viewBox="0 0 592.028059998231 154.34919166331917" height="103.11705882126333" width="395.52"><g transform="matrix(1,0,0,1,196.508059998231,32.52915502561425)"><svg viewBox="0 0 395.52 89.29088161209067" height="89.29088161209067" width="395.52"><g id="textblocktransform"><svg viewBox="0 0 395.52 89.29088161209067" height="89.29088161209067" width="395.52" id="textblock"><g><svg viewBox="0 0 395.52 89.29088161209067" height="89.29088161209067" width="395.52"><g transform="matrix(1,0,0,1,0,0)"><svg width="395.52" viewBox="1.3 -35.45 158.79 35.85" height="89.29088161209067" data-palette-color="#3758f9"><path d="M28.35-31.85L25.9-26.9Q24-28.1 22.15-28.8 20.3-29.5 18.65-29.8 17-30.1 15.65-30.1L15.65-30.1Q13.05-30.1 11.5-29.1 9.95-28.1 9.95-26.2L9.95-26.2Q9.95-24.5 10.98-23.43 12-22.35 13.68-21.68 15.35-21 17.38-20.4 19.4-19.8 21.4-19.07 23.4-18.35 25.1-17.2 26.8-16.05 27.8-14.28 28.8-12.5 28.8-9.8L28.8-9.8Q28.8-6.7 27.1-4.42 25.4-2.15 22.43-0.9 19.45 0.35 15.6 0.35L15.6 0.35Q12.85 0.35 10.25-0.38 7.65-1.1 5.38-2.35 3.1-3.6 1.3-5.25L1.3-5.25 3.85-10.1Q5.65-8.45 7.68-7.3 9.7-6.15 11.78-5.55 13.85-4.95 15.7-4.95L15.7-4.95Q18.8-4.95 20.53-6.15 22.25-7.35 22.25-9.5L22.25-9.5Q22.25-11.25 21.23-12.33 20.2-13.4 18.53-14.1 16.85-14.8 14.83-15.35 12.8-15.9 10.78-16.63 8.75-17.35 7.08-18.45 5.4-19.55 4.38-21.3 3.35-23.05 3.35-25.75L3.35-25.75Q3.35-28.7 4.95-30.88 6.55-33.05 9.43-34.25 12.3-35.45 16.1-35.45L16.1-35.45Q19.5-35.45 22.7-34.45 25.9-33.45 28.35-31.85L28.35-31.85ZM35.7 0L35.7-35 41.6-35 41.6 0 35.7 0ZM80.09-30.4L76.75-26.35Q74.75-28.25 72.07-29.33 69.4-30.4 66.65-30.4L66.65-30.4Q63.95-30.4 61.65-29.4 59.35-28.4 57.6-26.65 55.85-24.9 54.87-22.58 53.9-20.25 53.9-17.55L53.9-17.55Q53.9-14.85 54.87-12.5 55.85-10.15 57.6-8.38 59.35-6.6 61.67-5.6 64-4.6 66.7-4.6L66.7-4.6Q69.15-4.6 71.77-5.6 74.4-6.6 76.5-8.3L76.5-8.3 79.9-4.2Q78.15-2.85 75.87-1.8 73.6-0.75 71.15-0.18 68.7 0.4 66.3 0.4L66.3 0.4Q62.4 0.4 59.07-0.98 55.75-2.35 53.22-4.8 50.7-7.25 49.3-10.53 47.9-13.8 47.9-17.55L47.9-17.55Q47.9-21.3 49.32-24.53 50.75-27.75 53.3-30.2 55.85-32.65 59.27-34 62.7-35.35 66.65-35.35L66.65-35.35Q69.15-35.35 71.57-34.75 74-34.15 76.2-33.05 78.4-31.95 80.09-30.4L80.09-30.4ZM74.75-4.2L74.75-17.1 79.9-17.1 79.9-4.2 74.75-4.2ZM88.24 0L88.24-35 94.04-35 114.29-7.25 112.79-6.75 112.79-35 118.59-35 118.59 0 112.79 0 92.59-27.7 94.14-28.2 94.14 0 88.24 0ZM123.29 0L138.74-35 144.79-35 160.09 0 153.79 0 141.59-29.05 129.44 0 123.29 0ZM130.99-8.1L130.99-13.1 151.94-13.1 151.94-8.1 130.99-8.1Z" opacity="1" transform="matrix(1,0,0,1,0,0)" fill="#3758f9" class="wordmark-text-0" data-fill-palette-color="primary" id="text-0"></path></svg></g></svg></g></svg></g></svg></g><g><svg viewBox="0 0 154.34919166331917 154.34919166331917" height="154.34919166331917" width="154.34919166331917"><g><svg></svg></g><g id="icon-0"><svg viewBox="0 0 154.34919166331917 154.34919166331917" height="154.34919166331917" width="154.34919166331917"><g><path d="M0 77.175c0-42.622 34.552-77.175 77.175-77.175 42.622 0 77.175 34.552 77.174 77.175 0 42.622-34.552 77.175-77.174 77.174-42.622 0-77.175-34.552-77.175-77.174zM77.175 146.297c38.175 0 69.122-30.947 69.122-69.122 0-38.175-30.947-69.122-69.122-69.123-38.175 0-69.122 30.947-69.123 69.123 0 38.175 30.947 69.122 69.123 69.122z" data-fill-palette-color="accent" fill="#3758f9" stroke="transparent"></path></g><g transform="matrix(1,0,0,1,34.51513954415928,34.51998932479793)"><svg viewBox="0 0 85.31891257500061 85.30921301372331" height="85.30921301372331" width="85.31891257500061"><g><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0" y="0" viewBox="3.999540840779352 4.01 92.00045915922065 91.99" enable-background="new 0 0 100 100" xml:space="preserve" height="85.30921301372331" width="85.31891257500061" class="icon-cg-0" data-fill-palette-color="accent" id="cg-0"><g fill="#3758f9" data-fill-palette-color="accent"><g fill="#3758f9" data-fill-palette-color="accent"><path d="M74.43 9.02c-6.68-6.68-17.55-6.68-24.22 0l-6.12 6.11c-0.02 0.02-0.04 0.04-0.06 0.07-0.03 0.02-0.05 0.04-0.06 0.07-0.03 0.01-0.05 0.03-0.07 0.06-0.03 0.02-0.05 0.04-0.07 0.06L9.36 49.86C8.51 50.71 7.93 51.81 7.71 53L4.1 72.34c-0.36 1.95 0.26 3.95 1.66 5.34 1.13 1.14 2.66 1.76 4.24 1.76 0.37 0 0.73-0.03 1.1-0.1l19.34-3.61c1.19-0.22 2.29-0.8 3.15-1.65L67.96 39.7l0.09-0.08 6.38-6.38c3.23-3.24 5.01-7.54 5.01-12.11C79.44 16.55 77.66 12.25 74.43 9.02zM26.42 64.28l-8.92 1.66 1.67-8.91 29.16-29.17 7.25 7.25L26.42 64.28zM65.94 24.75l-1.87 1.88-7.25-7.25 1.87-1.88c2-2 5.25-2 7.25 0S67.94 22.75 65.94 24.75z" fill="#3758f9" data-fill-palette-color="accent"></path></g></g><g fill="#3758f9" data-fill-palette-color="accent"><path d="M90 96h-2.5c-5.179 0-9.892-2.029-13.387-5.334C70.674 93.968 66.007 96 60.875 96c-5.234 0-9.994-2.073-13.5-5.441C43.869 93.927 39.109 96 33.875 96H10c-3.313 0-6-2.687-6-6s2.687-6 6-6h23.875c4.136 0 7.5-3.364 7.5-7.5 0-3.313 2.687-6 6-6s6 2.687 6 6c0 4.136 3.364 7.5 7.5 7.5C64.804 84 68 80.804 68 76.875V76.5c0-3.313 2.687-6 6-6s6 2.687 6 6c0 4.136 3.364 7.5 7.5 7.5H90c3.313 0 6 2.687 6 6S93.313 96 90 96z" fill="#3758f9" data-fill-palette-color="accent"></path></g></svg></g></svg></g></svg></g></svg></g></svg></g><defs></defs></svg><rect width="395.52" height="103.11705882126333" fill="none" stroke="none" visibility="hidden"></rect></g></svg></g></svg>
                     </a>
+                </div>
+                <div style="align-items: center;">
+                    <h5>{{ session.username }}</h5>
                 </div>
                 <ul class="navbar-nav flex-fill w-100 mb-2">
                     <li class="nav-item dropdown">
@@ -113,34 +126,34 @@
                     <li class="nav-item dropdown">
                         <a href="#keys" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                             <i class="fe fe-key fe-16"></i>
-                            <span class="ml-3 item-text">Standard Keys</span>
+                            <span class="ml-3 item-text">Keys</span>
                         </a>
                         <ul class="collapse list-unstyled pl-4 w-100" id="keys">
                             <li class="nav-item">
                                 <a class="nav-link pl-3" href="/Key/PrivateKey"><span class="ml-1 item-text">Private Key</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link pl-3" href="./chart-chartjs.html"><span class="ml-1 item-text">Public Key</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="./chart-apexcharts.html"><span class="ml-1 item-text">Key Pair</span></a>
+                                <a class="nav-link pl-3" href="/Key/PublicKey"><span class="ml-1 item-text">Public Key</span></a>
                             </li>
                         </ul>
                     </li>
+                </ul>
+
+                <p class="text-muted nav-heading mt-4 mb-1">
+                    <span>Generate Signature</span>
+                </p>
+                <ul class="navbar-nav flex-fill w-100 mb-2">
                     <li class="nav-item dropdown">
-                        <a href="#dynamickeys" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                        <a href="#signature" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                             <i class="fe fe-key fe-16"></i>
-                            <span class="ml-3 item-text">Dynamic Keys</span>
+                            <span class="ml-3 item-text">Signature</span>
                         </a>
-                        <ul class="collapse list-unstyled pl-4 w-100" id="dynamickeys">
+                        <ul class="collapse list-unstyled pl-4 w-100" id="signature">
                             <li class="nav-item">
-                                <a class="nav-link pl-3" href="./chart-inline.html"><span class="ml-1 item-text">Private Key</span></a>
+                                <a class="nav-link pl-3" href="/Signature/SignFile"><span class="ml-1 item-text">Sign Files</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link pl-3" href="./chart-chartjs.html"><span class="ml-1 item-text">Public Key</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="./chart-apexcharts.html"><span class="ml-1 item-text">Key Pair</span></a>
+                                <a class="nav-link pl-3" href="/Signature/SignText"><span class="ml-1 item-text">Sign Text</span></a>
                             </li>
                         </ul>
                     </li>
@@ -543,10 +556,47 @@
     <script src="~/Content/tinydash/light/js/simplebar.min.js"></script>
     <script src="~/Content/tinydash/light/js/daterangepicker.js"></script>
     <script src="~/Content/tinydash/light/js/jquery.stickOnScroll.js"></script>
+
+    <script src="~/Content/tinydash/light/js/dropzone.min.js"></script>
     <script src="~/Content/tinydash/light/js/tinycolor-min.js"></script>
     <script src="~/Content/tinydash/light/js/config.js"></script>
     <script src="~/Content/tinydash/light/js/apps.js"></script>
     <script src="~/Scripts/SweetAlert2/sweetalert2.min.js"></script>
+    <script src="~/Content/tinydash/light/js/uppy.min.js"></script>
+
+
+    <script src="~/Content/tinydash/light/js/jquery.steps.min.js"></script>
+
+    <script src="~/Content/tinydash/light/js/jquery.validate.min.js"></script>
+
+    <script src="~/Content/tinydash/light/js/jquery.timepicker.js"></script>
+
+    <script src="~/Content/tinydash/light/js/quill.min.js"></script>
+
+    <script src="~/Content/tinydash/light/js/apps.js"></script>
+    <script>
+        var uptarg = document.getElementById('drag-drop-area');
+        if (uptarg) {
+            var uppy = Uppy.Core().use(Uppy.Dashboard,
+                {
+                    inline: true,
+                    target: uptarg,
+                    proudlyDisplayPoweredByUppy: false,
+                    theme: 'dark',
+                    width: 770,
+                    height: 210,
+                    plugins: ['Webcam']
+                }).use(Uppy.Tus,
+                    {
+                        endpoint: 'https://master.tus.io/files/'
+                    });
+            uppy.on('complete', (result) => {
+                console.log('Upload complete! We’ve uploaded these files:', result.successful)
+            });
+        }
+    </script>
+
+    <script src="~/Scripts/AngularJS/Account/MenuController.js"></script>
 </body>
 @RenderSection("scripts", required: false)
 </html>

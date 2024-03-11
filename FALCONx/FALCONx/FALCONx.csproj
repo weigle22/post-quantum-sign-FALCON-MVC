@@ -132,15 +132,20 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FalconApiClient.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Hasher.cs" />
     <Compile Include="Controllers\KeyController.cs" />
+    <Compile Include="Controllers\SessionController.cs" />
+    <Compile Include="Controllers\SessionTimeoutAttribute.cs" />
+    <Compile Include="Controllers\SignatureController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\C__RefactorLog.cs">
       <DependentUpon>FLCNXDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FalconModels.cs" />
     <Compile Include="Models\FLCNXDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -163,6 +168,9 @@
       <DependentUpon>FLCNXDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tUser.cs">
+      <DependentUpon>FLCNXDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tUserKey.cs">
       <DependentUpon>FLCNXDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
@@ -359,6 +367,8 @@
     <Content Include="Content\tinydash\dark\ui-tabs-accordion.html" />
     <Content Include="Content\tinydash\dark\ui-typograpy.html" />
     <Content Include="Content\tinydash\dark\widgets.html" />
+    <Content Include="Content\tinydash\dropzone.min.css" />
+    <Content Include="Content\tinydash\dropzone.min.js" />
     <Content Include="Content\tinydash\light\assets\avatars\face-1.jpg" />
     <Content Include="Content\tinydash\light\assets\avatars\face-2.jpg" />
     <Content Include="Content\tinydash\light\assets\avatars\face-3.jpg" />
@@ -515,9 +525,12 @@
     </Content>
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\AngularJS\Account\MenuController.js" />
     <Content Include="Scripts\AngularJS\Account\SignIn.js" />
     <Content Include="Scripts\AngularJS\Account\SignUp.js" />
     <Content Include="Scripts\AngularJS\Key\PrivateKey.js" />
+    <Content Include="Scripts\AngularJS\Key\PublicKey.js" />
+    <Content Include="Scripts\AngularJS\Signature\SignText.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
     <Content Include="Scripts\i18n\angular-locale_af-za.js" />
     <Content Include="Scripts\i18n\angular-locale_af.js" />
@@ -1301,6 +1314,8 @@
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Views\Key\PrivateKey.cshtml" />
+    <Content Include="Views\Key\PublicKey.cshtml" />
+    <Content Include="Views\Signature\SignText.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

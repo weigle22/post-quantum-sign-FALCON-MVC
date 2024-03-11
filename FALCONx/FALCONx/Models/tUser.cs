@@ -14,7 +14,7 @@ namespace FALCONx.Models
     
     public partial class tUser
     {
-        public string id { get; set; }
+        public string userID { get; set; }
         public string email { get; set; }
         public Nullable<bool> verified_email { get; set; }
         public string name { get; set; }

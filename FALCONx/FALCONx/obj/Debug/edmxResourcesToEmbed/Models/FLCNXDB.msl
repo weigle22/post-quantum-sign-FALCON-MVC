@@ -8,25 +8,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tUsers">
-      <EntityTypeMapping TypeName="FLCNX_DBModel.tUser">
-        <MappingFragment StoreEntitySet="tUser">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="verified_email" ColumnName="verified_email" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="given_name" ColumnName="given_name" />
-          <ScalarProperty Name="family_name" ColumnName="family_name" />
-          <ScalarProperty Name="picture" ColumnName="picture" />
-          <ScalarProperty Name="username" ColumnName="username" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="signature" ColumnName="signature" />
-          <ScalarProperty Name="dtAdded" ColumnName="dtAdded" />
-          <ScalarProperty Name="role" ColumnName="role" />
-          <ScalarProperty Name="isActive" ColumnName="isActive" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="FLCNX_DBModel.User">
         <MappingFragment StoreEntitySet="User">
@@ -57,5 +38,39 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="spUser_Insert" FunctionName="FLCNX_DBModel.Store.spUser_Insert" />
     <FunctionImportMapping FunctionImportName="spUser_Update" FunctionName="FLCNX_DBModel.Store.spUser_Update" />
+    <EntitySetMapping Name="tUsers">
+      <EntityTypeMapping TypeName="FLCNX_DBModel.tUser">
+        <MappingFragment StoreEntitySet="tUser">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="dtAdded" ColumnName="dtAdded" />
+          <ScalarProperty Name="signature" ColumnName="signature" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="picture" ColumnName="picture" />
+          <ScalarProperty Name="family_name" ColumnName="family_name" />
+          <ScalarProperty Name="given_name" ColumnName="given_name" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="verified_email" ColumnName="verified_email" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tUserKeys">
+      <EntityTypeMapping TypeName="FLCNX_DBModel.tUserKey">
+        <MappingFragment StoreEntitySet="tUserKey">
+          <ScalarProperty Name="accepted" ColumnName="accepted" />
+          <ScalarProperty Name="dtRevoked" ColumnName="dtRevoked" />
+          <ScalarProperty Name="dtModified" ColumnName="dtModified" />
+          <ScalarProperty Name="dtCreated" ColumnName="dtCreated" />
+          <ScalarProperty Name="revoked" ColumnName="revoked" />
+          <ScalarProperty Name="publicKey" ColumnName="publicKey" />
+          <ScalarProperty Name="privateKey" ColumnName="privateKey" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="keyID" ColumnName="keyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

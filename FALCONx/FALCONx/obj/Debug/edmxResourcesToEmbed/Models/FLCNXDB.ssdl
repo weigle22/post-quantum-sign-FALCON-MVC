@@ -8,9 +8,9 @@
   </EntityType>
   <EntityType Name="tUser">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="userID" />
     </Key>
-    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="userID" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="email" Type="varchar" MaxLength="255" />
     <Property Name="verified_email" Type="bit" />
     <Property Name="name" Type="varchar" MaxLength="100" />
@@ -23,6 +23,20 @@
     <Property Name="dtAdded" Type="date" />
     <Property Name="role" Type="varchar" MaxLength="10" />
     <Property Name="isActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tUserKey">
+    <Key>
+      <PropertyRef Name="keyID" />
+    </Key>
+    <Property Name="keyID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="userID" Type="varchar" MaxLength="50" />
+    <Property Name="privateKey" Type="varchar(max)" />
+    <Property Name="publicKey" Type="varchar(max)" />
+    <Property Name="revoked" Type="bit" />
+    <Property Name="dtCreated" Type="datetime" />
+    <Property Name="dtModified" Type="datetime" />
+    <Property Name="dtRevoked" Type="datetime" />
+    <Property Name="accepted" Type="bit" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -51,6 +65,7 @@
   <EntityContainer Name="FLCNX_DBModelStoreContainer">
     <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tUser" EntityType="Self.tUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tUserKey" EntityType="Self.tUserKey" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>
