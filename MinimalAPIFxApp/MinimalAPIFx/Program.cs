@@ -24,6 +24,21 @@ builder.WebHost.ConfigureKestrel(options =>
 
 var app = builder.Build();
 
+// Copy custom DLL to the output directory
+var customDllFolderName = "FalconDLL";
+var customDllName = "falcon_full.dll"; // Replace with your DLL name
+var customDllFolderPath = Path.Combine(AppContext.BaseDirectory, customDllFolderName);
+var customDllPath = Path.Combine(customDllFolderPath, customDllName);
+var targetDllPath = Path.Combine(AppContext.BaseDirectory, customDllName);
+
+// Ensure the FalconDLL folder exists
+if (!Directory.Exists(customDllFolderPath))
+{
+    throw new DirectoryNotFoundException($"The folder '{customDllFolderName}' containing the custom DLL was not found.");
+}
+
+File.Copy(customDllPath, targetDllPath, true);
+
 app.UseLognValidation();
 
 // Configure the HTTP request pipeline.

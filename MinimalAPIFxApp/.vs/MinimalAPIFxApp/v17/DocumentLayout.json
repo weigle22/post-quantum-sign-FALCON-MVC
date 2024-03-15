@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\minimalapifxapp\\minimalapifx\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|solutionrelative:minimalapifx\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\PUBLISH\\FALCON_MIN_API\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
@@ -10,8 +14,20 @@
       "RelativeMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|solutionrelative:minimalapifx\\api.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\minimalapifxapp\\minimalapifx\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|solutionrelative:minimalapifx\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\minimalapifxapp\\minimalapifx\\falconwrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|solutionrelative:minimalapifx\\falconwrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\minimalapifxapp\\minimalapifx\\minimalapifx.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|solutionrelative:minimalapifx\\minimalapifx.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\minimalapifxapp\\minimalapifx\\apifile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|solutionrelative:minimalapifx\\apifile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\minimalapifxapp\\minimalapifx\\apidemodb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|solutionrelative:minimalapifx\\apidemodb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\minimalapifxapp\\minimalapifx\\apifilesigappend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,20 +38,8 @@
       "RelativeMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|solutionrelative:minimalapifx\\falconmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\minimalapifxapp\\minimalapifx\\apidemodb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|solutionrelative:minimalapifx\\apidemodb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\minimalapifxapp\\minimalapifx\\apidynamic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|solutionrelative:minimalapifx\\apidynamic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\minimalapifxapp\\minimalapifx\\falconwrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|solutionrelative:minimalapifx\\falconwrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\minimalapifxapp\\minimalapifx\\apifile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F094675D-6AD2-4043-B04C-4B7B367BEC78}|MinimalAPIFx\\MinimalAPIFx.csproj|solutionrelative:minimalapifx\\apifile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -45,49 +49,62 @@
       "DocumentGroups": [
         {
           "DockedWidth": 193,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
+              "Title": "MinimalAPIFx",
+              "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\MinimalAPIFx\\MinimalAPIFx.csproj",
+              "RelativeDocumentMoniker": "MinimalAPIFx\\MinimalAPIFx.csproj",
+              "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\MinimalAPIFx\\MinimalAPIFx.csproj",
+              "RelativeToolTip": "MinimalAPIFx\\MinimalAPIFx.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-03-15T12:30:20.689Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "web.config",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\PUBLISH\\FALCON_MIN_API\\web.config",
               "RelativeDocumentMoniker": "..\\PUBLISH\\FALCON_MIN_API\\web.config",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\PUBLISH\\FALCON_MIN_API\\web.config",
               "RelativeToolTip": "..\\PUBLISH\\FALCON_MIN_API\\web.config",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAXAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2024-03-05T00:49:59.692Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "FalconWrapper.cs",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\MinimalAPIFx\\FalconWrapper.cs",
               "RelativeDocumentMoniker": "MinimalAPIFx\\FalconWrapper.cs",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\MinimalAPIFx\\FalconWrapper.cs",
               "RelativeToolTip": "MinimalAPIFx\\FalconWrapper.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAmwCkAAAAAAAAA",
+              "ViewState": "AQIAABkAAAAAAAAAAAAcwCcAAABJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-07T11:30:01.363Z"
+              "WhenOpened": "2024-02-07T11:30:01.363Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Api.cs",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\MinimalAPIFx\\Api.cs",
               "RelativeDocumentMoniker": "MinimalAPIFx\\Api.cs",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\MinimalAPIFx\\Api.cs",
               "RelativeToolTip": "MinimalAPIFx\\Api.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAowGUAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-07T11:30:01.378Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "ApiFileSigAppend.cs",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\MinimalAPIFx\\ApiFileSigAppend.cs",
               "RelativeDocumentMoniker": "MinimalAPIFx\\ApiFileSigAppend.cs",
@@ -99,7 +116,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ApiDemoDB.cs",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\MinimalAPIFx\\ApiDemoDB.cs",
               "RelativeDocumentMoniker": "MinimalAPIFx\\ApiDemoDB.cs",
@@ -107,24 +124,25 @@
               "RelativeToolTip": "MinimalAPIFx\\ApiDemoDB.cs",
               "ViewState": "AQIAAAgAAAAAAAAAAAAQwCQAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-07T11:30:01.356Z"
+              "WhenOpened": "2024-02-07T11:30:01.356Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\MinimalAPIFx\\Program.cs",
               "RelativeDocumentMoniker": "MinimalAPIFx\\Program.cs",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\MinimalAPIFx\\Program.cs",
               "RelativeToolTip": "MinimalAPIFx\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABgAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-07T11:30:01.358Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "ApiDynamic.cs",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\MinimalAPIFx\\ApiDynamic.cs",
               "RelativeDocumentMoniker": "MinimalAPIFx\\ApiDynamic.cs",
@@ -136,7 +154,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "ApiFile.cs",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\MinimalAPIFx\\ApiFile.cs",
               "RelativeDocumentMoniker": "MinimalAPIFx\\ApiFile.cs",
@@ -144,11 +162,12 @@
               "RelativeToolTip": "MinimalAPIFx\\ApiFile.cs",
               "ViewState": "AQIAAJAAAAAAAAAAAAAUwJ0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-07T11:39:11.133Z"
+              "WhenOpened": "2024-02-07T11:39:11.133Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "FalconModels.cs",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\MinimalAPIFx\\FalconModels.cs",
               "RelativeDocumentMoniker": "MinimalAPIFx\\FalconModels.cs",

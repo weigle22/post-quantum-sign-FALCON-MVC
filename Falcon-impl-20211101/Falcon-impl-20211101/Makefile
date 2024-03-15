@@ -14,14 +14,21 @@
 #               code that calls this library may need: -lm
 #               (normally not needed on x86, both 32-bit and 64-bit)
 
-CC = clang
 CFLAGS = -Wall -Wextra -Wshadow -Wundef -O3 #-pg -fno-pie
-LD = clang
 LDFLAGS = #-pg -no-pie
 LIBS = #-lm
-DLL_CC = x86_64-w64-mingw32-gcc
+
+# ENABLE THIS TO BUILD IN 64 BIT
+# LD = clang
+# CC = clang
+# DLL_CC = x86_64-w64-mingw32-gcc
+
+# ENABLE THIS TO BUILD IN 32 BIT
+LD = i686-w64-mingw32-gcc
+CC = i686-w64-mingw32-gcc
+DLL_CC = i686-w64-mingw32-gcc
+
 DLL_LDFLAGS = -shared
-DLL_LIBS = -lfalcon -L/path/to/falcon/library -I/path/to/falcon/includes
 
 # =====================================================================
 
@@ -30,7 +37,7 @@ OBJ = codec.o common.o falcon.o fft.o fpr.o keygen.o rng.o shake.o sign.o vrfy.o
 all: test_falcon speed main_program sign_files sign_a_message falcon_full.dll
 
 clean:
-	del /Q $(OBJ) test_falcon test_falcon.o speed speed.o main_program main_program.o sign_files sign_files.o generate_sk_pk generate_sk_pk.o sign_a_message sign_a_message.o falcon_full.dll
+	del /Q $(OBJ) test_falcon test_falcon.o speed speed.o main_program main_program.o sign_files sign_files.o generate_sk_pk generate_sk_pk.o sign_a_message sign_a_message.o falcon_full.dll falcon_full.o
 
 test_falcon: test_falcon.o $(OBJ)
 	$(LD) $(LDFLAGS) -o test_falcon test_falcon.o $(OBJ) $(LIBS)

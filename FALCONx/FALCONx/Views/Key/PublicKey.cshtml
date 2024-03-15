@@ -89,7 +89,7 @@
                         <button type="button" class="btn mb-2 btn-primary" ng-show="userKey.publicKey == null" ng-click="generatePublicKey(userKey)"><span class="fe fe-hash fe-16 mr-2" type="submit"></span>Generate</button>
                         <button type="button" class="btn mb-2 btn-info" ng-show="userKey.publicKey != null && userKey.accepted && userKey.privateKey != null" ng-click="acceptPublicKey(userKey)"><span class="fe fe-check fe-16 mr-2" type="submit"></span>Accept</button>
 
-                        <button type="button" class="btn mb-2 btn-success" ng-show="userKey.publicKey != null && userKey.privateKey == null" ng-click="downloadPrivateKey(userKey)" title="Download"><span class="fe fe-download fe-16"><span></span></span></button>
+                        <button type="button" class="btn mb-2 btn-success" ng-show="userKey.publicKey != null && userKey.privateKey == null" ng-click="downloadPublicKey(userKey)" title="Download"><span class="fe fe-download fe-16"><span></span></span></button>
                         <button type="button" class="btn mb-2 btn-secondary" ng-show="userKey.publicKey != null && userKey.privateKey == null" ng-click="copyToClipboardPublicKey(userKey)" title="Copy to clipboard"><span class="fe fe-copy fe-16"><span></span></span></button>
                     </form>
                 </div> <!-- /.card-body -->

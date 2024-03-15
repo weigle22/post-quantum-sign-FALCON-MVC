@@ -1,6 +1,7 @@
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\obj\Release\net6.0\PubTmp\Out\MinimalAPIFx.exe
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\obj\Release\net6.0\PubTmp\Out\appsettings.json
+D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\obj\Release\net6.0\PubTmp\Out\FalconDLL\falcon_full.dll
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\obj\Release\net6.0\PubTmp\Out\MinimalAPIFx.dll
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\obj\Release\net6.0\PubTmp\Out\MinimalAPIFx.deps.json
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\MinimalAPIFx\obj\Release\net6.0\PubTmp\Out\MinimalAPIFx.runtimeconfig.json

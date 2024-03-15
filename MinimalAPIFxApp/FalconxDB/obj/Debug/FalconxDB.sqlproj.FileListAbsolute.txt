@@ -4,13 +4,3 @@ D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\FalconxDB\bin\Debug\FalconxDB.p
 D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\FalconxDB\obj\Debug\FalconxDB.sqlproj.AssemblyReference.cache
 D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\FalconxDB\obj\Debug\FalconxDB.dll
 D:\LEARNING MANAGEMENT\WEB API 6\MinimalAPIFxApp\FalconxDB\obj\Debug\FalconxDB.pdb
-D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\FalconxDB\bin\Debug\FalconxDB.dacpac
-D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\FalconxDB\bin\Debug\FalconxDB.dll
-D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\FalconxDB\bin\Debug\FalconxDB.pdb
-D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\FalconxDB\obj\Debug\FalconxDB.sqlproj.AssemblyReference.cache
-D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\FalconxDB\obj\Debug\Model.xml
-D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\FalconxDB\obj\Debug\refactor.xml
-D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\FalconxDB\obj\Debug\postdeploy.sql
-D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\FalconxDB\obj\Debug\predeploy.sql
-D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\FalconxDB\obj\Debug\FalconxDB.dll
-D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\FalconxDB\obj\Debug\FalconxDB.pdb

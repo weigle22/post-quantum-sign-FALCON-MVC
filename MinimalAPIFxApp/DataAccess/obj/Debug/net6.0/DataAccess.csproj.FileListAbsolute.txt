@@ -30,8 +30,8 @@ D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\DataAccess\obj\Debug
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.sourcelink.json
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.dll
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.pdb
 D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
-D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\DataAccess\obj\Debug\net6.0\DataAccess.sourcelink.json

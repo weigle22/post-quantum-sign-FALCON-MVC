@@ -10,6 +10,7 @@ public static class Api
         // Mappings
         // ====================== STANDARD SECURITY ======================
         // dll miscellaneous functions
+        app.MapGet("/api/sample", sample);
         app.MapGet("/api/GetPrivKeySize", GetPrivKeySize);
         app.MapGet("/api/GetPublKeySize", GetPublKeySize);
         app.MapGet("/api/GetTmpsizeKeygen", GetTmpsizeKeygen);
@@ -21,6 +22,19 @@ public static class Api
         app.MapGet("/api/GetMessageSignature", GetMessageSignature);
         app.MapGet("/api/GetMessageVerification", GetMessageVerification);
 
+    }
+
+    private static IResult sample()
+    {
+        try
+        {
+            var results = "Success";
+            return Results.Ok(results);
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem(ex.Message);
+        }
     }
 
     // ====================== STANDARD SECURITY ======================

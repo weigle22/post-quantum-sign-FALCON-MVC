@@ -43,30 +43,37 @@ Zf(modq_encode)(
 	int acc_len;
 
 	n = (size_t)1 << logn;
-	for (u = 0; u < n; u ++) {
-		if (x[u] >= 12289) {
+	for (u = 0; u < n; u++)
+	{
+		if (x[u] >= 12289)
+		{
 			return 0;
 		}
 	}
 	out_len = ((n * 14) + 7) >> 3;
-	if (out == NULL) {
+	if (out == NULL)
+	{
 		return out_len;
 	}
-	if (out_len > max_out_len) {
+	if (out_len > max_out_len)
+	{
 		return 0;
 	}
 	buf = out;
 	acc = 0;
 	acc_len = 0;
-	for (u = 0; u < n; u ++) {
+	for (u = 0; u < n; u++)
+	{
 		acc = (acc << 14) | x[u];
 		acc_len += 14;
-		while (acc_len >= 8) {
+		while (acc_len >= 8)
+		{
 			acc_len -= 8;
-			*buf ++ = (uint8_t)(acc >> acc_len);
+			*buf++ = (uint8_t)(acc >> acc_len);
 		}
 	}
-	if (acc_len > 0) {
+	if (acc_len > 0)
+	{
 		*buf = (uint8_t)(acc << (8 - acc_len));
 	}
 	return out_len;
@@ -85,28 +92,33 @@ Zf(modq_decode)(
 
 	n = (size_t)1 << logn;
 	in_len = ((n * 14) + 7) >> 3;
-	if (in_len > max_in_len) {
+	if (in_len > max_in_len)
+	{
 		return 0;
 	}
 	buf = in;
 	acc = 0;
 	acc_len = 0;
 	u = 0;
-	while (u < n) {
-		acc = (acc << 8) | (*buf ++);
+	while (u < n)
+	{
+		acc = (acc << 8) | (*buf++);
 		acc_len += 8;
-		if (acc_len >= 14) {
+		if (acc_len >= 14)
+		{
 			unsigned w;
 
 			acc_len -= 14;
 			w = (acc >> acc_len) & 0x3FFF;
-			if (w >= 12289) {
+			if (w >= 12289)
+			{
 				return 0;
 			}
-			x[u ++] = (uint16_t)w;
+			x[u++] = (uint16_t)w;
 		}
 	}
-	if ((acc & (((uint32_t)1 << acc_len) - 1)) != 0) {
+	if ((acc & (((uint32_t)1 << acc_len) - 1)) != 0)
+	{
 		return 0;
 	}
 	return in_len;
@@ -127,32 +139,39 @@ Zf(trim_i16_encode)(
 	n = (size_t)1 << logn;
 	maxv = (1 << (bits - 1)) - 1;
 	minv = -maxv;
-	for (u = 0; u < n; u ++) {
-		if (x[u] < minv || x[u] > maxv) {
+	for (u = 0; u < n; u++)
+	{
+		if (x[u] < minv || x[u] > maxv)
+		{
 			return 0;
 		}
 	}
 	out_len = ((n * bits) + 7) >> 3;
-	if (out == NULL) {
+	if (out == NULL)
+	{
 		return out_len;
 	}
-	if (out_len > max_out_len) {
+	if (out_len > max_out_len)
+	{
 		return 0;
 	}
 	buf = out;
 	acc = 0;
 	acc_len = 0;
 	mask = ((uint32_t)1 << bits) - 1;
-	for (u = 0; u < n; u ++) {
+	for (u = 0; u < n; u++)
+	{
 		acc = (acc << bits) | ((uint16_t)x[u] & mask);
 		acc_len += bits;
-		while (acc_len >= 8) {
+		while (acc_len >= 8)
+		{
 			acc_len -= 8;
-			*buf ++ = (uint8_t)(acc >> acc_len);
+			*buf++ = (uint8_t)(acc >> acc_len);
 		}
 	}
-	if (acc_len > 0) {
-		*buf ++ = (uint8_t)(acc << (8 - acc_len));
+	if (acc_len > 0)
+	{
+		*buf++ = (uint8_t)(acc << (8 - acc_len));
 	}
 	return out_len;
 }
@@ -171,7 +190,8 @@ Zf(trim_i16_decode)(
 
 	n = (size_t)1 << logn;
 	in_len = ((n * bits) + 7) >> 3;
-	if (in_len > max_in_len) {
+	if (in_len > max_in_len)
+	{
 		return 0;
 	}
 	buf = in;
@@ -180,26 +200,30 @@ Zf(trim_i16_decode)(
 	acc_len = 0;
 	mask1 = ((uint32_t)1 << bits) - 1;
 	mask2 = (uint32_t)1 << (bits - 1);
-	while (u < n) {
-		acc = (acc << 8) | *buf ++;
+	while (u < n)
+	{
+		acc = (acc << 8) | *buf++;
 		acc_len += 8;
-		while (acc_len >= bits && u < n) {
+		while (acc_len >= bits && u < n)
+		{
 			uint32_t w;
 
 			acc_len -= bits;
 			w = (acc >> acc_len) & mask1;
 			w |= -(w & mask2);
-			if (w == -mask2) {
+			if (w == -mask2)
+			{
 				/*
 				 * The -2^(bits-1) value is forbidden.
 				 */
 				return 0;
 			}
 			w |= -(w & mask2);
-			x[u ++] = (int16_t)*(int32_t *)&w;
+			x[u++] = (int16_t) * (int32_t *)&w;
 		}
 	}
-	if ((acc & (((uint32_t)1 << acc_len) - 1)) != 0) {
+	if ((acc & (((uint32_t)1 << acc_len) - 1)) != 0)
+	{
 		/*
 		 * Extra bits in the last byte must be zero.
 		 */
@@ -223,32 +247,39 @@ Zf(trim_i8_encode)(
 	n = (size_t)1 << logn;
 	maxv = (1 << (bits - 1)) - 1;
 	minv = -maxv;
-	for (u = 0; u < n; u ++) {
-		if (x[u] < minv || x[u] > maxv) {
+	for (u = 0; u < n; u++)
+	{
+		if (x[u] < minv || x[u] > maxv)
+		{
 			return 0;
 		}
 	}
 	out_len = ((n * bits) + 7) >> 3;
-	if (out == NULL) {
+	if (out == NULL)
+	{
 		return out_len;
 	}
-	if (out_len > max_out_len) {
+	if (out_len > max_out_len)
+	{
 		return 0;
 	}
 	buf = out;
 	acc = 0;
 	acc_len = 0;
 	mask = ((uint32_t)1 << bits) - 1;
-	for (u = 0; u < n; u ++) {
+	for (u = 0; u < n; u++)
+	{
 		acc = (acc << bits) | ((uint8_t)x[u] & mask);
 		acc_len += bits;
-		while (acc_len >= 8) {
+		while (acc_len >= 8)
+		{
 			acc_len -= 8;
-			*buf ++ = (uint8_t)(acc >> acc_len);
+			*buf++ = (uint8_t)(acc >> acc_len);
 		}
 	}
-	if (acc_len > 0) {
-		*buf ++ = (uint8_t)(acc << (8 - acc_len));
+	if (acc_len > 0)
+	{
+		*buf++ = (uint8_t)(acc << (8 - acc_len));
 	}
 	return out_len;
 }
@@ -267,7 +298,8 @@ Zf(trim_i8_decode)(
 
 	n = (size_t)1 << logn;
 	in_len = ((n * bits) + 7) >> 3;
-	if (in_len > max_in_len) {
+	if (in_len > max_in_len)
+	{
 		return 0;
 	}
 	buf = in;
@@ -276,25 +308,29 @@ Zf(trim_i8_decode)(
 	acc_len = 0;
 	mask1 = ((uint32_t)1 << bits) - 1;
 	mask2 = (uint32_t)1 << (bits - 1);
-	while (u < n) {
-		acc = (acc << 8) | *buf ++;
+	while (u < n)
+	{
+		acc = (acc << 8) | *buf++;
 		acc_len += 8;
-		while (acc_len >= bits && u < n) {
+		while (acc_len >= bits && u < n)
+		{
 			uint32_t w;
 
 			acc_len -= bits;
 			w = (acc >> acc_len) & mask1;
 			w |= -(w & mask2);
-			if (w == -mask2) {
+			if (w == -mask2)
+			{
 				/*
 				 * The -2^(bits-1) value is forbidden.
 				 */
 				return 0;
 			}
-			x[u ++] = (int8_t)*(int32_t *)&w;
+			x[u++] = (int8_t) * (int32_t *)&w;
 		}
 	}
-	if ((acc & (((uint32_t)1 << acc_len) - 1)) != 0) {
+	if ((acc & (((uint32_t)1 << acc_len) - 1)) != 0)
+	{
 		/*
 		 * Extra bits in the last byte must be zero.
 		 */
@@ -320,8 +356,10 @@ Zf(comp_encode)(
 	/*
 	 * Make sure that all values are within the -2047..+2047 range.
 	 */
-	for (u = 0; u < n; u ++) {
-		if (x[u] < -2047 || x[u] > +2047) {
+	for (u = 0; u < n; u++)
+	{
+		if (x[u] < -2047 || x[u] > +2047)
+		{
 			return 0;
 		}
 	}
@@ -329,7 +367,8 @@ Zf(comp_encode)(
 	acc = 0;
 	acc_len = 0;
 	v = 0;
-	for (u = 0; u < n; u ++) {
+	for (u = 0; u < n; u++)
+	{
 		int t;
 		unsigned w;
 
@@ -339,7 +378,8 @@ Zf(comp_encode)(
 		 */
 		acc <<= 1;
 		t = x[u];
-		if (t < 0) {
+		if (t < 0)
+		{
 			t = -t;
 			acc |= 1;
 		}
@@ -372,29 +412,35 @@ Zf(comp_encode)(
 		/*
 		 * Produce all full bytes.
 		 */
-		while (acc_len >= 8) {
+		while (acc_len >= 8)
+		{
 			acc_len -= 8;
-			if (buf != NULL) {
-				if (v >= max_out_len) {
+			if (buf != NULL)
+			{
+				if (v >= max_out_len)
+				{
 					return 0;
 				}
 				buf[v] = (uint8_t)(acc >> acc_len);
 			}
-			v ++;
+			v++;
 		}
 	}
 
 	/*
 	 * Flush remaining bits (if any).
 	 */
-	if (acc_len > 0) {
-		if (buf != NULL) {
-			if (v >= max_out_len) {
+	if (acc_len > 0)
+	{
+		if (buf != NULL)
+		{
+			if (v >= max_out_len)
+			{
 				return 0;
 			}
 			buf[v] = (uint8_t)(acc << (8 - acc_len));
 		}
-		v ++;
+		v++;
 	}
 
 	return v;
@@ -416,17 +462,19 @@ Zf(comp_decode)(
 	acc = 0;
 	acc_len = 0;
 	v = 0;
-	for (u = 0; u < n; u ++) {
+	for (u = 0; u < n; u++)
+	{
 		unsigned b, s, m;
 
 		/*
 		 * Get next eight bits: sign and low seven bits of the
 		 * absolute value.
 		 */
-		if (v >= max_in_len) {
+		if (v >= max_in_len)
+		{
 			return 0;
 		}
-		acc = (acc << 8) | (uint32_t)buf[v ++];
+		acc = (acc << 8) | (uint32_t)buf[v++];
 		b = acc >> acc_len;
 		s = b & 128;
 		m = b & 127;
@@ -434,20 +482,25 @@ Zf(comp_decode)(
 		/*
 		 * Get next bits until a 1 is reached.
 		 */
-		for (;;) {
-			if (acc_len == 0) {
-				if (v >= max_in_len) {
+		for (;;)
+		{
+			if (acc_len == 0)
+			{
+				if (v >= max_in_len)
+				{
 					return 0;
 				}
-				acc = (acc << 8) | (uint32_t)buf[v ++];
+				acc = (acc << 8) | (uint32_t)buf[v++];
 				acc_len = 8;
 			}
-			acc_len --;
-			if (((acc >> acc_len) & 1) != 0) {
+			acc_len--;
+			if (((acc >> acc_len) & 1) != 0)
+			{
 				break;
 			}
 			m += 128;
-			if (m > 2047) {
+			if (m > 2047)
+			{
 				return 0;
 			}
 		}
@@ -455,7 +508,8 @@ Zf(comp_decode)(
 		/*
 		 * "-0" is forbidden.
 		 */
-		if (s && m == 0) {
+		if (s && m == 0)
+		{
 			return 0;
 		}
 
@@ -465,7 +519,8 @@ Zf(comp_decode)(
 	/*
 	 * Unused bits in the last byte must be zero.
 	 */
-	if ((acc & ((1u << acc_len) - 1u)) != 0) {
+	if ((acc & ((1u << acc_len) - 1u)) != 0)
+	{
 		return 0;
 	}
 
@@ -515,8 +570,7 @@ const uint8_t Zf(max_fg_bits)[] = {
 	7,
 	6,
 	6,
-	5
-};
+	5};
 
 const uint8_t Zf(max_FG_bits)[] = {
 	0, /* unused */
@@ -529,8 +583,7 @@ const uint8_t Zf(max_FG_bits)[] = {
 	8,
 	8,
 	8,
-	8
-};
+	8};
 
 /*
  * When generating a new key pair, we can always reject keys which
@@ -571,5 +624,4 @@ const uint8_t Zf(max_sig_bits)[] = {
 	12,
 	12,
 	12,
-	12
-};
+	12};
