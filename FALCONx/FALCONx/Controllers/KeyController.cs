@@ -15,16 +15,9 @@ namespace FALCONx.Controllers
     [SessionTimeout]
     public class KeyController : Controller
     {
-        private readonly HttpClient _httpClient;
-        Uri baseAddress = new Uri("http://localhost:8082/");
+        private readonly HttpClient _httpClient = HttpClientHelper.GetClient();
         FLCNX_DBEntities dbFlcn = new FLCNX_DBEntities();
         private DateTime dtNow = DateTime.Now;
-
-        public KeyController()
-        {
-            _httpClient = new HttpClient();
-            _httpClient.BaseAddress = baseAddress; // Replace this with your API base URL
-        }
 
         // GET: Key
         public ActionResult PrivateKey()

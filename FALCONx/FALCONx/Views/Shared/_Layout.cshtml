@@ -140,12 +140,12 @@
                 </ul>
 
                 <p class="text-muted nav-heading mt-4 mb-1">
-                    <span>Generate Signature</span>
+                    <span>Authentication</span>
                 </p>
                 <ul class="navbar-nav flex-fill w-100 mb-2">
                     <li class="nav-item dropdown">
                         <a href="#signature" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-                            <i class="fe fe-key fe-16"></i>
+                            <i class="fe fe-hash fe-16"></i>
                             <span class="ml-3 item-text">Signature</span>
                         </a>
                         <ul class="collapse list-unstyled pl-4 w-100" id="signature">
@@ -154,6 +154,26 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link pl-3" href="/Signature/SignText"><span class="ml-1 item-text">Sign Text</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p class="text-muted nav-heading mt-4 mb-1">
+                    <span>Verification</span>
+                </p>
+                <ul class="navbar-nav flex-fill w-100 mb-2">
+                    <li class="nav-item dropdown">
+                        <a href="#verification" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                            <i class="fe fe-hash fe-16"></i>
+                            <span class="ml-3 item-text">Verify</span>
+                        </a>
+                        <ul class="collapse list-unstyled pl-4 w-100" id="verification">
+                            <li class="nav-item">
+                                <a class="nav-link pl-3" href="/Verify/SignFile"><span class="ml-1 item-text">Verify Files</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link pl-3" href="/Verify/VerifyText"><span class="ml-1 item-text">Verify Text</span></a>
                             </li>
                         </ul>
                     </li>
@@ -562,6 +582,7 @@
     <script src="~/Content/tinydash/light/js/config.js"></script>
     <script src="~/Content/tinydash/light/js/apps.js"></script>
     <script src="~/Scripts/SweetAlert2/sweetalert2.min.js"></script>
+    <script src="~/Scripts/JSZip/jszip.min.js"></script>
     <script src="~/Content/tinydash/light/js/uppy.min.js"></script>
 
 

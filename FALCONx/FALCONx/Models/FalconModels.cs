@@ -16,5 +16,10 @@ namespace FALCONx.Models
         {
             public string public_key_str { get; set; }
         }
+
+        public class Signature
+        {
+            public string signature_str { get; set; }
+        }
     }
 }
