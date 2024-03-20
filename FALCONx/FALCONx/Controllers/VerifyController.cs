@@ -9,11 +9,6 @@ namespace FALCONx.Controllers
     public class VerifyController : Controller
     {
         // GET: Verify
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         public ActionResult VerifyText()
         {
             return View();

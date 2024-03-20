@@ -3,6 +3,79 @@
     // Ensure that Dropzone is properly initialized before accessing it
     Dropzone.autoDiscover = false;
 
+    _s.myDropzoneTextFile = new Dropzone("#myDropzoneTextFile", {
+        // Dropzone configuration options
+        addRemoveLinks: true,
+        // Dropzone configuration options
+        dictRemoveFile: '<i class="fe fe-trash"></i>',
+        maxFiles: 1, // Restrict to one file upload
+        acceptedFiles: '.txt',
+        init: function () {
+            this.on("addedfile", function (file) {
+                if (this.files.length > 1) {
+                    this.removeFile(file); // Remove the extra file
+                }
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    _s.userKey.textMessage = event.target.result;
+                    _s.$apply(); // Apply changes to AngularJS scope
+                };
+                
+
+                reader.readAsText(file);
+            });
+            this.on("removedfile", function (file) {
+                _s.userKey.privateKey = null; // Clear the privateKey
+                _s.userKey.textMessage = null; // Clear the textMessage
+                _s.userKey.textSignature = null; // Clear the textSignature
+                _s.$apply(); // Apply changes to AngularJS scope
+            });
+            this.on("maxfilesexceeded", function (file) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'One key file only',
+                    text: 'Click delete button to change the selected key',
+                });
+            });
+        }
+    });
+
+    _s.myDropzoneTextSignature = new Dropzone("#myDropzoneTextSignature", {
+        // Dropzone configuration options
+        addRemoveLinks: true,
+        // Dropzone configuration options
+        dictRemoveFile: '<i class="fe fe-trash"></i>',
+        maxFiles: 1, // Restrict to one file upload
+        acceptedFiles: '.sig',
+        init: function () {
+            this.on("addedfile", function (file) {
+                if (this.files.length > 1) {
+                    this.removeFile(file); // Remove the extra file
+                }
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    _s.userKey.textSignature = event.target.result;
+                    _s.userKey.hiddenTextSignature = _s.userKey.textSignature;
+                    _s.userKey.textSignature = '*'.repeat(_s.userKey.textSignature.length);
+                    _s.$apply(); // Apply changes to AngularJS scope
+                };
+
+                reader.readAsText(file);
+            });
+            this.on("removedfile", function (file) {
+                _s.userKey.textSignature = null; // Clear the textSignature
+                _s.$apply(); // Apply changes to AngularJS scope
+            });
+            this.on("maxfilesexceeded", function (file) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'One key file only',
+                    text: 'Click delete button to change the selected key',
+                });
+            });
+        }
+    });
+
     // Initialize Dropzone
     _s.myDropzonePublicKey = new Dropzone("#myDropzonePublicKey", {
         // Dropzone configuration options
@@ -18,7 +91,7 @@
                 }
                 var reader = new FileReader();
                 reader.onload = function (event) {
-                    _s.userKey.privateKey = event.target.result;
+                    _s.userKey.publicKey = event.target.result;
                     _s.$apply(); // Apply changes to AngularJS scope
                 };
 
@@ -29,14 +102,8 @@
                 reader.readAsText(file);
             });
             this.on("removedfile", function (file) {
-                _s.userKey.privateKey = ''; // Clear the privateKey
+                _s.userKey.publicKey = null; // Clear the privateKey
                 _s.$apply(); // Apply changes to AngularJS scope
-                _s.$apply(function () {
-                    var index = _s.userKey.privateKeyFile.indexOf(file);
-                    if (index !== -1) {
-                        _s.userKey.privateKeyFile.splice(index, 1); // Remove file from uploadedFiles array
-                    }
-                });
             });
             this.on("maxfilesexceeded", function (file) {
                 Swal.fire({
@@ -48,15 +115,22 @@
         }
     });
 
+
+
     _s.onLoad = function () {
         _h.post("../Key/GetUserKeys").then(function (c) {
             _s.userKey = c.data.userKey;
             if (_s.userKey == null) {
                 _s.userKey = {};
             }
-            _s.userKey.pasteEnabled = false;
+            _s.userKey.showPrivateKey = false;
             _s.userKey.dropzoneText = 'Drop key file here or click to upload';
             _s.userKey.privateKeyFile = [];
+            _s.userKey.hiddenPrivateKey = '';
+            _s.userKey.hiddenTextSignature = '';
+            _s.userKey.showPrivateKey = false;
+            _s.userKey.textMessage = null;
+            _s.userKey.textSignature = null;
         }, function () {
             Swal.fire({
                 icon: 'error',
@@ -66,21 +140,21 @@
         });
     }
 
-    _s.toggleDropzone = function (userKey) {
-        if (_s.userKey.pasteEnabled) {
-            _s.myDropzonePublicKey.disable(); // Disable Dropzone if checkbox is checked
-            _s.userKey.privateKey = null;
-            _s.userKey.dropzoneText = 'Paste private key in the text area'
-
-            //if (_s.myDropzonePublicKey.files.length > 0) {
-            //    // Programmatically trigger the removal of the file
-            //    _s.myDropzonePublicKey.emit("removedfile", _s.myDropzonePublicKey.files[0]);
-            //}
-
-        } else {
-            _s.myDropzonePublicKey.enable(); // Enable Dropzone if checkbox is unchecked
-            _s.userKey.privateKey = null;
-            _s.userKey.dropzoneText = 'Drop key file here or click to upload';
+    _s.toggleShow = function (userKey, type) {
+        if (type == 'privateKey') {
+            if (userKey.showPrivateKey) {
+                _s.userKey.privateKey = _s.userKey.hiddenPrivateKey;
+            } else {
+                _s.userKey.hiddenPrivateKey = _s.userKey.privateKey;
+                _s.userKey.privateKey = '*'.repeat(_s.userKey.privateKey.length);
+            }
+        } else if (type == 'textSignature') {
+            if (userKey.showTextSignature) {
+                _s.userKey.textSignature = _s.userKey.hiddenTextSignature;
+            } else {
+                _s.userKey.hiddenTextSignature = _s.userKey.textSignature;
+                _s.userKey.textSignature = '*'.repeat(_s.userKey.textSignature.length);
+            }
         }
     };
 
@@ -108,7 +182,7 @@
         zip.file("message.txt", userKey.textMessage);
 
         // Add signature to the zip file
-        zip.file("signature.sig", userKey.textSignature);
+        zip.file("message.sig", userKey.hiddenTextSignature);
 
         // Generate the zip file asynchronously
         zip.generateAsync({ type: "blob" }).then(function (content) {
@@ -142,6 +216,9 @@
         }).then(function (c) {
             if (c.data.message == 'Success') {
                 _s.userKey.textSignature = c.data.result.signature_str;
+                _s.userKey.showTextSignature = false;
+                _s.userKey.hiddenTextSignature = _s.userKey.textSignature;
+                _s.userKey.textSignature = '*'.repeat(_s.userKey.textSignature.length);
             } else if (c.data.message == 'Failed') {
                 Swal.fire({
                     icon: 'error',
@@ -164,7 +241,6 @@
             });
         });
     }
-
 
 
 }]);

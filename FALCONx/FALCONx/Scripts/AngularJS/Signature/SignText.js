@@ -19,6 +19,8 @@
                 var reader = new FileReader();
                 reader.onload = function (event) {
                     _s.userKey.privateKey = event.target.result;
+                    _s.userKey.hiddenPrivateKey = _s.userKey.privateKey;
+                    _s.userKey.privateKey = '*'.repeat(_s.userKey.privateKey.length);
                     _s.$apply(); // Apply changes to AngularJS scope
                 };
 
@@ -29,7 +31,10 @@
                 reader.readAsText(file);
             });
             this.on("removedfile", function (file) {
-                _s.userKey.privateKey = ''; // Clear the privateKey
+                _s.userKey.privateKey = null; // Clear the privateKey
+                _s.userKey.textMessage = null; // Clear the textMessage
+                _s.userKey.textSignature = null; // Clear the textSignature
+                
                 _s.$apply(); // Apply changes to AngularJS scope
                 _s.$apply(function () {
                     var index = _s.userKey.privateKeyFile.indexOf(file);
@@ -54,9 +59,12 @@
             if (_s.userKey == null) {
                 _s.userKey = {};
             }
-            _s.userKey.pasteEnabled = false;
+            _s.userKey.showPrivateKey = false;
             _s.userKey.dropzoneText = 'Drop key file here or click to upload';
             _s.userKey.privateKeyFile = [];
+            _s.userKey.hiddenPrivateKey = '';
+            _s.userKey.hiddenTextSignature = '';
+            _s.userKey.showPrivateKey = false;
         }, function () {
             Swal.fire({
                 icon: 'error',
@@ -64,25 +72,23 @@
                 text: 'Something went wrong!',
             });
         });
-        //console.log(Dropzone.version);
-        //console.log(myDropzone);
     }
 
-    _s.toggleDropzone = function (userKey) {
-        if (_s.userKey.pasteEnabled) {
-            _s.myDropzone.disable(); // Disable Dropzone if checkbox is checked
-            _s.userKey.privateKey = null;
-            _s.userKey.dropzoneText = 'Paste private key in the text area'
-
-            if (_s.myDropzone.files.length > 0) {
-                // Programmatically trigger the removal of the file
-                //_s.myDropzone.removeAllFiles();
+    _s.toggleShow = function (userKey, type) {
+        if (type == 'privateKey') {
+            if (userKey.showPrivateKey) {
+                _s.userKey.privateKey = _s.userKey.hiddenPrivateKey;
+            } else {
+                _s.userKey.hiddenPrivateKey = _s.userKey.privateKey;
+                _s.userKey.privateKey = '*'.repeat(_s.userKey.privateKey.length);
             }
-
-        } else {
-            _s.myDropzone.enable(); // Enable Dropzone if checkbox is unchecked
-            _s.userKey.privateKey = null;
-            _s.userKey.dropzoneText = 'Drop key file here or click to upload';
+        } else if (type == 'textSignature') {
+            if (userKey.showTextSignature) {
+                _s.userKey.textSignature = _s.userKey.hiddenTextSignature;
+            } else {
+                _s.userKey.hiddenTextSignature = _s.userKey.textSignature;
+                _s.userKey.textSignature = '*'.repeat(_s.userKey.textSignature.length);
+            }
         }
     };
 
@@ -110,7 +116,7 @@
         zip.file("message.txt", userKey.textMessage);
 
         // Add signature to the zip file
-        zip.file("signature.sig", userKey.textSignature);
+        zip.file("message.sig", userKey.hiddenTextSignature);
 
         // Generate the zip file asynchronously
         zip.generateAsync({ type: "blob" }).then(function (content) {
@@ -144,6 +150,9 @@
         }).then(function (c) {
             if (c.data.message == 'Success') {
                 _s.userKey.textSignature = c.data.result.signature_str;
+                _s.userKey.showTextSignature = false;
+                _s.userKey.hiddenTextSignature = _s.userKey.textSignature;
+                _s.userKey.textSignature = '*'.repeat(_s.userKey.textSignature.length);
             } else if (c.data.message == 'Failed') {
                 Swal.fire({
                     icon: 'error',
