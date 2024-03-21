@@ -81,7 +81,7 @@
 
         @* signature file *@
 
-        <div class="col-md-4 d-flex" ng-show="userKey.textMessage !== null">
+        <div class="col-md-4 d-flex" @*ng-show="userKey.textMessage !== null"*@>
             <div class="card shadow mb-4 w-100">
                 <div class="card-header">
                     <strong class="card-title">Signature file</strong>
@@ -98,7 +98,7 @@
                 </div> <!-- /.card-body -->
             </div> <!-- /.card -->
         </div>
-        <div class="col-md-8 d-flex" ng-show="userKey.textMessage !== null">
+        <div class="col-md-8 d-flex" @*ng-show="userKey.textMessage !== null"*@>
             <div class="card shadow mb-4 w-100">
                 <div class="card-header">
                     <strong class="card-title">Signature content</strong>
@@ -122,7 +122,7 @@
 
         @* public key file *@
 
-        <div class="col-md-4 d-flex" ng-show="userKey.textSignature !== null">
+        <div class="col-md-4 d-flex" @*ng-show="userKey.textSignature !== null"*@>
             <div class="card shadow mb-4 w-100">
                 <div class="card-header">
                     <strong class="card-title">Public key file</strong>
@@ -139,7 +139,7 @@
                 </div> <!-- /.card-body -->
             </div> <!-- /.card -->
         </div>
-        <div class="col-md-8 d-flex" ng-show="userKey.textSignature !== null">
+        <div class="col-md-8 d-flex" @*ng-show="userKey.textSignature !== null"*@>
             <div class="card shadow mb-4 w-100">
                 <div class="card-header">
                     <strong class="card-title">Public key content</strong>
@@ -157,27 +157,30 @@
 
         @* public key file *@
 
-        <div class="col-md-6 d-flex">
+        <div class="col-md-6 d-flex" ng-show="userKey.publicKey !== null">
             <div class="card shadow bg-primary text-center mb-4">
                 <div class="card-body p-5">
                     <span class="circle circle-lg bg-primary-light">
                         <i class="fe fe-shield fe-24 text-white"></i>
                     </span>
                     <h3 class="h1 mt-4 mb-1 text-white">Verify</h3>
-                    <p class="text-white mb-4">The requirements for verification are the file, its signature, and the signers public key.</p>
-                    <a href="#" class="btn btn-lg bg-primary-light text-white">Verify file authenticity<i class="fe fe-arrow-right fe-16 ml-2"></i></a>
+                    <p class="text-white mb-4">The requirements for verification are the file, its signature, and the signer''s public key.</p>
+                    <a href="" class="btn btn-lg bg-primary-light text-white" ng-click="VerifyText(userKey)">
+                        Verify file authenticity
+                        <i class="fe fe-arrow-right fe-16 ml-2"></i>
+                    </a>
                 </div> <!-- .card-body -->
             </div> <!-- .card -->
         </div> <!-- .col-md-->
-        <div class="col-md-6 d-flex">
-            <div class="card shadow bg-info-light text-center mb-4">
+        <div class="col-md-6 d-flex" ng-show="userKey.verificationResult">
+            <div class="card shadow text-center mb-4" ng-class="userKey.cardBg">
                 <div class="card-body p-5">
-                    <span class="circle circle-lg bg-warning-light">
-                        <i class="fe fe-alert-octagon fe-24 text-white"></i>
+                    <span class="circle circle-lg" ng-class="userKey.circleBg">
+                        <i class="fe fe-24 text-white" ng-class="userKey.resultIcon"></i>
                     </span>
-                    <h3 class="h1 mt-4 mb-1 text-white">No result</h3>
-                    <p class="text-white mb-4">The requirements for verification are the file, its signature, and the signers public key.</p>
-                    <a href="#" class="btn btn-lg bg-warning-light text-white">Reset<i class="fe fe-refresh-cw fe-16 ml-2"></i></a>
+                    <h3 class="h1 mt-4 mb-1 text-white">{{ userKey.resultText }}</h3>
+                    <p class="text-white mb-4">{{ userKey.resultExplaination }}</p>
+                    <a href="#" class="btn btn-lg text-white" ng-class="userKey.buttonBg">Reset<i class="fe fe-refresh-cw fe-16 ml-2"></i></a>
                 </div> <!-- .card-body -->
             </div> <!-- .card -->
         </div> <!-- .col-md-->

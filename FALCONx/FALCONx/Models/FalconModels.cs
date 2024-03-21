@@ -21,5 +21,10 @@ namespace FALCONx.Models
         {
             public string signature_str { get; set; }
         }
+
+        public class Verification
+        {
+            public string result { get; set; }
+        }
     }
 }

@@ -20,15 +20,27 @@
                     _s.userKey.textMessage = event.target.result;
                     _s.$apply(); // Apply changes to AngularJS scope
                 };
-                
+
+                _s.$apply(function () {
+                    _s.userKey.textMessageFile.push(file); // Add file to uploadedFiles array
+                });
 
                 reader.readAsText(file);
             });
             this.on("removedfile", function (file) {
-                _s.userKey.privateKey = null; // Clear the privateKey
+                _s.userKey.publicKey = null; // Clear the privateKey
                 _s.userKey.textMessage = null; // Clear the textMessage
                 _s.userKey.textSignature = null; // Clear the textSignature
+                _s.userKey.verificationResult = null;
                 _s.$apply(); // Apply changes to AngularJS scope
+                _s.$apply(function () {
+                    var index = 0; // zero for 1 file
+                    _s.userKey.textMessageFile.splice(index, 1); // Remove file from uploadedFiles array
+                    _s.userKey.textSignatureFile.splice(index, 1);
+                    _s.userKey.publicKeyFile.splice(index, 1);
+                });
+                _s.myDropzoneTextSignature.removeAllFiles();
+                _s.myDropzonePublicKey.removeAllFiles();
             });
             this.on("maxfilesexceeded", function (file) {
                 Swal.fire({
@@ -60,11 +72,21 @@
                     _s.$apply(); // Apply changes to AngularJS scope
                 };
 
+                _s.$apply(function () {
+                    _s.userKey.textSignatureFile.push(file); // Add file to uploadedFiles array
+                });
+
                 reader.readAsText(file);
             });
             this.on("removedfile", function (file) {
                 _s.userKey.textSignature = null; // Clear the textSignature
+                _s.userKey.verificationResult = null;
                 _s.$apply(); // Apply changes to AngularJS scope
+                _s.$apply(function () {
+                    var index = 0;
+                    _s.userKey.textSignatureFile.splice(index, 1); // Remove file from uploadedFiles array
+                });
+                _s.myDropzonePublicKey.removeAllFiles();
             });
             this.on("maxfilesexceeded", function (file) {
                 Swal.fire({
@@ -96,14 +118,21 @@
                 };
 
                 _s.$apply(function () {
-                    _s.userKey.privateKeyFile.push(file); // Add file to uploadedFiles array
+                    _s.userKey.publicKeyFile.push(file); // Add file to uploadedFiles array
                 });
 
                 reader.readAsText(file);
             });
             this.on("removedfile", function (file) {
                 _s.userKey.publicKey = null; // Clear the privateKey
+                _s.userKey.verificationResult = null;
                 _s.$apply(); // Apply changes to AngularJS scope
+                _s.$apply(function () {
+                    var index = _s.userKey.publicKeyFile.indexOf(file);
+                    if (index !== -1) {
+                        _s.userKey.publicKeyFile.splice(index, 1); // Remove file from uploadedFiles array
+                    }
+                });
             });
             this.on("maxfilesexceeded", function (file) {
                 Swal.fire({
@@ -114,9 +143,7 @@
             });
         }
     });
-
-
-
+    
     _s.onLoad = function () {
         _h.post("../Key/GetUserKeys").then(function (c) {
             _s.userKey = c.data.userKey;
@@ -125,12 +152,15 @@
             }
             _s.userKey.showPrivateKey = false;
             _s.userKey.dropzoneText = 'Drop key file here or click to upload';
-            _s.userKey.privateKeyFile = [];
+            _s.userKey.textMessageFile = [];
+            _s.userKey.textSignatureFile = [];
+            _s.userKey.publicKeyFile = [];
             _s.userKey.hiddenPrivateKey = '';
             _s.userKey.hiddenTextSignature = '';
             _s.userKey.showPrivateKey = false;
             _s.userKey.textMessage = null;
             _s.userKey.textSignature = null;
+            _s.userKey.publicKey = null;
         }, function () {
             Swal.fire({
                 icon: 'error',
@@ -204,21 +234,47 @@
         });
     };
 
-    _s.SignMessage = function (userKey) {
+    _s.VerifyText = function (userKey) {
         var formData = new FormData();
-        formData.append('textMessage', userKey.textMessage);
-        formData.append('privateKeyFile', userKey.privateKeyFile[0]);
+        formData.append('textMessageFile', userKey.textMessageFile[0]);
+        formData.append('textSignatureFile', userKey.textSignatureFile[0]);
+        formData.append('publicKeyFile', userKey.publicKeyFile[0]);
 
-        _h.post("../Signature/SignTextMessage", formData, {
+        _h.post("../Verify/VerifyText", formData, {
             withCredentials: true,
             headers: { 'Content-Type': undefined },
             transformRequest: angular.identity
         }).then(function (c) {
             if (c.data.message == 'Success') {
-                _s.userKey.textSignature = c.data.result.signature_str;
-                _s.userKey.showTextSignature = false;
-                _s.userKey.hiddenTextSignature = _s.userKey.textSignature;
-                _s.userKey.textSignature = '*'.repeat(_s.userKey.textSignature.length);
+                _s.userKey.verificationResult = c.data.result.result;
+                switch (_s.userKey.verificationResult) {
+                    case '0':
+                        _s.userKey.cardBg = 'bg-success';
+                        _s.userKey.circleBg = 'bg-success-light';
+                        _s.userKey.buttonBg = 'bg-success-light';
+                        _s.userKey.resultText = '100% Authentic';
+                        _s.userKey.resultIcon = 'fe-check';
+                        _s.userKey.resultExplaination = 'Based on the FALCON results, your file is 100% authentic.';
+                        break;
+                    case '-4':
+                        _s.userKey.cardBg = 'bg-danger';
+                        _s.userKey.circleBg = 'bg-danger-light';
+                        _s.userKey.buttonBg = 'bg-danger-light';
+                        _s.userKey.resultText = 'Bad Signature';
+                        _s.userKey.resultIcon = 'fe-x';
+                        _s.userKey.resultExplaination = 'Based on the result, your signature does not match the provided message and public key.';
+                        break;
+                    case '-3':
+                        _s.userKey.cardBg = 'bg-warning';
+                        _s.userKey.circleBg = 'bg-warning-light';
+                        _s.userKey.buttonBg = 'bg-warning-light';
+                        _s.userKey.resultText = 'Invalid Requirements';
+                        _s.userKey.resultIcon = 'fe-alert-triangle';
+                        _s.userKey.resultExplaination = 'Decoding of an external object: public key, private key, signature failed. This happens when one of the requirements is invalid';
+                        break;
+                    default:
+                }
+                console.log(_s.userKey);
             } else if (c.data.message == 'Failed') {
                 Swal.fire({
                     icon: 'error',
@@ -242,5 +298,5 @@
         });
     }
 
-
+    
 }]);
