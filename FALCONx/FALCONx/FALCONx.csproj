@@ -532,6 +532,7 @@
     <Content Include="Scripts\AngularJS\Account\SignUp.js" />
     <Content Include="Scripts\AngularJS\Key\PrivateKey.js" />
     <Content Include="Scripts\AngularJS\Key\PublicKey.js" />
+    <Content Include="Scripts\AngularJS\Signature\SignFile.js" />
     <Content Include="Scripts\AngularJS\Signature\SignText.js" />
     <Content Include="Scripts\AngularJS\Verify\VerifyText.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
@@ -1322,6 +1323,7 @@
     <Content Include="Views\Key\PublicKey.cshtml" />
     <Content Include="Views\Signature\SignText.cshtml" />
     <Content Include="Views\Verify\VerifyText.cshtml" />
+    <Content Include="Views\Signature\SignFile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

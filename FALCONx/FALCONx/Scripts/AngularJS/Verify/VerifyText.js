@@ -254,7 +254,7 @@
                         _s.userKey.buttonBg = 'bg-success-light';
                         _s.userKey.resultText = '100% Authentic';
                         _s.userKey.resultIcon = 'fe-check';
-                        _s.userKey.resultExplaination = 'Based on the FALCON results, your file is 100% authentic.';
+                        _s.userKey.resultExplaination = 'Based on the FALCON results, your file is 100% authentic. RESULT: ' + _s.userKey.verificationResult;
                         break;
                     case '-4':
                         _s.userKey.cardBg = 'bg-danger';
@@ -262,7 +262,7 @@
                         _s.userKey.buttonBg = 'bg-danger-light';
                         _s.userKey.resultText = 'Bad Signature';
                         _s.userKey.resultIcon = 'fe-x';
-                        _s.userKey.resultExplaination = 'Based on the result, your signature does not match the provided message and public key.';
+                        _s.userKey.resultExplaination = 'Based on the result, your signature does not match the provided message and public key. RESULT: ' + _s.userKey.verificationResult;
                         break;
                     case '-3':
                         _s.userKey.cardBg = 'bg-warning';
@@ -270,7 +270,7 @@
                         _s.userKey.buttonBg = 'bg-warning-light';
                         _s.userKey.resultText = 'Invalid Requirements';
                         _s.userKey.resultIcon = 'fe-alert-triangle';
-                        _s.userKey.resultExplaination = 'Decoding of an external object: public key, private key, signature failed. This happens when one of the requirements is invalid';
+                        _s.userKey.resultExplaination = 'Decoding of an external object: public key, private key, signature failed. This happens when one of the requirements is invalid. RESULT: ' + _s.userKey.verificationResult;
                         break;
                     default:
                 }
