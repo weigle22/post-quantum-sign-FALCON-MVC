@@ -120,8 +120,8 @@
                                             <div class="modal-body">
                                                 <form action="/" class="dropzone bg-light rounded-lg" id="myDropzoneUploadFiles">
                                                     <div class="dz-message needsclick">
-                                                        <div class="circle circle-lg bg-primary" ng-class="{ 'bg-warning': userKey.showPrivateKey }">
-                                                            <i class="fe fe-upload fe-24 text-white" ng-class="{ 'fe-x': userKey.showPrivateKey }"></i>
+                                                        <div class="circle circle-lg bg-primary">
+                                                            <i class="fe fe-upload fe-24 text-white"></i>
                                                         </div>
                                                         <h5 class="text-muted mt-4">Drop private key file here or click to upload</h5>
                                                     </div>
@@ -137,9 +137,8 @@
                                 <!-- Modal -->
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="actionMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action </button>
                                 <div class="dropdown-menu" aria-labelledby="actionMenuButton" style="">
-                                    <a class="dropdown-item" href="#">Export</a>
-                                    <a class="dropdown-item" href="#">Delete</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="" ng-click="SignAllFiles(userKey)"><span class="fe fe-hash fe-16 mr-2"></span>Sign all</a>
+                                    <a class="dropdown-item" href="" ng-click="removeAllFiles(userKey)"><span class="fe fe-trash fe-16 mr-2"></span>Remove all</a>
                                 </div>
                             </div>
                         </div>
@@ -162,7 +161,6 @@
                                     <th>Size</th>
                                     <th>Type</th>
                                     <th>Date Modified</th>
-                                    <th>Result</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -180,16 +178,20 @@
                                     <td>{{ file.size | bytesToMB }}</td>
                                     <td>{{ file.name | fileExtension }}</td>
                                     <td>{{ file.lastModifiedDate | date: 'short' }}</td>
-                                    <td>{{ file.lastModifiedDate | date: 'short' }}</td>
-                                    <td>Status</td>
+                                    <td>
+                                        <span class="badge badge-pill" ng-class="{'badge-warning': !file.signedFile, 'badge-success': file.signedFile}" ng-hide="file.status === 'SIGNING'">{{ file.status }}</span>
+                                        <div class="spinner-grow mr-3 text-primary" role="status" ng-show="file.status === 'SIGNING'">
+                                            <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </td>
                                     <td>
                                         <div class="dropdown">
                                             <button class="btn btn-sm dropdown-toggle" type="button" id="dr1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span class="text-muted sr-only">Action</span>
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dr1" style="">
-                                                <a class="dropdown-item" href="" ng-click="SignFile(file, userKey)"><span class="fe fe-hash fe-16 mr-2"></span>Sign</a>
-                                                <a class="dropdown-item" href="" ng-click="DownloadSignedFile(file)"><span class="fe fe-download fe-16 mr-2"></span>Download Signature</a>
+                                                <a class="dropdown-item" href="" ng-click="SignFile(file, userKey)" ng-show="file.status == 'UNSIGNED'"><span class="fe fe-hash fe-16 mr-2"></span>Sign</a>
+                                                <a class="dropdown-item" href="" ng-click="DownloadSignedFile(file)" ng-show="file.status == 'SIGNED'"><span class="fe fe-download fe-16 mr-2"></span>Download Signature</a>
                                                 <a class="dropdown-item" href="" ng-click="removeFile($index)"><span class="fe fe-trash fe-16 mr-2"></span>Remove</a>
                                             </div>
                                         </div>

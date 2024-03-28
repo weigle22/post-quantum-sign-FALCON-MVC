@@ -113,6 +113,7 @@
         userKey.filesToSign.forEach(function (file) {
             var extension = file.upload.filename.split('.').pop();
             uniqueExtensions[extension] = true;
+            file.status = 'UNSIGNED';
         });
         _s.userKey.uniqueExtensionsArray = Object.keys(uniqueExtensions);
         _s.optionValues = [];
@@ -133,7 +134,85 @@
         _s.userKey.filesToSign.splice(index, 1);
     };
 
+    _s.removeAllFiles = function (userKey) {
+        userKey.filesToSign = [];
+    };
+
+    _s.SignAllFiles = async function (userKey) {
+        // Define a recursive function to sign files sequentially
+        async function signFilesSequentially(index) {
+            // Base case: if all files are signed, return
+            if (index === userKey.filesToSign.length) {
+                return;
+            }
+
+            // Get the current file
+            const file = userKey.filesToSign[index];
+
+            // Check if the file is already signed
+            if (file.status !== 'SIGNED') {
+                try {
+                    // Call SignFile and wait for it to complete
+                    await _s.SignFile(file, userKey);
+                } catch (error) {
+                    console.error('Error signing file:', error);
+                    // Handle the error
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Warning',
+                        text: 'Something went wrong while signing files!',
+                    });
+                }
+            }
+
+            // Process the next file recursively
+            await signFilesSequentially(index + 1);
+        }
+
+        // Start signing files sequentially, starting from index 0
+        await signFilesSequentially(0);
+    };
+
     _s.SignFile = function (file, userKey) {
+        return new Promise((resolve, reject) => {
+            file.status = 'SIGNING';
+            var formData = new FormData();
+            formData.append('userFile', file);
+            formData.append('privateKeyFile', userKey.privateKeyFile[0]);
+
+            _h.post("../Signature/SignFileMessage", formData, {
+                withCredentials: true,
+                headers: { 'Content-Type': undefined },
+                transformRequest: angular.identity,
+                responseType: 'arraybuffer'
+            }).then(function (response) {
+                var blob = new Blob([response.data], { type: 'application/zip' });
+                var fileName = "";
+
+                var contentDisposition = response.headers('Content-Disposition');
+                if (contentDisposition) {
+                    var fileNameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                    var matches = fileNameRegex.exec(contentDisposition);
+                    if (matches != null && matches[1]) {
+                        fileName = matches[1].replace(/['"]/g, '');
+                    }
+                }
+
+                file.signedFile = blob;
+                file.signedFileName = fileName;
+                file.status = 'SIGNED';
+                console.log(file);
+                resolve(file.status);
+            }).catch(function (error) {
+                console.error('Error calling API:', error);
+                reject(error);
+            });
+        });
+    };
+
+
+    _s.SignFile22 = function (file, userKey) {
+        file.status = 'SIGNING';
         var formData = new FormData();
         formData.append('userFile', file);
         formData.append('privateKeyFile', userKey.privateKeyFile[0]);
@@ -159,7 +238,10 @@
 
             file.signedFile = blob;
             file.signedFileName = fileName;
+            file.status = 'SIGNED'
             console.log(file)
+
+            return file.status;
 
         }, function (error) {
             // Error callback
