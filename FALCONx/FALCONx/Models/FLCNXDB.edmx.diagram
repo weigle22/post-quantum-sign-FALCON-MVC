@@ -4,11 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="63a4d348e1524138a559f6015c36a522" Name="Diagram1">
+      <Diagram DiagramId="63a4d348e1524138a559f6015c36a522" Name="Diagram1" ZoomLevel="89">
         <EntityTypeShape EntityType="FLCNX_DBModel.C__RefactorLog" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FLCNX_DBModel.User" Width="1.5" PointX="3.375" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="FLCNX_DBModel.tUser" Width="1.5" PointX="0.75" PointY="2.75" />
         <EntityTypeShape EntityType="FLCNX_DBModel.tUserKey" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="FLCNX_DBModel.tUserImage" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FLCNX_DBModel.tUser" Width="1.5" PointX="0.75" PointY="2.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

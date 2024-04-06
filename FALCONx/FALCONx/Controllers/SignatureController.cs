@@ -14,6 +14,7 @@ using static FALCONx.Models.FalconModels;
 
 namespace FALCONx.Controllers
 {
+    [SessionTimeout]
     public class SignatureController : Controller
     {
 
@@ -22,11 +23,7 @@ namespace FALCONx.Controllers
         private DateTime dtNow = DateTime.Now;
 
         // GET: Signature
-        public ActionResult Index()
-        {
-            return View();
-        }
-
+        [User]
         public ActionResult SignText()
         {
             return View();
@@ -95,7 +92,7 @@ namespace FALCONx.Controllers
             }
         }
 
-
+        [User]
         public ActionResult SignFile()
         {
             return View();

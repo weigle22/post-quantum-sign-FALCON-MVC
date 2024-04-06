@@ -16,16 +16,18 @@ namespace FALCONx.Models
     {
         public string userID { get; set; }
         public string email { get; set; }
-        public Nullable<bool> verified_email { get; set; }
-        public string name { get; set; }
         public string given_name { get; set; }
         public string family_name { get; set; }
-        public string picture { get; set; }
+        public string middle_name { get; set; }
+        public string company { get; set; }
+        public string position { get; set; }
+        public string mobile_number { get; set; }
+        public string address { get; set; }
         public string username { get; set; }
         public string password { get; set; }
-        public string signature { get; set; }
-        public Nullable<System.DateTime> dtAdded { get; set; }
+        public Nullable<System.DateTime> date_added { get; set; }
         public string role { get; set; }
         public Nullable<bool> isActive { get; set; }
+        public string signature { get; set; }
     }
 }

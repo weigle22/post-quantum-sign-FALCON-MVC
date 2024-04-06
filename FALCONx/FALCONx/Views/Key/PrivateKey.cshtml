@@ -3,6 +3,7 @@
     ViewBag.Title = "PrivateKey";
 }
 
+
 <div class="col-12" ng-controller="PrivateKeyController" ng-init="onLoad();">
     <h2 class="page-title">Private Key</h2>
     <p class="text-muted">Let's generate your private key</p>
@@ -15,14 +16,14 @@
                 </div>
                 <div class="card-body">
 
-                    <div class="mx-auto text-center" ng-show="userKey.publicKey != null">
+                    <!--<div class="mx-auto text-center" ng-show="userKey.publicKey != null">
                         <h1 class="display-1 m-0 font-weight-bolder text-muted" style="font-size:80px;">Accepted</h1>
                         <h1 class="mb-1 text-muted font-weight-bold">Private Key Already Accepted</h1>
-                        <h6 class="mb-3 text-muted">You already have a copy of your private key</h6>
-                        @*<a href="./index.html" class="btn btn-lg btn-primary px-5">Back to Dashboard</a>*@
-                    </div>
+                        <h6 class="mb-3 text-muted">You already have a copy of your private key</h6>-->
+                    @*<a href="./index.html" class="btn btn-lg btn-primary px-5">Back to Dashboard</a>*@
+                    <!--</div>-->
 
-                    <form class="needs-validation" novalidate="" ng-show="userKey.publicKey == null">
+                    <form class="needs-validation" novalidate="">
 
                         <div class="form-group mb-3">
                             <p>
@@ -33,33 +34,35 @@
                             <textarea class="form-control" id="validationTextarea" disabled placeholder="Empty ..." rows="15" ng-model="userKey.privateKey"></textarea>
                             <div class="invalid-feedback"> Please enter a message in the textarea. </div>
                         </div>
-                        <button type="button" class="btn mb-2 btn-primary" 
-                                ng-show="userKey.privateKey == null" 
+                        <button type="button" class="btn mb-2 btn-primary"
+                                ng-show="userKey.privateKey == null && !userKey.privAccepted"
                                 ng-click="generatePrivateKey()">
-                        <span class="fe fe-hash fe-16 mr-2" type="submit"></span>Generate
-                        </button>
-                        
-                        <button type="button" class="btn mb-2 btn-primary" 
-                                ng-show="userKey.privateKey != null && !userKey.accepted" 
-                                ng-click="generatePrivateKey()">
-                        <span class="fe fe-repeat fe-16 mr-2" type="submit"></span>Regenerate
+                            <span class="fe fe-hash fe-16 mr-2" type="submit"></span>Generate
                         </button>
 
-                        <button type="button" class="btn mb-2 btn-info" 
-                                ng-show="userKey.privateKey != null && !userKey.accepted" 
+                        <button type="button" class="btn mb-2 btn-primary"
+                                ng-show="userKey.privateKey != null && !userKey.privAccepted"
+                                ng-click="generatePrivateKey()">
+                            <span class="fe fe-repeat fe-16 mr-2" type="submit"></span>Regenerate
+                        </button>
+
+                        <button type="button" class="btn mb-2 btn-info"
+                                ng-show="userKey.privateKey != null && !userKey.privAccepted"
                                 ng-click="acceptPrivateKey(userKey)">
-                        <span class="fe fe-check fe-16 mr-2" type="submit"></span>Accept
+                            <span class="fe fe-check fe-16 mr-2" type="submit"></span>Accept
                         </button>
 
-                        <button type="button" class="btn mb-2 btn-success" 
-                                ng-show="userKey.privateKey != null && userKey.accepted" 
+                        <button type="button" class="btn mb-2 btn-success"
+                                ng-show="userKey.privateKey != null && userKey.privAccepted"
                                 ng-click="downloadPrivateKey(userKey)" title="Download">
-                        <span class="fe fe-download fe-16"></span></button>
+                            <span class="fe fe-download fe-16"></span>
+                        </button>
 
-                        <button type="button" class="btn mb-2 btn-secondary" 
-                                ng-show="userKey.privateKey != null && userKey.accepted" 
+                        <button type="button" class="btn mb-2 btn-secondary"
+                                ng-show="userKey.privateKey != null && userKey.privAccepted"
                                 ng-click="copyToClipboard(userKey)" title="Copy to clipboard">
-                        <span class="fe fe-copy fe-16"></span></button>
+                            <span class="fe fe-copy fe-16"></span>
+                        </button>
                     </form>
                 </div> <!-- /.card-body -->
             </div> <!-- /.card -->

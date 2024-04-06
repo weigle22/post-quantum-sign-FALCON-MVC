@@ -1,4 +1,4 @@
-﻿app.controller('PublicKeyController', ['$scope', '$rootScope', '$http', '$filter', function (_s, _rs, _h, _f) {
+﻿app.controller('PublicKeyController', ['$scope', '$rootScope', '$http', '$filter', '$controller', function (_s, _rs, _h, _f, _c) {
 
     _s.onLoad = function () {
         _h.post("../Key/GetUserKeys").then(function (c) {
@@ -134,6 +134,7 @@
                     if (c.data.message == 'Success') {
                         _s.userKey = c.data.userKey;
                         _s.downloadPublicKey(_s.userKey);
+                        _rs.$emit('executeOnLoad');
                     } else if (c.data.message == 'Invalid') {
                         Swal.fire({
                             icon: 'error',

@@ -12,17 +12,29 @@
     </Key>
     <Property Name="userID" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="email" Type="varchar" MaxLength="255" />
-    <Property Name="verified_email" Type="bit" />
-    <Property Name="name" Type="varchar" MaxLength="100" />
     <Property Name="given_name" Type="varchar" MaxLength="100" />
     <Property Name="family_name" Type="varchar" MaxLength="100" />
-    <Property Name="picture" Type="varchar" MaxLength="255" />
+    <Property Name="middle_name" Type="varchar" MaxLength="100" />
+    <Property Name="company" Type="varchar" MaxLength="100" />
+    <Property Name="position" Type="varchar" MaxLength="100" />
+    <Property Name="mobile_number" Type="varchar" MaxLength="20" />
+    <Property Name="address" Type="varchar" MaxLength="100" />
     <Property Name="username" Type="varchar" MaxLength="20" />
     <Property Name="password" Type="varchar" MaxLength="70" />
-    <Property Name="signature" Type="varchar" MaxLength="255" />
-    <Property Name="dtAdded" Type="date" />
+    <Property Name="date_added" Type="datetime" />
     <Property Name="role" Type="varchar" MaxLength="10" />
     <Property Name="isActive" Type="bit" />
+    <Property Name="signature" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tUserImage">
+    <Key>
+      <PropertyRef Name="recNo" />
+    </Key>
+    <Property Name="recNo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="profile_picture" Type="image" />
+    <Property Name="valid_id1" Type="image" />
+    <Property Name="valid_id2" Type="image" />
+    <Property Name="userID" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="tUserKey">
     <Key>
@@ -37,6 +49,8 @@
     <Property Name="dtModified" Type="datetime" />
     <Property Name="dtRevoked" Type="datetime" />
     <Property Name="accepted" Type="bit" />
+    <Property Name="privAccepted" Type="bit" />
+    <Property Name="pubAccepted" Type="bit" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -65,6 +79,7 @@
   <EntityContainer Name="FLCNX_DBModelStoreContainer">
     <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tUser" EntityType="Self.tUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tUserImage" EntityType="Self.tUserImage" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tUserKey" EntityType="Self.tUserKey" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
   </EntityContainer>

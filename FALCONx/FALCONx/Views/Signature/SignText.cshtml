@@ -3,57 +3,13 @@
     ViewBag.Title = "SignText";
 }
 
-<style>
-    .dz-remove {
-        display: inline-block !important;
-        width: 1.5em;
-        height: 1.5em;
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        z-index: 1000;
-        font-size: 1.5em !important;
-        line-height: 1em;
-        text-align: center;
-        font-weight: bold;
-        border: 1px solid gray !important;
-        border-radius: 1.5em;
-        color: red;
-        background-color: white;
-        opacity: .5;
-        padding-top: 3px;
-    }
-
-        .dz-remove:hover {
-            text-decoration: none !important;
-            opacity: 1;
-        }
-
-</style>
-
 <div class="col-12" ng-app="" ng-controller="SignTextController" ng-init="onLoad();">
-    <h2 class="page-title">Sign Text</h2>
+    <h2 class="page-title">Sign Text/String</h2>
     <p class="text-muted">Let's generate signatures to your texts</p>
 
     <div class="row align-items-stretch mb-2">
-        <div class="col-md-4 d-flex">
-            <div class="card shadow mb-4 w-100">
-                <div class="card-header">
-                    <strong class="card-title">Attach Private Key File</strong>
-                </div>
-                <div class="card-body">
-                    <form action="/" class="dropzone bg-light rounded-lg" id="myDropzone">
-                        <div class="dz-message needsclick">
-                            <div class="circle circle-lg bg-primary" ng-class="{ 'bg-warning': userKey.showPrivateKey }">
-                                <i class="fe fe-upload fe-24 text-white" ng-class="{ 'fe-x': userKey.showPrivateKey }"></i>
-                            </div>
-                            <h5 class="text-muted mt-4">{{ userKey.dropzoneText }}</h5>
-                        </div>
-                    </form>
-                </div> <!-- /.card-body -->
-            </div> <!-- /.card -->
-        </div>
-        <div class="col-md-8 d-flex">
+        
+        <div class="col-md-12 d-flex">
             <div class="card shadow mb-4 w-100">
                 <div class="card-header">
                     <strong class="card-title">Private Key Content</strong>
@@ -81,13 +37,13 @@
                 <div class="card-body">
                     <form class="needs-validation" novalidate="">
                         <div class="form-group mb-3">
-                            <textarea class="form-control" id="validationTextarea" placeholder="Write a text to sign" rows="10" 
-                                      ng-model="userKey.textMessage" 
+                            <textarea class="form-control" id="validationTextarea" placeholder="Write a string text to sign" rows="10"
+                                      ng-model="userKey.textMessage"
                                       ng-change="ChangeTextMessage(userKey)"
                                       ng-disabled="!userKey.privateKey"></textarea>
                             <div class="invalid-feedback"> Please enter a message in the textarea. </div>
                         </div>
-                        <button type="button" class="btn mb-2 btn-primary" 
+                        <button type="button" class="btn mb-2 btn-primary"
                                 ng-show="userKey.textMessage"
                                 ng-click="SignMessage(userKey)">
                             <span class="fe fe-hash fe-16 mr-2" type="submit"></span>Sign
@@ -111,14 +67,22 @@
                             <textarea class="form-control" id="validationTextarea" ng-disabled="true" placeholder="Empty ..." rows="10" ng-model="userKey.textSignature"></textarea>
                             <div class="invalid-feedback"> Please enter a message in the textarea. </div>
                         </div>
-                        <button type="button" class="btn mb-2 btn-primary" 
-                                ng-show="userKey.textMessage && userKey.textSignature" 
+
+                        <div class="form-group mb-3">
+                            <div class="custom-control custom-switch" ng-show="userKey.textMessage">
+                                <input type="checkbox" class="custom-control-input" id="c3" ng-model="userKey.includePublicKey" ng-change="toggleIncludePublicKey(userKey)">
+                                <label class="custom-control-label" for="c3">Include public key on download</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn mb-2 btn-primary"
+                                ng-show="userKey.textMessage && userKey.textSignature"
                                 ng-click="DownloadSignedMessage(userKey)">
                             <span class="fe fe-download fe-16 mr-2" type="submit"></span>Download signed message
                         </button>
 
                         <button type="button" class="btn mb-2 btn-secondary"
-                                ng-show="userKey.textMessage && userKey.textSignature"
+                                ng-show="userKey.textMessage && userKey.textSignature && userKey.showTextSignature"
                                 ng-click="copyToClipboard(userKey)" title="Copy to clipboard">
                             <span class="fe fe-copy fe-16"></span>
                         </button>

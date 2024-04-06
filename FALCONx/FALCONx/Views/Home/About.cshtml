@@ -1,11 +1,124 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
 
-    <p>Use this area to provide additional information.</p>
-</main>
+<style>
+    .dz-remove {
+        display: inline-block !important;
+        width: 1.5em;
+        height: 1.5em;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        z-index: 1000;
+        font-size: 1.5em !important;
+        line-height: 1em;
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid gray !important;
+        border-radius: 1.5em;
+        color: red;
+        background-color: white;
+        opacity: .5;
+        padding-top: 3px;
+    }
 
-<a target="_blank" href="@ViewBag.response">Google Sign In</a>
+        .dz-remove:hover {
+            text-decoration: none !important;
+            opacity: 1;
+        }
+</style>
+
+<div class="col-12" ng-controller="AboutController" ng-init="onLoad();">
+    <div class="w-50 mx-auto text-center justify-content-center py-5 my-5">
+        <h2 class="page-title mb-0">Welcome to SIGNA</h2>
+        <p class="lead text-muted mb-4">How can we help?</p>
+        <h3 class="mb-6 text-3xl font-bold leading-snug sm:text-4xl sm:leading-snug lg:text-5xl lg:leading-[1.2]">
+            A <u>Fa</u>st-Fourier <u>L</u>attice-based <u>Co</u>mpact Signatures Over <u>N</u>TRU (FALCON)
+        </h3>
+        <form class="searchform searchform-lg">
+            <input class="form-control form-control-lg bg-white rounded-pill pl-5" type="search" placeholder="Search" aria-label="Search">
+            <p class="help-text mt-2 text-muted">Quantum safe digital signatures</p>
+        </form>
+
+    </div>
+    <div class="row my-4">
+        <div class="col-6 col-lg-3">
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <i class="fe fe-info fe-32 text-primary"></i>
+                    <a href="#">
+                        <h3 class="h5 mt-4 mb-1">Getting started</h3>
+                    </a>
+                    <p class="text-muted">Start working with the tech</p>
+                </div> <!-- .card-body -->
+            </div> <!-- .card -->
+        </div> <!-- .col-md-->
+        <div class="col-6 col-lg-3">
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <i class="fe fe-help-circle fe-32 text-success"></i>
+                    <a href="./page-faqs.html">
+                        <h3 class="h5 mt-4 mb-1">FAQs</h3>
+                    </a>
+                    <p class="text-muted">Frequently asked questions</p>
+                </div> <!-- .card-body -->
+            </div> <!-- .card -->
+        </div> <!-- .col-md-->
+        <div class="col-6 col-lg-3">
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <i class="fe fe-globe fe-32 text-warning"></i>
+                    <a href="#">
+                        <h3 class="h5 mt-4 mb-1">Knowledge Base</h3>
+                    </a>
+                    <p class="text-muted">Learn more about products?</p>
+                </div> <!-- .card-body -->
+            </div> <!-- .card -->
+        </div> <!-- .col-md-->
+        <div class="col-6 col-lg-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <i class="fe fe-alert-triangle fe-32 text-danger"></i>
+                    <a href="#">
+                        <h3 class="h5 mt-4 mb-1">Reporting</h3>
+                    </a>
+                    <p class="text-muted">Report a bug</p>
+                </div> <!-- .card-body -->
+            </div> <!-- .card -->
+        </div> <!-- .col-md-->
+    </div> <!-- .row -->
+    <div class="my-5 p-5">
+        <div class="text-center">
+            <h2 class="mb-0">About FALCON</h2>
+            <p class="lead text-muted mb-5">Here's why ..</p>
+        </div>
+        <div class="row my-5">
+            <div class="col-md-4">
+                <h3 class="h5 mt-4 mb-1">Post-Quantum Security</h3>
+                <p class="text-muted mb-4">Know more about the tech</p>
+                <p style="text-align: justify">
+                    FALCON provides security against attacks from quantum computers. Unlike traditional cryptographic schemes, which are vulnerable to attacks from quantum computers due to their reliance on mathematical problems such as integer factorization and discrete logarithms, FALCON is based on lattice-based cryptography, which is believed to be resistant to quantum attacks.
+                </p>
+            </div> <!-- .col-md-->
+            <div class="col-md-4">
+                <h3 class="h5 mt-4 mb-1">Efficiency</h3>
+                <p class="text-muted mb-4">How effficient it is?</p>
+                <p style="text-align: justify">
+                    FALCON offers efficient signature generation and verification processes. By leveraging techniques such as Fast Fourier Transform (FFT) algorithms, FALCON achieves a balance between security and performance, making it suitable for use in various practical applications where both security and efficiency are essential.
+                </p>
+            </div> <!-- .col-md-->
+            <div class="col-md-4">
+                <h3 class="h5 mt-4 mb-1">Compact Signatures</h3>
+                <p class="text-muted mb-4">It is compact</p>
+                <p style="text-align: justify">
+                    FALCON produces compact digital signatures. This is particularly important in applications where bandwidth and storage are limited, such as IoT devices or communication networks. FALCON's ability to generate small-sized signatures makes it practical for deployment in resource-constrained environments without compromising security.
+                </p>
+            </div> <!-- .col-md-->
+        </div> <!-- .row -->
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/AngularJS/Home/About.js"></script>
+}

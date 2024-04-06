@@ -17,17 +17,29 @@
           </Key>
           <Property Name="userID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="255" />
-          <Property Name="verified_email" Type="bit" />
-          <Property Name="name" Type="varchar" MaxLength="100" />
           <Property Name="given_name" Type="varchar" MaxLength="100" />
           <Property Name="family_name" Type="varchar" MaxLength="100" />
-          <Property Name="picture" Type="varchar" MaxLength="255" />
+          <Property Name="middle_name" Type="varchar" MaxLength="100" />
+          <Property Name="company" Type="varchar" MaxLength="100" />
+          <Property Name="position" Type="varchar" MaxLength="100" />
+          <Property Name="mobile_number" Type="varchar" MaxLength="20" />
+          <Property Name="address" Type="varchar" MaxLength="100" />
           <Property Name="username" Type="varchar" MaxLength="20" />
           <Property Name="password" Type="varchar" MaxLength="70" />
-          <Property Name="signature" Type="varchar" MaxLength="255" />
-          <Property Name="dtAdded" Type="date" />
+          <Property Name="date_added" Type="datetime" />
           <Property Name="role" Type="varchar" MaxLength="10" />
           <Property Name="isActive" Type="bit" />
+          <Property Name="signature" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="tUserImage">
+          <Key>
+            <PropertyRef Name="recNo" />
+          </Key>
+          <Property Name="recNo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="profile_picture" Type="image" />
+          <Property Name="valid_id1" Type="image" />
+          <Property Name="valid_id2" Type="image" />
+          <Property Name="userID" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="tUserKey">
           <Key>
@@ -42,6 +54,8 @@
           <Property Name="dtModified" Type="datetime" />
           <Property Name="dtRevoked" Type="datetime" />
           <Property Name="accepted" Type="bit" />
+          <Property Name="privAccepted" Type="bit" />
+          <Property Name="pubAccepted" Type="bit" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -70,6 +84,7 @@
         <EntityContainer Name="FLCNX_DBModelStoreContainer">
           <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tUser" EntityType="Self.tUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tUserImage" EntityType="Self.tUserImage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tUserKey" EntityType="Self.tUserKey" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -110,8 +125,9 @@
             <Parameter Name="FirstName" Mode="In" Type="String" />
             <Parameter Name="LastName" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="tUsers" EntityType="FLCNX_DBModel.tUser" />
           <EntitySet Name="tUserKeys" EntityType="FLCNX_DBModel.tUserKey" />
+          <EntitySet Name="tUserImages" EntityType="FLCNX_DBModel.tUserImage" />
+          <EntitySet Name="tUsers" EntityType="FLCNX_DBModel.tUser" />
         </EntityContainer>
         <ComplexType Name="spUser_Get_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -123,24 +139,6 @@
           <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" />
         </ComplexType>
-        <EntityType Name="tUser">
-          <Key>
-            <PropertyRef Name="userID" />
-          </Key>
-          <Property Name="userID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="verified_email" Type="Boolean" />
-          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="given_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="family_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="picture" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="password" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="signature" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="dtAdded" Type="DateTime" Precision="0" />
-          <Property Name="role" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="isActive" Type="Boolean" />
-        </EntityType>
         <EntityType Name="tUserKey">
           <Key>
             <PropertyRef Name="keyID" />
@@ -154,6 +152,38 @@
           <Property Name="dtModified" Type="DateTime" Precision="3" />
           <Property Name="dtRevoked" Type="DateTime" Precision="3" />
           <Property Name="accepted" Type="Boolean" />
+          <Property Name="privAccepted" Type="Boolean" />
+          <Property Name="pubAccepted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tUserImage">
+          <Key>
+            <PropertyRef Name="recNo" />
+          </Key>
+          <Property Name="recNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="profile_picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="valid_id1" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="valid_id2" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="userID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tUser">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="given_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="family_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="middle_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="company" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="position" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mobile_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <Property Name="role" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="isActive" Type="Boolean" />
+          <Property Name="signature" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -198,28 +228,11 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spUser_Insert" FunctionName="FLCNX_DBModel.Store.spUser_Insert" />
           <FunctionImportMapping FunctionImportName="spUser_Update" FunctionName="FLCNX_DBModel.Store.spUser_Update" />
-          <EntitySetMapping Name="tUsers">
-            <EntityTypeMapping TypeName="FLCNX_DBModel.tUser">
-              <MappingFragment StoreEntitySet="tUser">
-                <ScalarProperty Name="isActive" ColumnName="isActive" />
-                <ScalarProperty Name="role" ColumnName="role" />
-                <ScalarProperty Name="dtAdded" ColumnName="dtAdded" />
-                <ScalarProperty Name="signature" ColumnName="signature" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="username" ColumnName="username" />
-                <ScalarProperty Name="picture" ColumnName="picture" />
-                <ScalarProperty Name="family_name" ColumnName="family_name" />
-                <ScalarProperty Name="given_name" ColumnName="given_name" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="verified_email" ColumnName="verified_email" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="userID" ColumnName="userID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tUserKeys">
             <EntityTypeMapping TypeName="FLCNX_DBModel.tUserKey">
               <MappingFragment StoreEntitySet="tUserKey">
+                <ScalarProperty Name="pubAccepted" ColumnName="pubAccepted" />
+                <ScalarProperty Name="privAccepted" ColumnName="privAccepted" />
                 <ScalarProperty Name="accepted" ColumnName="accepted" />
                 <ScalarProperty Name="dtRevoked" ColumnName="dtRevoked" />
                 <ScalarProperty Name="dtModified" ColumnName="dtModified" />
@@ -229,6 +242,38 @@
                 <ScalarProperty Name="privateKey" ColumnName="privateKey" />
                 <ScalarProperty Name="userID" ColumnName="userID" />
                 <ScalarProperty Name="keyID" ColumnName="keyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tUserImages">
+            <EntityTypeMapping TypeName="FLCNX_DBModel.tUserImage">
+              <MappingFragment StoreEntitySet="tUserImage">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="valid_id2" ColumnName="valid_id2" />
+                <ScalarProperty Name="valid_id1" ColumnName="valid_id1" />
+                <ScalarProperty Name="profile_picture" ColumnName="profile_picture" />
+                <ScalarProperty Name="recNo" ColumnName="recNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tUsers">
+            <EntityTypeMapping TypeName="FLCNX_DBModel.tUser">
+              <MappingFragment StoreEntitySet="tUser">
+                <ScalarProperty Name="signature" ColumnName="signature" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="mobile_number" ColumnName="mobile_number" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="middle_name" ColumnName="middle_name" />
+                <ScalarProperty Name="family_name" ColumnName="family_name" />
+                <ScalarProperty Name="given_name" ColumnName="given_name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

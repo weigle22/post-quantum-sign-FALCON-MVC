@@ -1,57 +1,7 @@
-﻿app.controller('SignFileController', ['$scope', '$rootScope', '$http', '$filter', function (_s, _rs, _h, _f) {
+﻿app.controller('SignFileController', ['$scope', '$rootScope', '$http', '$filter', 'fileService', function (_s, _rs, _h, _f, _fs) {
 
     // Ensure that Dropzone is properly initialized before accessing it
     Dropzone.autoDiscover = false;
-
-    // Initialize Dropzone
-    _s.myDropzone = new Dropzone("#myDropzone", {
-        // Dropzone configuration options
-        addRemoveLinks: true,
-        // Dropzone configuration options
-        dictRemoveFile: '<i class="fe fe-trash"></i>',
-        maxFiles: 1, // Restrict to one file upload
-        acceptedFiles: '.key',
-        init: function () {
-            this.on("addedfile", function (file) {
-                if (this.files.length > 1) {
-                    this.removeFile(file); // Remove the extra file
-                }
-                var reader = new FileReader();
-                reader.onload = function (event) {
-                    _s.userKey.privateKey = event.target.result;
-                    _s.userKey.hiddenPrivateKey = _s.userKey.privateKey;
-                    _s.userKey.privateKey = '*'.repeat(_s.userKey.privateKey.length);
-                    _s.$apply(); // Apply changes to AngularJS scope
-                };
-
-                _s.$apply(function () {
-                    _s.userKey.privateKeyFile.push(file); // Add file to uploadedFiles array
-                });
-
-                reader.readAsText(file);
-            });
-            this.on("removedfile", function (file) {
-                _s.userKey.privateKey = null; // Clear the privateKey
-                _s.userKey.textMessage = null; // Clear the textMessage
-                _s.userKey.textSignature = null; // Clear the textSignature
-
-                _s.$apply(); // Apply changes to AngularJS scope
-                _s.$apply(function () {
-                    var index = _s.userKey.privateKeyFile.indexOf(file);
-                    if (index !== -1) {
-                        _s.userKey.privateKeyFile.splice(index, 1); // Remove file from uploadedFiles array
-                    }
-                });
-            });
-            this.on("maxfilesexceeded", function (file) {
-                Swal.fire({
-                    icon: 'info',
-                    title: 'One key file only',
-                    text: 'Click delete button to change the selected key',
-                });
-            });
-        }
-    });
 
     _s.myDropzoneUploadFiles = new Dropzone("#myDropzoneUploadFiles", {
         addRemoveLinks: true,
@@ -68,18 +18,32 @@
 
 
     _s.onLoad = function () {
+
+        var sessionUserName = _fs.getSessionUserName();
         _h.post("../Key/GetUserKeys").then(function (c) {
             _s.userKey = c.data.userKey;
             if (_s.userKey == null) {
                 _s.userKey = {};
             }
             _s.userKey.showPrivateKey = false;
-            _s.userKey.privateKeyFile = [];
+            //_s.userKey.privateKeyFile = [];
             _s.userKey.dropZoneFiles = [];
             _s.userKey.filesToSign = [];
             _s.userKey.hiddenPrivateKey = '';
             _s.userKey.showPrivateKey = false;
             _s.searchTerm = '';
+            _s.userKey.includePublicKey = true;
+            _s.userKey.sessionUserName = sessionUserName;
+
+            _s.userPrivateKeyObj = _fs.getFileText();
+            if (_s.userPrivateKeyObj != null) {
+                if (_s.userPrivateKeyObj.userPrivateKeyBlob != null) {
+                    _s.userKey.privateKeyFile = _s.userPrivateKeyObj.userPrivateKeyBlob;
+                    _s.userKey.privateKey = _s.userPrivateKeyObj.userPrivateKey;
+                    _s.userKey.hiddenPrivateKey = _s.userKey.privateKey;
+                    _s.userKey.privateKey = '*'.repeat(_s.userKey.privateKey.length);
+                }
+            }
         }, function () {
             Swal.fire({
                 icon: 'error',
@@ -178,7 +142,71 @@
             file.status = 'SIGNING';
             var formData = new FormData();
             formData.append('userFile', file);
-            formData.append('privateKeyFile', userKey.privateKeyFile[0]);
+            formData.append('privateKeyFile', userKey.privateKeyFile);
+
+            _h.post("../Signature/SignFileMessage", formData, {
+                withCredentials: true,
+                headers: { 'Content-Type': undefined },
+                transformRequest: angular.identity,
+                responseType: 'arraybuffer'
+            }).then(function (response) {
+                var blob = new Blob([response.data], { type: 'application/zip' });
+                var fileName = getFileNameFromResponse(response);
+
+                if (userKey.includePublicKey) {
+                    addPublicKeyToZip(file, userKey, blob, fileName)
+                        .then(updatedBlob => {
+                            file.signedFile = updatedBlob;
+                            file.signedFileName = fileName;
+                            file.status = 'SIGNED'; // Updated here
+                            resolve(file.status);
+                            _s.$apply();
+                        })
+                        .catch(error => {
+                            console.error('Error processing ZIP with public key:', error);
+                            reject(error);
+                        });
+                } else {
+                    file.signedFile = blob;
+                    file.signedFileName = fileName;
+                    file.status = 'SIGNED'; // Updated here
+                    resolve(file.status);
+                }
+            }).catch(function (error) {
+                console.error('Error calling API:', error);
+                file.status = 'ERROR'; // Update status in case of error
+                reject(error);
+            });
+        });
+    };
+
+    function getFileNameFromResponse(response) {
+        var contentDisposition = response.headers('Content-Disposition');
+        if (contentDisposition) {
+            var fileNameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+            var matches = fileNameRegex.exec(contentDisposition);
+            if (matches && matches[1]) {
+                return matches[1].replace(/['"]/g, '');
+            }
+        }
+        return "";
+    }
+
+    function addPublicKeyToZip(file, userKey, blob, fileName) {
+        var zip = new JSZip();
+        zip.file(_s.userKey.sessionUserName + '.key', userKey.publicKey);
+        return zip.loadAsync(blob).then(() => zip.generateAsync({ type: "blob" }));
+    }
+
+
+
+    _s.SignFile33 = function (file, userKey) {
+
+        return new Promise((resolve, reject) => {
+            file.status = 'SIGNING';
+            var formData = new FormData();
+            formData.append('userFile', file);
+            formData.append('privateKeyFile', userKey.privateKeyFile);
 
             _h.post("../Signature/SignFileMessage", formData, {
                 withCredentials: true,
@@ -198,11 +226,31 @@
                     }
                 }
 
-                file.signedFile = blob;
-                file.signedFileName = fileName;
-                file.status = 'SIGNED';
-                console.log(file);
-                resolve(file.status);
+                if (userKey.includePublicKey) {
+                    // Create a new JSZip instance
+                    var zip = new JSZip();
+                    // Add public.key file of the signer
+                    zip.file(_s.userKey.sessionUserName + '.key', userKey.publicKey);
+                    // Add the original zip blob to the new zip instance
+                    zip.loadAsync(blob).then(function () {
+                        // Generate the updated zip blob
+                        return zip.generateAsync({ type: "blob" });
+                    }).then(function (updatedBlob) {
+                        // Assign the updated zip blob to file.signedFile
+                        file.signedFile = updatedBlob;
+                        file.signedFileName = fileName;
+                        file.status = 'SIGNED';
+                        _s.$apply();
+                        resolve(file.status);
+                    });
+                }
+                else {
+                    // Assign the original zip blob to file.signedFile
+                    file.signedFile = blob;
+                    file.signedFileName = fileName;
+                    file.status = 'SIGNED';
+                    resolve(file.status);
+                }
             }).catch(function (error) {
                 console.error('Error calling API:', error);
                 reject(error);
@@ -210,47 +258,53 @@
         });
     };
 
-
     _s.SignFile22 = function (file, userKey) {
-        file.status = 'SIGNING';
-        var formData = new FormData();
-        formData.append('userFile', file);
-        formData.append('privateKeyFile', userKey.privateKeyFile[0]);
 
-        _h.post("../Signature/SignFileMessage", formData, {
-            withCredentials: true,
-            headers: { 'Content-Type': undefined },
-            transformRequest: angular.identity,
-            responseType: 'arraybuffer' // Specify the response type as arraybuffer to handle binary data
-        }).then(function (response) {
-            var blob = new Blob([response.data], { type: 'application/zip' });
-            var fileName = ""; // Initialize fileName variable
+        return new Promise((resolve, reject) => {
+            file.status = 'SIGNING';
+            var formData = new FormData();
+            formData.append('userFile', file);
+            formData.append('privateKeyFile', userKey.privateKeyFile);
 
-            // Extract the file name from the Content-Disposition header, if available
-            var contentDisposition = response.headers('Content-Disposition');
-            if (contentDisposition) {
-                var fileNameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
-                var matches = fileNameRegex.exec(contentDisposition);
-                if (matches != null && matches[1]) {
-                    fileName = matches[1].replace(/['"]/g, '');
+            _h.post("../Signature/SignFileMessage", formData, {
+                withCredentials: true,
+                headers: { 'Content-Type': undefined },
+                transformRequest: angular.identity,
+                responseType: 'arraybuffer'
+            }).then(function (response) {
+                var blob = new Blob([response.data], { type: 'application/zip' });
+                var fileName = "";
+
+                var contentDisposition = response.headers('Content-Disposition');
+                if (contentDisposition) {
+                    var fileNameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                    var matches = fileNameRegex.exec(contentDisposition);
+                    if (matches != null && matches[1]) {
+                        fileName = matches[1].replace(/['"]/g, '');
+                    }
                 }
-            }
 
-            file.signedFile = blob;
-            file.signedFileName = fileName;
-            file.status = 'SIGNED'
-            console.log(file)
+                if (userKey.includePublicKey) {
+                    var zip = new JSZip();
+                    zip.file(_s.userKey.sessionUserName + '.key', userKey.publicKey);
+                    zip.file(fileName, blob);
 
-            return file.status;
+                    zip.generateAsync({ type: "blob" }).then(function (content) {
+                        file.signedFile = content;
+                    });
 
-        }, function (error) {
-            // Error callback
-            console.error('Error calling API:', error);
-            // Handle the error
-            Swal.fire({
-                icon: 'error',
-                title: 'Warning',
-                text: 'Something went wrong!',
+                }
+                else {
+                    file.signedFile = blob;
+                }
+
+                //file.signedFile = blob;
+                file.signedFileName = fileName;
+                file.status = 'SIGNED';
+                resolve(file.status);
+            }).catch(function (error) {
+                console.error('Error calling API:', error);
+                reject(error);
             });
         });
     };

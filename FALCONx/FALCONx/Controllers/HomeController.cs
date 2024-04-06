@@ -8,6 +8,7 @@ using GoogleAuthentication.Services;
 
 namespace FALCONx.Controllers
 {
+    //[SessionTimeout]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -18,7 +19,6 @@ namespace FALCONx.Controllers
         //public ActionResult About()
         //{
         //    ViewBag.Message = "Your application description page.";
-
         //    return View();
         //}
 
@@ -37,13 +37,13 @@ namespace FALCONx.Controllers
             } 
             else
             {
-                var clientId = "128694056230-81hbfpiprlfgr0g7f261ii0r9q5f5q4b.apps.googleusercontent.com";
-                var url = "https://localhost:44335/Home/About";
-                var clientsecret = "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";
-                var token = await GoogleAuth.GetAuthAccessToken(code, clientId, clientsecret, url);
+                //var clientId = "128694056230-81hbfpiprlfgr0g7f261ii0r9q5f5q4b.apps.googleusercontent.com";
+                //var url = "https://localhost:44335/Home/About";
+                //var clientsecret = "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";
+                //var token = await GoogleAuth.GetAuthAccessToken(code, clientId, clientsecret, url);
 
-                var userProfile = await GoogleAuth.GetProfileResponseAsync(token.AccessToken.ToString());
-                ViewBag.Message = userProfile.ToString();
+                //var userProfile = await GoogleAuth.GetProfileResponseAsync(token.AccessToken.ToString());
+                //ViewBag.Message = userProfile.ToString();
                 return View();
             }
 

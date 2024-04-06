@@ -13,6 +13,7 @@ using static FALCONx.Models.FalconModels;
 
 namespace FALCONx.Controllers
 {
+    [SessionTimeout]
     public class VerifyController : Controller
     {
         private readonly HttpClient _httpClient = HttpClientHelper.GetClient();
@@ -20,6 +21,7 @@ namespace FALCONx.Controllers
         private DateTime dtNow = DateTime.Now;
 
         // GET: Verify
+        [User]
         public ActionResult VerifyText()
         {
             return View();
@@ -109,7 +111,11 @@ namespace FALCONx.Controllers
             }
         }
 
-
+        [User]
+        public ActionResult VerifyFile()
+        {
+            return View();
+        }
 
     }
 }

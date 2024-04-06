@@ -4,8 +4,8 @@ using System.Net.Http;
 public static class HttpClientHelper
 {
     private static readonly HttpClient _httpClient;
-    private static readonly Uri baseAddress = new Uri("https://falconxapi.azurewebsites.net/");
-    //private static readonly Uri baseAddress = new Uri("http://localhost:8082/");
+    //private static readonly Uri baseAddress = new Uri("https://falconxapi.azurewebsites.net/");
+    private static readonly Uri baseAddress = new Uri("http://localhost:8082/");
 
     static HttpClientHelper()
     {

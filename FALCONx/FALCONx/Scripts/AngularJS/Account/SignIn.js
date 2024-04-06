@@ -8,7 +8,7 @@ app.controller('SignInController', ['$scope', '$http', function (_s, _h) {
     _s.SignInUser = function (user) {
         _h.post('../Account/SignInUser', { _tUser: user }).then(function (response) {
             if (response.data.message == 'success') {
-                window.location.href = "../Home/About?code=" + response.data.response;
+                window.location.href = "../Signa/Home";
             } else if (response.data.message == 'unauthorized') {
                 Swal.fire({
                     icon: 'error',
@@ -21,7 +21,14 @@ app.controller('SignInController', ['$scope', '$http', function (_s, _h) {
                     title: 'Invalid',
                     text: 'Request invalid!',
                 })
-            } else {
+            } else if (response.data.message == 'invalid credentials') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Unauthorized',
+                    text: 'Invalid credentials',
+                })
+            }
+            else {
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',

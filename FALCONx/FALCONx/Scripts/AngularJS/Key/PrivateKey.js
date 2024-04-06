@@ -6,6 +6,9 @@
             if (_s.userKey == null) {
                 _s.userKey = {};
             }
+            //else {
+            //    _s.userKey = {};
+            //}
         }, function () {
             Swal.fire({
                 icon: 'error',

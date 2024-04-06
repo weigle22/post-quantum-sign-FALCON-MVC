@@ -100,7 +100,7 @@ namespace FALCONx.Controllers
                 privateKey = _tUserKey.privateKey,
                 revoked = false,
                 dtCreated = dtNow,
-                accepted = true,
+                privAccepted = true
             };
             dbFlcn.tUserKeys.Add(userKeyData);
             try
@@ -180,9 +180,10 @@ namespace FALCONx.Controllers
                 }, JsonRequestBehavior.AllowGet);
             }
 
-            userKeyRec.privateKey = null;
+            //userKeyRec.privateKey = null;
             userKeyRec.publicKey = _tUserKey.publicKey;
             userKeyRec.dtModified = dtNow;
+            userKeyRec.pubAccepted = true;
 
             try
             {

@@ -132,6 +132,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CertificateController.cs" />
     <Compile Include="Controllers\FalconApiClient.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Hasher.cs" />
@@ -139,6 +140,7 @@
     <Compile Include="Controllers\KeyController.cs" />
     <Compile Include="Controllers\SessionController.cs" />
     <Compile Include="Controllers\SessionTimeoutAttribute.cs" />
+    <Compile Include="Controllers\SignaController.cs" />
     <Compile Include="Controllers\SignatureController.cs" />
     <Compile Include="Controllers\VerifyController.cs" />
     <Compile Include="Global.asax.cs">
@@ -172,6 +174,9 @@
     <Compile Include="Models\tUser.cs">
       <DependentUpon>FLCNXDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tUserImage.cs">
+      <DependentUpon>FLCNXDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tUserKey.cs">
       <DependentUpon>FLCNXDB.tt</DependentUpon>
     </Compile>
@@ -182,6 +187,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Code2Night.jpeg" />
+    <Content Include="Content\img\key-plain-64.png" />
+    <Content Include="Content\img\key-circle-64.png" />
     <Content Include="Content\play-tailwind-main\.gitignore" />
     <Content Include="Content\play-tailwind-main\404.html" />
     <Content Include="Content\play-tailwind-main\about.html" />
@@ -525,15 +532,44 @@
       <DependentUpon>FLCNXDB.edmx</DependentUpon>
       <LastGenOutput>FLCNXDB.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\angular-animate.js" />
+    <Content Include="Scripts\angular-animate.min.js" />
+    <Content Include="Scripts\angular-aria.js" />
+    <Content Include="Scripts\angular-aria.min.js" />
+    <Content Include="Scripts\angular-cookies.js" />
+    <Content Include="Scripts\angular-cookies.min.js" />
+    <Content Include="Scripts\angular-csp.css" />
+    <Content Include="Scripts\angular-loader.js" />
+    <Content Include="Scripts\angular-loader.min.js" />
+    <Content Include="Scripts\angular-message-format.js" />
+    <Content Include="Scripts\angular-message-format.min.js" />
+    <Content Include="Scripts\angular-messages.js" />
+    <Content Include="Scripts\angular-messages.min.js" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-parse-ext.js" />
+    <Content Include="Scripts\angular-parse-ext.min.js" />
+    <Content Include="Scripts\angular-resource.js" />
+    <Content Include="Scripts\angular-resource.min.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
+    <Content Include="Scripts\angular-sanitize.js" />
+    <Content Include="Scripts\angular-sanitize.min.js" />
+    <Content Include="Scripts\angular-touch.js" />
+    <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\AngularJS\Account\MenuController.js" />
     <Content Include="Scripts\AngularJS\Account\SignIn.js" />
     <Content Include="Scripts\AngularJS\Account\SignUp.js" />
+    <Content Include="Scripts\AngularJS\Certificate\Certify.js" />
+    <Content Include="Scripts\AngularJS\Home\About.js" />
+    <Content Include="Content\img\key-64.png" />
     <Content Include="Scripts\AngularJS\Key\PrivateKey.js" />
     <Content Include="Scripts\AngularJS\Key\PublicKey.js" />
     <Content Include="Scripts\AngularJS\Signature\SignFile.js" />
     <Content Include="Scripts\AngularJS\Signature\SignText.js" />
+    <Content Include="Scripts\AngularJS\Signa\Home.js" />
+    <Content Include="Scripts\AngularJS\Verify\VerifyFile.js" />
     <Content Include="Scripts\AngularJS\Verify\VerifyText.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
     <Content Include="Scripts\i18n\angular-locale_af-za.js" />
@@ -1324,6 +1360,20 @@
     <Content Include="Views\Signature\SignText.cshtml" />
     <Content Include="Views\Verify\VerifyText.cshtml" />
     <Content Include="Views\Signature\SignFile.cshtml" />
+    <Content Include="Views\Verify\VerifyFile.cshtml" />
+    <Content Include="Views\Certificate\Certify.cshtml" />
+    <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="Views\Signa\Home.cshtml" />
+    <Content Include="Scripts\angular-sanitize.min.js.map" />
+    <Content Include="Scripts\angular-touch.min.js.map" />
+    <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="Scripts\angular-aria.min.js.map" />
+    <Content Include="Scripts\angular-cookies.min.js.map" />
+    <Content Include="Scripts\angular-loader.min.js.map" />
+    <Content Include="Scripts\angular-message-format.min.js.map" />
+    <Content Include="Scripts\angular-messages.min.js.map" />
+    <Content Include="Scripts\angular-parse-ext.min.js.map" />
+    <Content Include="Scripts\angular-resource.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

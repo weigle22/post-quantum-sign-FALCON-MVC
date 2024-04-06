@@ -1,70 +1,32 @@
-﻿app.controller('SignTextController', ['$scope', '$rootScope', '$http', '$filter', function (_s, _rs, _h, _f) {
-
-    // Ensure that Dropzone is properly initialized before accessing it
-    Dropzone.autoDiscover = false;
-
-    // Initialize Dropzone
-    _s.myDropzone = new Dropzone("#myDropzone", {
-        // Dropzone configuration options
-        addRemoveLinks: true,
-        // Dropzone configuration options
-        dictRemoveFile: '<i class="fe fe-trash"></i>',
-        maxFiles: 1, // Restrict to one file upload
-        acceptedFiles: '.key',
-        init: function () {
-            this.on("addedfile", function (file) {
-                if (this.files.length > 1) {
-                    this.removeFile(file); // Remove the extra file
-                }
-                var reader = new FileReader();
-                reader.onload = function (event) {
-                    _s.userKey.privateKey = event.target.result;
-                    _s.userKey.hiddenPrivateKey = _s.userKey.privateKey;
-                    _s.userKey.privateKey = '*'.repeat(_s.userKey.privateKey.length);
-                    _s.$apply(); // Apply changes to AngularJS scope
-                };
-
-                _s.$apply(function () {
-                    _s.userKey.privateKeyFile.push(file); // Add file to uploadedFiles array
-                });
-
-                reader.readAsText(file);
-            });
-            this.on("removedfile", function (file) {
-                _s.userKey.privateKey = null; // Clear the privateKey
-                _s.userKey.textMessage = null; // Clear the textMessage
-                _s.userKey.textSignature = null; // Clear the textSignature
-                
-                _s.$apply(); // Apply changes to AngularJS scope
-                _s.$apply(function () {
-                    var index = _s.userKey.privateKeyFile.indexOf(file);
-                    if (index !== -1) {
-                        _s.userKey.privateKeyFile.splice(index, 1); // Remove file from uploadedFiles array
-                    }
-                });
-            });
-            this.on("maxfilesexceeded", function (file) {
-                Swal.fire({
-                    icon: 'info',
-                    title: 'One key file only',
-                    text: 'Click delete button to change the selected key',
-                });
-            });
-        }
-    });
+﻿app.controller('SignTextController', ['$scope', '$rootScope', '$http', '$filter', 'fileService', function (_s, _rs, _h, _f, _fs) {
 
     _s.onLoad = function () {
+
+        var sessionUserName = _fs.getSessionUserName();
         _h.post("../Key/GetUserKeys").then(function (c) {
             _s.userKey = c.data.userKey;
+            //_s.userKey.privateKey = sessionPrivateKey;
             if (_s.userKey == null) {
                 _s.userKey = {};
             }
-            _s.userKey.showPrivateKey = false;
-            _s.userKey.dropzoneText = 'Drop key file here or click to upload';
-            _s.userKey.privateKeyFile = [];
             _s.userKey.hiddenPrivateKey = '';
             _s.userKey.hiddenTextSignature = '';
             _s.userKey.showPrivateKey = false;
+            _s.userKey.includePublicKey = true;
+            _s.userKey.sessionUserName = sessionUserName;
+            _s.userKey.showPrivateKey = false;
+            _s.userKey.dropzoneText = 'Drop key file here or click to upload';
+
+            _s.userPrivateKeyObj = _fs.getFileText();
+            if (_s.userPrivateKeyObj != null) {
+                if (_s.userPrivateKeyObj.userPrivateKeyBlob != null) {
+                    _s.userKey.privateKeyFile = _s.userPrivateKeyObj.userPrivateKeyBlob;
+                    _s.userKey.privateKey = _s.userPrivateKeyObj.userPrivateKey;
+                    _s.userKey.hiddenPrivateKey = _s.userKey.privateKey;
+                    _s.userKey.privateKey = '*'.repeat(_s.userKey.privateKey.length);
+                }
+            }
+            //_s.userKey.privateKeyFile = [];
         }, function () {
             Swal.fire({
                 icon: 'error',
@@ -91,26 +53,21 @@
             }
         }
     };
+    _s.toggleIncludePublicKey = function (userKey) {
+        //console.log(userKey);
+        //console.log(userKey.includePublicKey);
+    };
 
     _s.ChangeTextMessage = function (userKey) {
         userKey.textSignature = null;
     };
 
-    _s.copyToClipboard = function (userKey) {
-        navigator.clipboard.writeText(userKey.textSignature)
-            .then(console.log('copied!'));
-
-        Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Copied to clipboard",
-            showConfirmButton: false,
-            timer: 1000
-        });
-    };
-
     _s.DownloadSignedMessage = function (userKey) {
         var zip = new JSZip();
+
+        if (userKey.includePublicKey) {
+            zip.file(_s.userKey.sessionUserName + '.key', userKey.publicKey);
+        }
 
         // Add text message to the zip file
         zip.file("message.txt", userKey.textMessage);
@@ -141,7 +98,7 @@
     _s.SignMessage = function (userKey) {
         var formData = new FormData();
         formData.append('textMessage', userKey.textMessage);
-        formData.append('privateKeyFile', userKey.privateKeyFile[0]);
+        formData.append('privateKeyFile', userKey.privateKeyFile);
 
         _h.post("../Signature/SignTextMessage", formData, {
             withCredentials: true,

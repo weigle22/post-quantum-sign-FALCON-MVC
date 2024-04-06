@@ -23,5 +23,7 @@ namespace FALCONx.Models
         public Nullable<System.DateTime> dtModified { get; set; }
         public Nullable<System.DateTime> dtRevoked { get; set; }
         public Nullable<bool> accepted { get; set; }
+        public Nullable<bool> privAccepted { get; set; }
+        public Nullable<bool> pubAccepted { get; set; }
     }
 }
