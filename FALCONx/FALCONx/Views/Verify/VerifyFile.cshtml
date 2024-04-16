@@ -36,29 +36,27 @@
     <p class="text-muted">Let's verify signatures of your files</p>
 
     <div class="row align-items-stretch mb-2">
-        <div class="col-md-12 d-flex">
-            <div class="card shadow mb-4 w-100">
-                <div class="card-header">
-                    <strong class="card-title">Attach Public Key File</strong>
-                </div>
-                <div class="card-body">
-                    <form class="form-inline mr-auto searchform text-muted">
-                        @*<input type="text" id="simpleinput" class="form-control">*@
-                        <input class="form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted" type="text" placeholder="Who signed the file?" aria-label="Search">
-                    </form>
-                </div> <!-- /.card-body -->
-            </div> <!-- /.card -->
-        </div>
+
         <div class="col-md-4 d-flex">
             <div class="card shadow mb-4 w-100">
                 <div class="card-header">
-                    <strong class="card-title">Attach Public Key File</strong>
+                    <strong class="card-title">Public key file</strong>
                 </div>
-                <div class="card-body">
-                    <form action="/" class="dropzone bg-light rounded-lg" id="myDropzone">
+                <div class="card-body text-center justify-content-center">
+
+                    <div class="form-group mb-3">
+                        <label>Toggle upload signer public key</label>
+                        <div class="custom-control custom-switch">
+
+                            <input type="checkbox" class="custom-control-input float-right" id="c3" ng-model="userKey.uploadPublicKey" ng-change="toggleUploadPublicKey(userKey)">
+                            <label class="custom-control-label" for="c3">Upload public key</label>
+                        </div>
+                    </div>
+
+                    <form action="/" class="dropzone bg-light rounded-lg" id="myDropzonePublicKey" ng-show="userKey.uploadPublicKey">
                         <div class="dz-message needsclick">
-                            <div class="circle circle-lg bg-primary" ng-class="{ 'bg-warning': userKey.showPrivateKey }">
-                                <i class="fe fe-upload fe-24 text-white" ng-class="{ 'fe-x': userKey.showPrivateKey }"></i>
+                            <div class="circle circle-lg bg-primary">
+                                <i class="fe fe-upload fe-24 text-white"></i>
                             </div>
                             <h5 class="text-muted mt-4">Drop public key file here or click to upload</h5>
                         </div>
@@ -69,16 +67,20 @@
         <div class="col-md-8 d-flex">
             <div class="card shadow mb-4 w-100">
                 <div class="card-header">
-                    <strong class="card-title">Public Key Content</strong>
-                    <div class="custom-control custom-switch float-right" ng-show="userKey.privateKey">
-                        <input type="checkbox" class="custom-control-input" id="c1" ng-model="userKey.showPrivateKey" ng-change="toggleShow(userKey, 'privateKey')">
-                        <label class="custom-control-label" for="c1">Show</label>
-                    </div>
+                    <strong class="card-title">Public key content</strong>
                 </div>
                 <div class="card-body">
+
+                    <div class="form-group mb-3">
+                        <label for="user-select2">Search signer's name or username here. Use @@ when searching for username.</label>
+                        <select class="form-control select2" id="user-select2" ng-disabled="userKey.uploadPublicKey" ng-change="SignerKey(userKey.selectedUser)" ng-model="userKey.selectedUser" ng-options="user.userID as user.full_name for user in users">
+                            <option value="">-- Select User --</option>
+                        </select>
+                    </div> <!-- form-group -->
+
                     <form class="needs-validation" novalidate="">
                         <div class="form-group mb-3">
-                            <textarea class="form-control" id="validationTextarea" ng-disabled="!userKey.showPrivateKey" ng-readonly="true" placeholder="Empty ..." rows="9" ng-model="userKey.privateKey"></textarea>
+                            <textarea class="form-control" id="validationTextarea" ng-disabled="!userKey.showPrivateKey" ng-readonly="true" placeholder="Empty ..." rows="9" ng-model="userKey.publicKey"></textarea>
                             <div class="invalid-feedback"> Please enter a message in the textarea. </div>
                         </div>
                     </form>
@@ -119,7 +121,8 @@
                         </div>
                         <div class="col ml-auto">
                             <div class="dropdown float-right">
-                                <button type="button" data-toggle="modal" data-target="#uploadFilesModal" class="btn mb-2 btn-info float-right ml-3"><span class="fe fe-upload-cloud fe-16 mr-2"></span>Upload Files</button>
+                                <button type="button" ng-click="userKey.uploadMode = 'raw';" data-toggle="modal" data-target="#uploadFilesModal" class="btn mb-2 btn-info float-right ml-3"><span class="fe fe-upload-cloud fe-16 mr-2"></span>Upload raw files</button>
+                                <button type="button" ng-click="userKey.uploadMode = 'zip';" data-toggle="modal" data-target="#uploadFilesModal" class="btn mb-2 btn-warning float-right ml-3"><span class="fe fe-gift fe-16 mr-2"></span>Upload zip files</button>
                                 @*<button class="btn btn-primary float-right ml-3" type="button">Add more +</button>*@
                                 <!-- Modal -->
                                 <div class="modal fade" id="uploadFilesModal" tabindex="-1" role="dialog" aria-labelledby="uploadFilesModalLabel" aria-hidden="true">
@@ -151,7 +154,7 @@
                                 <!-- Modal -->
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="actionMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action </button>
                                 <div class="dropdown-menu" aria-labelledby="actionMenuButton" style="">
-                                    <a class="dropdown-item" href="" ng-click="SignAllFiles(userKey)"><span class="fe fe-hash fe-16 mr-2"></span>Sign all</a>
+                                    <a class="dropdown-item" href="" ng-click="VerifyAllFiles(userKey)"><span class="fe fe-shield fe-16 mr-2"></span>Verify all</a>
                                     <a class="dropdown-item" href="" ng-click="removeAllFiles(userKey)"><span class="fe fe-trash fe-16 mr-2"></span>Remove all</a>
                                 </div>
                             </div>
@@ -172,6 +175,7 @@
                                     </th>
                                     <th>#</th>
                                     <th>Filename</th>
+                                    <th>Signature</th>
                                     <th>Size</th>
                                     <th>Type</th>
                                     <th>Date Modified</th>
@@ -180,7 +184,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="file in userKey.filesToSign | fileFilter:searchTerm:extensionType | limitTo:userKey.selectedOption" }">
+                                <tr ng-repeat="file in (userKey.filesToSign | fileFilter:searchTerm:extensionType | limitTo:userKey.selectedOption) track by $index" }">
                                     <td>
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="{{ 'd1_' + $index }}">
@@ -189,12 +193,26 @@
                                     </td>
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ file.name }}</td>
+                                    <td>
+                                        <a href="" ng-click="openFilePicker($index)">
+                                            <span ng-if="!file.signatureFile">Add .sig file</span>
+                                            <span ng-if="file.signatureFile">{{ file.signatureFile.name }}</span>
+                                        </a>
+                                        <input type="file" style="display: none;" id="{{ 'fileInput_' + $index }}" ng-model="file.signatureFile" accept=".sig">
+                                    </td>
                                     <td>{{ file.size | bytesToMB }}</td>
                                     <td>{{ file.name | fileExtension }}</td>
                                     <td>{{ file.lastModifiedDate | date: 'short' }}</td>
                                     <td>
-                                        <span class="badge badge-pill" ng-class="{'badge-warning': !file.signedFile, 'badge-success': file.signedFile}" ng-hide="file.status === 'SIGNING'">{{ file.status }}</span>
-                                        <div class="spinner-grow mr-3 text-primary" role="status" ng-show="file.status === 'SIGNING'">
+                                        <span class="badge badge-pill"
+                                              ng-class="{'badge-warning': file.status == 'UNVERIFIED',
+                                                         'badge-success': file.status == 'AUTHENTIC',
+                                                         'badge-danger': file.status == 'BAD SIGNATURE' || file.status == 'INVALID REQ.'}"
+                                                            ng-hide="file.status === 'VERIFYING'">
+                                                        {{ file.status }}
+                                        </span>
+
+                                        <div class="spinner-grow mr-3 text-primary" role="status" ng-show="file.status === 'VERIFYING'">
                                             <span class="sr-only">Loading...</span>
                                         </div>
                                     </td>
@@ -204,8 +222,8 @@
                                                 <span class="text-muted sr-only">Action</span>
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dr1" style="">
-                                                <a class="dropdown-item" href="" ng-click="SignFile(file, userKey)" ng-show="file.status == 'UNSIGNED'"><span class="fe fe-hash fe-16 mr-2"></span>Sign</a>
-                                                <a class="dropdown-item" href="" ng-click="DownloadSignedFile(file)" ng-show="file.status == 'SIGNED'"><span class="fe fe-download fe-16 mr-2"></span>Download Signature</a>
+                                                <a class="dropdown-item" href="" ng-click="VerifyFile(file, userKey)" ng-show="file.signatureFile"><span class="fe fe-shield fe-16 mr-2"></span>Verify</a>
+                                                
                                                 <a class="dropdown-item" href="" ng-click="removeFile($index)"><span class="fe fe-trash fe-16 mr-2"></span>Remove</a>
                                             </div>
                                         </div>

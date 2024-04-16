@@ -19,8 +19,8 @@ app.filter('fileFilter', function () {
         if (!searchTerm && !extensionType) return files;
 
         return files.filter(function (file) {
-            var nameMatch = !searchTerm || file.upload.filename.toLowerCase().includes(searchTerm.toLowerCase());
-            var extensionMatch = !extensionType || file.upload.filename.toLowerCase().endsWith(extensionType.toLowerCase());
+            var nameMatch = !searchTerm || file.name.toLowerCase().includes(searchTerm.toLowerCase());
+            var extensionMatch = !extensionType || file.name.toLowerCase().endsWith(extensionType.toLowerCase());
             return nameMatch && extensionMatch;
         });
     };

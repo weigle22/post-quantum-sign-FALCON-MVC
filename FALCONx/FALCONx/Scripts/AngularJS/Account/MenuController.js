@@ -46,7 +46,7 @@
 
             this.on("addedfile", function (file) {
                 if (file.name.endsWith('.key')) {
-                    this.emit("thumbnail", file, "/Content/img/key-plain-64.png");
+                    this.emit("thumbnail", file, "/Content/img/key-plain-64-private.png");
                 }
                 var reader = new FileReader();
                 reader.onload = function (event) {
@@ -109,8 +109,11 @@
                             icon: 'info',
                             title: 'Invalid length',
                             text: 'Invalid private key length'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                _s.myDropzone.removeFile(file);
+                            }
                         });
-                        _s.myDropzone.removeFile(file);
                     }
 
                     

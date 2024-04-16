@@ -1,4 +1,4 @@
-﻿app.controller('VerifyTextController', ['$scope', '$rootScope', '$http', '$filter', function (_s, _rs, _h, _f) {
+﻿app.controller('VerifyTextController', ['$scope', '$rootScope', '$http', '$filter', '$timeout', function (_s, _rs, _h, _f, _timeout) {
 
     // Ensure that Dropzone is properly initialized before accessing it
     Dropzone.autoDiscover = false;
@@ -8,6 +8,7 @@
         addRemoveLinks: true,
         // Dropzone configuration options
         dictRemoveFile: '<i class="fe fe-trash"></i>',
+        dictCancelUpload: '<i class="fe fe-x"></i>',
         maxFiles: 1, // Restrict to one file upload
         acceptedFiles: '.txt',
         init: function () {
@@ -57,10 +58,14 @@
         addRemoveLinks: true,
         // Dropzone configuration options
         dictRemoveFile: '<i class="fe fe-trash"></i>',
+        dictCancelUpload: '<i class="fe fe-x"></i>',
         maxFiles: 1, // Restrict to one file upload
         acceptedFiles: '.sig',
         init: function () {
             this.on("addedfile", function (file) {
+                if (file.name.endsWith('.sig')) {
+                    this.emit("thumbnail", file, "/Content/img/signature-violet.png");
+                }
                 if (this.files.length > 1) {
                     this.removeFile(file); // Remove the extra file
                 }
@@ -104,10 +109,14 @@
         addRemoveLinks: true,
         // Dropzone configuration options
         dictRemoveFile: '<i class="fe fe-trash"></i>',
+        dictCancelUpload: '<i class="fe fe-x"></i>',
         maxFiles: 1, // Restrict to one file upload
         acceptedFiles: '.key',
         init: function () {
             this.on("addedfile", function (file) {
+                if (file.name.endsWith('.key')) {
+                    this.emit("thumbnail", file, "/Content/img/key-plain-64-public.png");
+                }
                 if (this.files.length > 1) {
                     this.removeFile(file); // Remove the extra file
                 }
@@ -126,13 +135,11 @@
             this.on("removedfile", function (file) {
                 _s.userKey.publicKey = null; // Clear the privateKey
                 _s.userKey.verificationResult = null;
-                _s.$apply(); // Apply changes to AngularJS scope
-                _s.$apply(function () {
-                    var index = _s.userKey.publicKeyFile.indexOf(file);
-                    if (index !== -1) {
-                        _s.userKey.publicKeyFile.splice(index, 1); // Remove file from uploadedFiles array
-                    }
-                });
+                var index = _s.userKey.publicKeyFile.indexOf(file);
+                if (index !== -1) {
+                    _s.userKey.publicKeyFile.splice(index, 1); // Remove file from uploadedFiles array
+                }
+                _s.$apply();
             });
             this.on("maxfilesexceeded", function (file) {
                 Swal.fire({
@@ -143,13 +150,11 @@
             });
         }
     });
-    
+
     _s.onLoad = function () {
         _h.post("../Key/GetUserKeys").then(function (c) {
-            _s.userKey = c.data.userKey;
-            if (_s.userKey == null) {
-                _s.userKey = {};
-            }
+            // Handle data retrieval for user keys
+            _s.userKey = c.data.userKey || {}; // Ensure _s.userKey is not null
             _s.userKey.showPrivateKey = false;
             _s.userKey.dropzoneText = 'Drop key file here or click to upload';
             _s.userKey.textMessageFile = [];
@@ -161,13 +166,34 @@
             _s.userKey.textMessage = null;
             _s.userKey.textSignature = null;
             _s.userKey.publicKey = null;
-        }, function () {
+            _s.userKey.uploadPublicKey = false;
+        }).catch(function () {
+            // Error handling for user keys retrieval
             Swal.fire({
                 icon: 'error',
                 title: 'Warning',
-                text: 'Something went wrong!',
+                text: 'Something went wrong while fetching user keys!',
+            });
+        }).finally(function () {
+            // After fetching user keys, fetch users for select2
+            _h.post("../Certificate/Users").then(function (c) {
+                _s.users = c.data.users || []; // Ensure _s.users is not null
+                // Initialize select2 after data is fetched
+                
+            }).catch(function () {
+                // Error handling for fetching users
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Warning',
+                    text: 'Something went wrong while fetching users!',
+                });
             });
         });
+    };
+
+    _s.dropzoneHasFiles = function () {
+        var files = _s.myDropzonePublicKey.getAcceptedFiles();
+        return files.length > 0;
     }
 
     _s.toggleShow = function (userKey, type) {
@@ -238,7 +264,17 @@
         var formData = new FormData();
         formData.append('textMessageFile', userKey.textMessageFile[0]);
         formData.append('textSignatureFile', userKey.textSignatureFile[0]);
-        formData.append('publicKeyFile', userKey.publicKeyFile[0]);
+
+        if (userKey.uploadPublicKey) {
+            formData.append('publicKeyFile', userKey.publicKeyFile[0]);
+        }
+        else
+        {
+            var blob = new Blob([userKey.publicKey], { type: 'text/plain' });
+            blob.name = 'public.key';
+            formData.append('publicKeyFile', blob);
+        }
+
 
         _h.post("../Verify/VerifyText", formData, {
             withCredentials: true,
@@ -298,5 +334,44 @@
         });
     }
 
-    
+
+    $('#user-select2').on('change', function () {
+        // Get the selected value
+        var selectedValue = $(this).val();
+        if (selectedValue != '') {
+            var userID = selectedValue.split(':')[1];
+            // Trigger the ng-change event with AngularJS's $apply function
+            _s.$apply(function () {
+                // Call the function defined in ng-change
+                _s.SignerKey(userID);
+            });
+        }
+    });
+
+    _s.toggleUploadPublicKey = function (userKey) {
+        if (userKey.uploadPublicKey) {
+            userKey.publicKey = null;
+            userKey.selectedUser = null;
+            $("#user-select2").val(null).trigger("change");
+        } else {
+            $("#user-select2").val(null).trigger("change");
+            _s.myDropzonePublicKey.removeAllFiles();
+        }
+    };
+
+    _s.SignerKey = function (userID) {
+        console.log(userID);
+        _h.post("../Certificate/SignerKey", { userID: userID }).then(function (c) {
+
+            _s.userKey.publicKey = c.data.signerKey.publicKey;
+
+        }).catch(function () {
+            // Error handling for fetching users
+            Swal.fire({
+                icon: 'error',
+                title: 'Warning',
+                text: 'Something went wrong while fetching users!',
+            });
+        });
+    }
 }]);

@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Description;
 using static FALCONx.Controllers.SignatureController;
 using static FALCONx.Models.FalconModels;
 
@@ -115,6 +116,65 @@ namespace FALCONx.Controllers
         public ActionResult VerifyFile()
         {
             return View();
+        }
+
+        public class VerifyFileParams
+        {
+            public HttpPostedFileBase userFile { get; set; }
+            public HttpPostedFileBase sigFile { get; set; }
+            public HttpPostedFileBase publicKeyFile { get; set; }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> VerifyFileMessage(VerifyFileParams _VerifyFileParams)
+        {
+            var message = "Success";
+            try
+            {
+                if (_VerifyFileParams.userFile != null && _VerifyFileParams.sigFile != null && _VerifyFileParams.publicKeyFile != null)
+                {
+                    // Assuming _httpClient is initialized in your controller
+                    string apiUrl = "api/purefile/GetMessageVerification";
+
+                    // Create a multipart form content to send files
+                    var formData = new MultipartFormDataContent
+                    {
+                        { new StreamContent(_VerifyFileParams.userFile.InputStream), "userFile", _VerifyFileParams.userFile.FileName },
+                        { new StreamContent(_VerifyFileParams.sigFile.InputStream), "sigFile", _VerifyFileParams.sigFile.FileName },
+                        { new StreamContent(_VerifyFileParams.publicKeyFile.InputStream), "publicKeyFile", _VerifyFileParams.publicKeyFile.FileName }
+                    };
+
+                    // Send the POST request to the API endpoint
+                    HttpResponseMessage response = await _httpClient.PostAsync(apiUrl, formData);
+
+                    // Check if the request was successful
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string data = await response.Content.ReadAsStringAsync();
+                        var result = JsonConvert.DeserializeObject<string>(data);
+
+                        return Json(new
+                        {
+                            message,
+                            result
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        // Handle the case where the request was not successful
+                        return Json(new { message = "Failed to call the API" }, JsonRequestBehavior.AllowGet);
+                    }
+                }
+                else
+                {
+                    return Json(new { message = "No file uploaded" }, JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                return Json(new { message = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
         }
 
     }

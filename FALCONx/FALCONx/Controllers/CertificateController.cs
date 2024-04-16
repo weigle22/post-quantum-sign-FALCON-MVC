@@ -14,6 +14,8 @@ using System.Web.Mvc;
 using static FALCONx.Models.FalconModels;
 using static FALCONx.Controllers.CertificateController;
 using static FALCONx.Controllers.SignatureController;
+using static System.Collections.Specialized.BitVector32;
+using System.Web.Services.Description;
 
 namespace FALCONx.Controllers
 {
@@ -330,6 +332,38 @@ namespace FALCONx.Controllers
 
         }
 
+        [HttpPost]
+        public ActionResult Users()
+        {
+            var users = dbFlcn.tUsers
+                .Where(a => a.isActive == true)
+                .Select(a => new
+                {
+                    a.userID,
+                    full_name = "@" + a.username + ": " + a.given_name + " " + a.family_name,
+                    a.username
+                })
+                .ToList();
+
+            return Json(new { users }, JsonRequestBehavior.AllowGet);
+
+        }
+
+        [HttpPost]
+        public ActionResult SignerKey(string userID)
+        {
+            var signerKey = dbFlcn.tUserKeys
+                .Where(a => a.userID == userID)
+                .Select(a => new
+                {
+                    a.publicKey,
+                    a.revoked
+                })
+                .FirstOrDefault();
+
+            return Json(new { signerKey }, JsonRequestBehavior.AllowGet);
+
+        }
 
     }
 }

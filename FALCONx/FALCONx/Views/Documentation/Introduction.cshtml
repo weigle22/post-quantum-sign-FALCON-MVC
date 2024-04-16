@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Introduction";
+}
+
+
+<div class="col-12 mb-4" ng-controller="" ng-init="">
+    <div class="card shadow">
+        <div class="card-header">
+            <h1><strong class="card-title">FALCON Documentation</strong></h1>
+        </div>
+        <div class="card-body">
+            <h2>Introduction</h2>
+            <p>
+                FALCON (FAst Fourier Lattice-based Compact Signatures Over NTRU) is a cryptographic signature scheme based on lattice-based cryptography, specifically utilizing the NTRU encryption scheme and fast Fourier transform (FFT) techniques. It offers a combination of security, efficiency, and compactness, making it suitable for various applications, including those with constrained resources such as IoT devices or embedded systems.
+            </p>
+            <hr />
+            <h2>Features</h2>
+            <h4>Security</h4>
+            <p>
+                FALCON derives its security from the hardness of lattice problems, particularly those related to the NTRU encryption scheme. The scheme offers strong security guarantees against various cryptographic attacks, including quantum attacks.
+            </p>
+            <h4>Efficiency</h4>
+            <p>
+                FALCON is designed with efficiency in mind, leveraging FFT techniques to optimize computation speed. This allows for fast generation and verification of signatures, making it suitable for real-time applications.
+            </p>
+            <h4>Compactness</h4>
+            <p>
+                One of the key features of FALCON is its compact signature size. The signatures produced by FALCON are small in size, making them suitable for applications with limited bandwidth or storage capacity.
+            </p>
+            <hr />
+            <h2>Components</h2>
+            <h4>NTRU Encryption Scheme</h4>
+            <p>
+                FALCON utilizes the NTRU encryption scheme as its underlying cryptographic primitive. NTRU is a lattice-based public key cryptosystem known for its efficiency and security.
+            </p>
+            <h2></h2>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/AngularJS/Home/About.js"></script>
+}
