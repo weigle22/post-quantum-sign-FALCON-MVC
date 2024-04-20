@@ -281,6 +281,20 @@ namespace FALCONx.Controllers
                 return Json(new { message = "User keys not found" }, JsonRequestBehavior.AllowGet);
             }
 
+            string hashedPrivateKey = Hasher.HashPassword(_tUserKey.privateKey);
+
+            var userPrivateKeyRec = dbFlcn.tUserKeys.Where(a => a.privateKey == hashedPrivateKey).FirstOrDefault();
+
+            if ( userPrivateKeyRec == null)
+            {
+                return Json(new { message = "Invalid Private Key" }, JsonRequestBehavior.AllowGet);
+            }
+
+            if (userPrivateKeyRec.revoked == true)
+            {
+                return Json(new { message = "Private Key Revoked" }, JsonRequestBehavior.AllowGet);
+            }
+
             // Serialize user record to JSON
             string jsonString = JsonConvert.SerializeObject(userRec);
 
@@ -353,7 +367,7 @@ namespace FALCONx.Controllers
         public ActionResult SignerKey(string userID)
         {
             var signerKey = dbFlcn.tUserKeys
-                .Where(a => a.userID == userID)
+                .Where(a => a.userID == userID && (a.revoked == null || a.revoked == false))
                 .Select(a => new
                 {
                     a.publicKey,
@@ -362,6 +376,54 @@ namespace FALCONx.Controllers
                 .FirstOrDefault();
 
             return Json(new { signerKey }, JsonRequestBehavior.AllowGet);
+
+        }
+
+        public ActionResult Revocation()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult RevokeUserKey(tUser _tUser, tUserKey _tUserKey)
+        {
+            var userID = Session["userID"].ToString();
+            var userRec = dbFlcn.tUsers.Where(a => a.userID == _tUser.userID).FirstOrDefault();
+            var userKeyRec = dbFlcn.tUserKeys.Where(a => a.userID == _tUserKey.userID && (a.revoked == null || a.revoked == false)).FirstOrDefault();
+
+            var message = "Success";
+
+            if (userRec == null)
+            {
+                return Json(new
+                {
+                    message = "User not found",
+                }, JsonRequestBehavior.AllowGet);
+            }
+
+            if (userKeyRec == null)
+            {
+                return Json(new
+                {
+                    message = "User keys not found",
+                }, JsonRequestBehavior.AllowGet);
+            }
+
+            userKeyRec.revoked = true;
+            userKeyRec.dtRevoked = DateTime.Now;
+            userRec.signature = null;
+
+            dbFlcn.SaveChanges();
+
+            var session = dbFlcn.tUsers.Where(a => a.userID == _tUser.userID).FirstOrDefault();
+            var sessionKeys = dbFlcn.tUserKeys.Where(a => a.userID == _tUserKey.userID && (a.revoked == null || a.revoked == false)).FirstOrDefault();
+
+            return Json(new
+            {
+                message,
+                session,
+                sessionKeys
+            }, JsonRequestBehavior.AllowGet);
 
         }
 

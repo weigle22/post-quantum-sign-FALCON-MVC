@@ -137,6 +137,7 @@
                         </a>
                     </li>
                 </ul>
+
                 <div class="btn-box w-100 mt-4 mb-1 text-center justify-content-center" ng-show="session.signature != null">
                     <form action="/" class="dropzone bg-light rounded-lg" id="myDropzonePrivateKeyUpload">
                         <div class="dz-message needsclick">
@@ -173,11 +174,19 @@
                     <span>Account</span>
                 </p>
                 <ul class="navbar-nav flex-fill w-100 mb-2" ng-show="sessionKeys.publicKey != null">
-                    <li class="nav-item w-100">
-                        <a class="nav-link" href="/Certificate/Certify">
+                    <li class="nav-item dropdown">
+                        <a href="#cert" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                             <i class="fe fe-user-check fe-16"></i>
-                            <span class="ml-3 item-text">Certify</span>
+                            <span class="ml-3 item-text">Certificate</span>
                         </a>
+                        <ul class="collapse list-unstyled pl-4 w-100 show" id="cert">
+                            <li class="nav-item">
+                                <a class="nav-link pl-3" href="/Certificate/Certify"><span class="ml-1 item-text">Certification</span></a>
+                            </li>
+                            <li class="nav-item" ng-show="session.signature != null">
+                                <a class="nav-link pl-3" href="/Certificate/Revocation"><span class="ml-1 item-text">Revocation</span></a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
 
@@ -234,9 +243,9 @@
                 </ul>
                 <ul class="navbar-nav flex-fill w-100 mb-2">
                     <li class="nav-item w-100">
-                        <a class="nav-link" href="../docs/index.html">
+                        <a class="nav-link" href="/Documentation/ApiDocumentation">
                             <i class="fe fe-help-circle fe-16"></i>
-                            <span class="ml-3 item-text">Direct Link Library (DLL)</span>
+                            <span class="ml-3 item-text">API Documentation</span>
                         </a>
                     </li>
                 </ul>
@@ -244,10 +253,11 @@
                     <li class="nav-item w-100">
                         <a class="nav-link" href="../docs/index.html">
                             <i class="fe fe-help-circle fe-16"></i>
-                            <span class="ml-3 item-text">API Documentation</span>
+                            <span class="ml-3 item-text">Direct Link Library (DLL)</span>
                         </a>
                     </li>
                 </ul>
+
                 <div class="btn-box w-100 mt-4 mb-1">
                     <button type="button" class="btn mb-2 btn-primary btn-lg btn-block">
                         <i class="fe fe-download fe-12 mr-2"></i><span class="small">Direct Link Library (DLL)</span>

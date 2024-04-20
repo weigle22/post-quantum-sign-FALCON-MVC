@@ -13,5 +13,10 @@ namespace FALCONx.Controllers
         {
             return View();
         }
+
+        public ActionResult ApiDocumentation()
+        {
+            return View();
+        }
     }
 }

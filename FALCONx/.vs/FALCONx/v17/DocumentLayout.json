@@ -3,60 +3,48 @@
   "WorkspaceRootPath": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\falconx\\falconx\\views\\documentation\\introduction.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\documentation\\introduction.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\falconx\\falconx\\scripts\\angularjs\\verify\\verifyfile.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\scripts\\angularjs\\verify\\verifyfile.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\controllers\\verifycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\controllers\\verifycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\falconx\\falconx\\controllers\\documentationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\controllers\\documentationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\views\\verify\\verifyfile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\verify\\verifyfile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\views\\verify\\verifytext.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\verify\\verifytext.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\falconx\\falconx\\controllers\\verifycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\controllers\\verifycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\views\\documentation\\introduction.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\documentation\\introduction.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\falconx\\falconx\\controllers\\certificatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\controllers\\certificatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\falconx\\falconx\\views\\documentation\\apidocumentation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\documentation\\apidocumentation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\scripts\\angularjs\\verify\\verifyfile.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\scripts\\angularjs\\verify\\verifyfile.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\scripts\\angularjs\\verify\\verifytext.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\scripts\\angularjs\\verify\\verifytext.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\falconx\\falconx\\views\\verify\\verifyfile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\verify\\verifyfile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\controllers\\documentationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\controllers\\documentationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\scripts\\myapp.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\scripts\\myapp.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\controllers\\keycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\controllers\\keycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\models\\falconmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\models\\falconmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\controllers\\signaturecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\controllers\\signaturecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\controllers\\certificatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\controllers\\certificatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\views\\verify\\verifytext.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\verify\\verifytext.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\scripts\\angularjs\\account\\menucontroller.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -67,8 +55,56 @@
       "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\falconx\\falconx\\scripts\\angularjs\\certificate\\revocation.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\scripts\\angularjs\\certificate\\revocation.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\falconx\\falconx\\views\\certificate\\revocation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\certificate\\revocation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\scripts\\angularjs\\account\\signin.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\scripts\\angularjs\\account\\signin.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|d:\\dev files\\mit capstone\\mit capstone-repo\\falconx\\falconx\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\views\\certificate\\certify.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\certificate\\certify.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\views\\account\\signin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\account\\signin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\controllers\\signacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\controllers\\signacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\scripts\\angularjs\\certificate\\certify.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\scripts\\angularjs\\certificate\\certify.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\controllers\\sessioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\controllers\\sessioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\controllers\\signaturecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\controllers\\signaturecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\controllers\\keycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\controllers\\keycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\models\\falconmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\models\\falconmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\views\\signature\\signtext.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -79,20 +115,12 @@
       "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\content\\tinydash\\light\\form_advanced.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\controllers\\sessioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\controllers\\sessioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\controllers\\sessiontimeoutattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\controllers\\sessiontimeoutattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\scripts\\angularjs\\account\\signin.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\scripts\\angularjs\\account\\signin.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\scripts\\angularjs\\signature\\signfile.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -105,14 +133,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\scripts\\angularjs\\signature\\signtext.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\scripts\\angularjs\\signature\\signtext.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\scripts\\angularjs\\certificate\\certify.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\scripts\\angularjs\\certificate\\certify.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\views\\certificate\\certify.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\certificate\\certify.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\scripts\\angularjs\\key\\privatekey.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -131,10 +151,6 @@
       "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\key\\privatekey.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\views\\account\\signin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\account\\signin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\falconx\\views\\key\\publickey.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\key\\publickey.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
@@ -146,37 +162,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 187,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 16,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Introduction.cshtml",
-              "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Documentation\\Introduction.cshtml",
-              "RelativeDocumentMoniker": "FALCONx\\Views\\Documentation\\Introduction.cshtml",
-              "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Documentation\\Introduction.cshtml",
-              "RelativeToolTip": "FALCONx\\Views\\Documentation\\Introduction.cshtml",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABkAAAAQAAAA",
+              "DocumentIndex": 6,
+              "Title": "ApiDocumentation.cshtml",
+              "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Documentation\\ApiDocumentation.cshtml",
+              "RelativeDocumentMoniker": "FALCONx\\Views\\Documentation\\ApiDocumentation.cshtml",
+              "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Documentation\\ApiDocumentation.cshtml",
+              "RelativeToolTip": "FALCONx\\Views\\Documentation\\ApiDocumentation.cshtml",
+              "ViewState": "AQIAANgEAAAAAAAAAAAuwOcEAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-16T14:49:59.857Z",
+              "WhenOpened": "2024-04-20T13:29:55.273Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 16,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "FALCONx\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "FALCONx\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAAAcAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-20T07:26:41.09Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "DocumentationController.cs",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Controllers\\DocumentationController.cs",
               "RelativeDocumentMoniker": "FALCONx\\Controllers\\DocumentationController.cs",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Controllers\\DocumentationController.cs",
               "RelativeToolTip": "FALCONx\\Controllers\\DocumentationController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-16T14:44:47.724Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 25,
               "Title": "FalconModels.cs",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Models\\FalconModels.cs",
               "RelativeDocumentMoniker": "FALCONx\\Models\\FalconModels.cs",
@@ -188,7 +217,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 27,
               "Title": "form_advanced.html",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Content\\tinydash\\light\\form_advanced.html",
               "RelativeDocumentMoniker": "FALCONx\\Content\\tinydash\\light\\form_advanced.html",
@@ -200,7 +229,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "SignaController.cs",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Controllers\\SignaController.cs",
               "RelativeDocumentMoniker": "FALCONx\\Controllers\\SignaController.cs",
@@ -208,11 +237,12 @@
               "RelativeToolTip": "FALCONx\\Controllers\\SignaController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T13:54:32.308Z"
+              "WhenOpened": "2024-04-06T13:54:32.308Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 24,
               "Title": "KeyController.cs",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Controllers\\KeyController.cs",
               "RelativeDocumentMoniker": "FALCONx\\Controllers\\KeyController.cs",
@@ -224,7 +254,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 29,
               "Title": "HomeController.cs",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "FALCONx\\Controllers\\HomeController.cs",
@@ -236,19 +266,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "SessionController.cs",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Controllers\\SessionController.cs",
               "RelativeDocumentMoniker": "FALCONx\\Controllers\\SessionController.cs",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Controllers\\SessionController.cs",
               "RelativeToolTip": "FALCONx\\Controllers\\SessionController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACgAAAANAAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAxwB0AAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-06T13:48:10.843Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 28,
               "Title": "SessionTimeoutAttribute.cs",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Controllers\\SessionTimeoutAttribute.cs",
               "RelativeDocumentMoniker": "FALCONx\\Controllers\\SessionTimeoutAttribute.cs",
@@ -260,31 +290,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 22,
               "Title": "SignatureController.cs",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Controllers\\SignatureController.cs",
               "RelativeDocumentMoniker": "FALCONx\\Controllers\\SignatureController.cs",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Controllers\\SignatureController.cs",
               "RelativeToolTip": "FALCONx\\Controllers\\SignatureController.cs",
-              "ViewState": "AQIAAFwAAAAAAAAAAAAqwGkAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-06T11:10:36.576Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 20,
               "Title": "Certify.js",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Scripts\\AngularJS\\Certificate\\Certify.js",
               "RelativeDocumentMoniker": "FALCONx\\Scripts\\AngularJS\\Certificate\\Certify.js",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Scripts\\AngularJS\\Certificate\\Certify.js",
               "RelativeToolTip": "FALCONx\\Scripts\\AngularJS\\Certificate\\Certify.js",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAAEwAAAAzAAAA",
+              "ViewState": "AQIAAI8AAAAAAAAAAADwv64AAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-04-06T08:28:34.062Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 35,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "FALCONx\\Views\\_ViewStart.cshtml",
@@ -296,19 +326,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 12,
               "Title": "AccountController.cs",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "FALCONx\\Controllers\\AccountController.cs",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Controllers\\AccountController.cs",
               "RelativeToolTip": "FALCONx\\Controllers\\AccountController.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAgwBkAAAAqAAAA",
+              "ViewState": "AQIAACkAAAAAAAAAAAAgwDoAAABJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T13:14:16.423Z"
+              "WhenOpened": "2024-04-05T13:14:16.423Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 34,
               "Title": "Home.js",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Scripts\\AngularJS\\Signa\\Home.js",
               "RelativeDocumentMoniker": "FALCONx\\Scripts\\AngularJS\\Signa\\Home.js",
@@ -320,25 +351,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 5,
               "Title": "CertificateController.cs",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Controllers\\CertificateController.cs",
               "RelativeDocumentMoniker": "FALCONx\\Controllers\\CertificateController.cs",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Controllers\\CertificateController.cs",
               "RelativeToolTip": "FALCONx\\Controllers\\CertificateController.cs",
-              "ViewState": "AQIAAE0AAAAAAAAAAAAkwFEAAAAVAAAA",
+              "ViewState": "AQIAAGIBAAAAAAAAAAAwwHkBAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T06:15:46.257Z"
+              "WhenOpened": "2024-04-06T06:15:46.257Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "VerifyController.cs",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Controllers\\VerifyController.cs",
               "RelativeDocumentMoniker": "FALCONx\\Controllers\\VerifyController.cs",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Controllers\\VerifyController.cs",
               "RelativeToolTip": "FALCONx\\Controllers\\VerifyController.cs",
-              "ViewState": "AQIAAJYAAAAAAAAAAAAmwKoAAAARAAAA",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAgwFoAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-06T06:19:17.736Z",
               "EditorCaption": ""
@@ -366,7 +398,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 33,
               "Title": "PrivateKey.js",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Scripts\\AngularJS\\Key\\PrivateKey.js",
               "RelativeDocumentMoniker": "FALCONx\\Scripts\\AngularJS\\Key\\PrivateKey.js",
@@ -378,19 +410,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 15,
               "Title": "SignIn.js",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Scripts\\AngularJS\\Account\\SignIn.js",
               "RelativeDocumentMoniker": "FALCONx\\Scripts\\AngularJS\\Account\\SignIn.js",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Scripts\\AngularJS\\Account\\SignIn.js",
               "RelativeToolTip": "FALCONx\\Scripts\\AngularJS\\Account\\SignIn.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAQAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-04-05T10:48:18.486Z"
+              "WhenOpened": "2024-04-05T10:48:18.486Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 30,
               "Title": "SignFile.js",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Scripts\\AngularJS\\Signature\\SignFile.js",
               "RelativeDocumentMoniker": "FALCONx\\Scripts\\AngularJS\\Signature\\SignFile.js",
@@ -402,7 +435,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 32,
               "Title": "SignText.js",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Scripts\\AngularJS\\Signature\\SignText.js",
               "RelativeDocumentMoniker": "FALCONx\\Scripts\\AngularJS\\Signature\\SignText.js",
@@ -414,40 +447,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 11,
               "Title": "MenuController.js",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Scripts\\AngularJS\\Account\\MenuController.js",
               "RelativeDocumentMoniker": "FALCONx\\Scripts\\AngularJS\\Account\\MenuController.js",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Scripts\\AngularJS\\Account\\MenuController.js",
               "RelativeToolTip": "FALCONx\\Scripts\\AngularJS\\Account\\MenuController.js",
-              "ViewState": "AQIAACkAAAAAAAAAAAAIwBUAAABPAAAA",
+              "ViewState": "AQIAAEgAAAAAAAAAAAAnwGIAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-04-04T14:03:05.192Z"
+              "WhenOpened": "2024-04-04T14:03:05.192Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "VerifyText.js",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Scripts\\AngularJS\\Verify\\VerifyText.js",
               "RelativeDocumentMoniker": "FALCONx\\Scripts\\AngularJS\\Verify\\VerifyText.js",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Scripts\\AngularJS\\Verify\\VerifyText.js",
               "RelativeToolTip": "FALCONx\\Scripts\\AngularJS\\Verify\\VerifyText.js",
-              "ViewState": "AQIAAHMAAAAAAAAAAAAmwCABAABBAAAA",
+              "ViewState": "AQIAAFMBAAAAAAAAAAAMwFsBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-04-06T06:44:49.49Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "VerifyFile.js",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Scripts\\AngularJS\\Verify\\VerifyFile.js",
               "RelativeDocumentMoniker": "FALCONx\\Scripts\\AngularJS\\Verify\\VerifyFile.js",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Scripts\\AngularJS\\Verify\\VerifyFile.js",
               "RelativeToolTip": "FALCONx\\Scripts\\AngularJS\\Verify\\VerifyFile.js",
-              "ViewState": "AQIAALkAAAAAAAAAAAAUwLsAAAAbAAAA",
+              "ViewState": "AQIAANwBAAAAAAAAAAAqwPUBAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-04-12T12:04:26.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Revocation.js",
+              "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Scripts\\AngularJS\\Certificate\\Revocation.js",
+              "RelativeDocumentMoniker": "FALCONx\\Scripts\\AngularJS\\Certificate\\Revocation.js",
+              "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Scripts\\AngularJS\\Certificate\\Revocation.js",
+              "RelativeToolTip": "FALCONx\\Scripts\\AngularJS\\Certificate\\Revocation.js",
+              "ViewState": "AQIAADYAAAAAAAAAAAApwFMAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-04-20T03:41:42.07Z",
               "EditorCaption": ""
             }
           ]
@@ -473,7 +520,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 36,
               "Title": "PrivateKey.cshtml",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Key\\PrivateKey.cshtml",
               "RelativeDocumentMoniker": "FALCONx\\Views\\Key\\PrivateKey.cshtml",
@@ -485,7 +532,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 37,
               "Title": "PublicKey.cshtml",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Key\\PublicKey.cshtml",
               "RelativeDocumentMoniker": "FALCONx\\Views\\Key\\PublicKey.cshtml",
@@ -497,19 +544,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 17,
               "Title": "Certify.cshtml",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Certificate\\Certify.cshtml",
               "RelativeDocumentMoniker": "FALCONx\\Views\\Certificate\\Certify.cshtml",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Certificate\\Certify.cshtml",
               "RelativeToolTip": "FALCONx\\Views\\Certificate\\Certify.cshtml",
-              "ViewState": "AQIAAIgAAAAAAAAAAAAwwJ8AAACaAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAKsAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-04T02:57:06.501Z"
+              "WhenOpened": "2024-04-04T02:57:06.501Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 31,
               "Title": "SignFile.cshtml",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Signature\\SignFile.cshtml",
               "RelativeDocumentMoniker": "FALCONx\\Views\\Signature\\SignFile.cshtml",
@@ -521,20 +569,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "myApp.js",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Scripts\\myApp.js",
               "RelativeDocumentMoniker": "FALCONx\\Scripts\\myApp.js",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Scripts\\myApp.js",
               "RelativeToolTip": "FALCONx\\Scripts\\myApp.js",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAgwBoAAAADAAAA",
+              "ViewState": "AQIAACUAAAAAAAAAAAAAwCsAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-04-04T14:11:22.432Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 23,
               "Title": "About.cshtml",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Home\\About.cshtml",
               "RelativeDocumentMoniker": "FALCONx\\Views\\Home\\About.cshtml",
@@ -542,37 +590,37 @@
               "RelativeToolTip": "FALCONx\\Views\\Home\\About.cshtml",
               "ViewState": "AQIAAFwAAAAAAAAAAAAiwGQAAABiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-04T12:38:20.586Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-04T12:38:20.586Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "FALCONx\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "FALCONx\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAANMAAAAAAAAAAAAqwOQAAABOAAAA",
+              "ViewState": "AQIAAN0AAAAAAAAAAAAAwAIBAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-04T12:35:25.011Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 18,
               "Title": "SignIn.cshtml",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Account\\SignIn.cshtml",
               "RelativeDocumentMoniker": "FALCONx\\Views\\Account\\SignIn.cshtml",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Account\\SignIn.cshtml",
               "RelativeToolTip": "FALCONx\\Views\\Account\\SignIn.cshtml",
-              "ViewState": "AQIAAPwAAAAAAAAAAAAAwBYBAAA6AAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAACQAAABKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-05T10:54:27.723Z"
+              "WhenOpened": "2024-04-05T10:54:27.723Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 26,
               "Title": "SignText.cshtml",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Signature\\SignText.cshtml",
               "RelativeDocumentMoniker": "FALCONx\\Views\\Signature\\SignText.cshtml",
@@ -584,27 +632,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 3,
               "Title": "VerifyText.cshtml",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Verify\\VerifyText.cshtml",
               "RelativeDocumentMoniker": "FALCONx\\Views\\Verify\\VerifyText.cshtml",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Verify\\VerifyText.cshtml",
               "RelativeToolTip": "FALCONx\\Views\\Verify\\VerifyText.cshtml",
-              "ViewState": "AQIAAI4AAAAAAAAAAAAuwK0AAAAOAAAA",
+              "ViewState": "AQIAAKUAAAAAAAAAAAAjwLIAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-06T13:28:14.755Z"
+              "WhenOpened": "2024-04-06T13:28:14.755Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "VerifyFile.cshtml",
               "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Verify\\VerifyFile.cshtml",
               "RelativeDocumentMoniker": "FALCONx\\Views\\Verify\\VerifyFile.cshtml",
               "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Verify\\VerifyFile.cshtml",
               "RelativeToolTip": "FALCONx\\Views\\Verify\\VerifyFile.cshtml",
-              "ViewState": "AQIAAKoAAAAAAAAAAAAowLoAAACSAAAA",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAowFsAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-12T12:03:57.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Revocation.cshtml",
+              "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Certificate\\Revocation.cshtml",
+              "RelativeDocumentMoniker": "FALCONx\\Views\\Certificate\\Revocation.cshtml",
+              "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Certificate\\Revocation.cshtml",
+              "RelativeToolTip": "FALCONx\\Views\\Certificate\\Revocation.cshtml",
+              "ViewState": "AQIAAIcAAAAAAAAAAAAjwIsAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-20T03:40:58.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Introduction.cshtml",
+              "DocumentMoniker": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Documentation\\Introduction.cshtml",
+              "RelativeDocumentMoniker": "FALCONx\\Views\\Documentation\\Introduction.cshtml",
+              "ToolTip": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\FALCONx\\FALCONx\\Views\\Documentation\\Introduction.cshtml",
+              "RelativeToolTip": "FALCONx\\Views\\Documentation\\Introduction.cshtml",
+              "ViewState": "AQIAADMAAAAAAAAAAAAYwEcAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-16T14:49:59.857Z",
               "EditorCaption": ""
             }
           ]

@@ -568,6 +568,7 @@
     <Content Include="Scripts\AngularJS\Account\SignIn.js" />
     <Content Include="Scripts\AngularJS\Account\SignUp.js" />
     <Content Include="Scripts\AngularJS\Certificate\Certify.js" />
+    <Content Include="Scripts\AngularJS\Certificate\Revocation.js" />
     <Content Include="Scripts\AngularJS\Home\About.js" />
     <Content Include="Scripts\AngularJS\Key\PrivateKey.js" />
     <Content Include="Scripts\AngularJS\Key\PublicKey.js" />
@@ -1441,6 +1442,8 @@
     <Content Include="Scripts\angular-parse-ext.min.js.map" />
     <Content Include="Scripts\angular-resource.min.js.map" />
     <Content Include="Views\Documentation\Introduction.cshtml" />
+    <Content Include="Views\Certificate\Revocation.cshtml" />
+    <Content Include="Views\Documentation\ApiDocumentation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

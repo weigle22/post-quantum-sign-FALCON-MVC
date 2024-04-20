@@ -96,10 +96,14 @@
                                     // Handle error if the promise is rejected
                                     Swal.fire({
                                         icon: 'info',
-                                        title: 'Something went wrong',
+                                        title: 'Information',
                                         text: error,
-                                    });
-                                    _s.myDropzone.removeFile(file);
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            _s.myDropzone.removeFile(file);
+                                        }
+                                    });;
+                                    //_s.myDropzone.removeFile(file);
                                 });
                             _fs.setSessionUserName(_s.session.username);
                         }

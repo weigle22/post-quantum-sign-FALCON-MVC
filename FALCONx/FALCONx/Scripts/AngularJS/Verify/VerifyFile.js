@@ -165,6 +165,178 @@
         }
 
         // zip mode
+        // zip mode
+        else if (userKey.uploadMode == 'zip') {
+            var zipfiles = _s.myDropzoneUploadFiles.files;
+            var zipsWithoutSig = []; // Array to store zip filenames without .sig files
+
+            zipfiles.forEach(function (zipFile) {
+                var zip = new JSZip();
+
+                zip.loadAsync(zipFile) // Load the zip file asynchronously
+                    .then(function (zipContents) {
+                        var hasSigFile = false;
+
+                        // Check if the zip file contains a .sig file
+                        zipContents.forEach(function (relativePath, zipEntry) {
+                            if (!zipEntry.dir && zipEntry.name.endsWith('.sig')) {
+                                hasSigFile = true;
+                            }
+                        });
+
+                        if (!hasSigFile) {
+                            console.log("Zip file does not contain a .sig file. Skipping extraction.");
+                            zipsWithoutSig.push(zipFile.name); // Add filename to list
+                            return Promise.resolve([]); // Skip extraction and return empty array
+                        }
+
+                        var extractedFilesPromises = [];
+
+                        // Extract each file from the zip
+                        zipContents.forEach(function (relativePath, zipEntry) {
+                            if (!zipEntry.dir) { // Check if it's not a directory
+                                var promise = zipEntry.async("blob").then(function (content) {
+                                    // Create a File object from the extracted content
+                                    return new File([content], zipEntry.name, { type: zipEntry.dir ? 'directory' : '' });
+                                });
+
+                                extractedFilesPromises.push(promise);
+                            }
+                        });
+
+                        // Once all files are extracted, wait for all promises to resolve
+                        return Promise.all(extractedFilesPromises);
+                    })
+                    .then(function (extractedFiles) {
+                        // Check if any files were extracted
+                        if (extractedFiles.length === 0) {
+                            // No files were extracted, so no need to continue processing
+                            return;
+                        }
+
+                        // Assign files to individual variables based on their extensions
+                        var keyFile, sigFile, otherFile;
+
+                        extractedFiles.forEach(function (file) {
+                            if (file.name.endsWith('.key')) {
+                                keyFile = file;
+                            } else if (file.name.endsWith('.sig')) {
+                                sigFile = file;
+                            } else {
+                                otherFile = file;
+                            }
+                        });
+
+                        if (otherFile) {
+                            var existingFile = userKey.filesToSign.find(function (existingFile) {
+                                return existingFile.name === otherFile.name;
+                            });
+                            if (!existingFile) {
+                                otherFile.status = 'UNVERIFIED';
+                                otherFile.signatureFile = sigFile;
+                                userKey.filesToSign = userKey.filesToSign.concat(otherFile);
+                                _s.$apply(function () {
+                                    _s.myDropzoneUploadFiles.removeAllFiles();
+                                    $('#uploadFilesModal').modal('toggle');
+
+                                    // Extract unique file extensions
+                                    var uniqueExtensions = {};
+                                    userKey.filesToSign.forEach(function (file) {
+                                        var extension = file.name.split('.').pop();
+                                        uniqueExtensions[extension] = true;
+                                    });
+
+                                    _s.userKey.uniqueExtensionsArray = Object.keys(uniqueExtensions);
+                                    _s.optionValues = [];
+                                    var fileCount = userKey.filesToSign.length;
+                                    var optionCount = Math.ceil(fileCount / 10);
+                                    for (var i = 1; i <= optionCount; i++) {
+                                        _s.optionValues.push(i * 10);
+                                    }
+                                    _s.optionValues.push("View All"); // Add "View All" option
+                                    if (userKey.selectedOption == null) {
+                                        userKey.selectedOption = 10;
+                                    } else {
+                                        userKey.selectedOption = userKey.selectedOption;
+                                    }
+                                    _s.userKey.pages = Math.ceil(fileCount / userKey.selectedOption);
+                                    //console.log(userKey.filesToSign);
+                                });
+                            }
+                        }
+                    })
+                    .then(function () {
+                        // Check if this is the last zip file processed
+                        if (zipfiles.indexOf(zipFile) === zipfiles.length - 1) {
+                            // Display SweetAlert2 alert with list of zip filenames without .sig files
+                            if (zipsWithoutSig.length > 0) {
+                                var filenamesList = zipsWithoutSig.join("\n");
+                                Swal.fire({
+                                    title: 'Warning!',
+                                    text: 'The following zip files do not contain a .sig file:\n' + filenamesList,
+                                    icon: 'warning',
+                                    confirmButtonText: 'OK'
+                                });
+                            }
+                        }
+                    })
+                    .catch(function (error) {
+                        console.error("Error extracting zip file:", error);
+                    });
+            });
+        }
+    };
+
+    _s.AddToList22 = function (userKey) {
+
+        // raw mode
+        if (userKey.uploadMode == 'raw') {
+            // Transfer files from dropZoneFiles to filesToSign
+            // Get all files added to the Dropzone instance
+            var files = _s.myDropzoneUploadFiles.files;
+            var newFiles = [];
+
+            // Update status only for new files, keep existing files untouched
+            files.forEach(function (file) {
+                var existingFile = userKey.filesToSign.find(function (existingFile) {
+                    return existingFile.name === file.name;
+                });
+                if (!existingFile) {
+                    file.status = 'UNVERIFIED';
+                    file.signatureFile = null;
+                    newFiles.push(file);
+                }
+            });
+
+            userKey.filesToSign = userKey.filesToSign.concat(newFiles);
+            _s.myDropzoneUploadFiles.removeAllFiles();
+            $('#uploadFilesModal').modal('toggle');
+
+            // Extract unique file extensions
+            var uniqueExtensions = {};
+            userKey.filesToSign.forEach(function (file) {
+                var extension = file.name.split('.').pop();
+                uniqueExtensions[extension] = true;
+            });
+
+            _s.userKey.uniqueExtensionsArray = Object.keys(uniqueExtensions);
+            _s.optionValues = [];
+            var fileCount = userKey.filesToSign.length;
+            var optionCount = Math.ceil(fileCount / 10);
+            for (var i = 1; i <= optionCount; i++) {
+                _s.optionValues.push(i * 10);
+            }
+            _s.optionValues.push("View All"); // Add "View All" option
+            if (userKey.selectedOption == null) {
+                userKey.selectedOption = 10;
+            } else {
+                userKey.selectedOption = userKey.selectedOption;
+            }
+            _s.userKey.pages = Math.ceil(fileCount / userKey.selectedOption);
+            //console.log(userKey.filesToSign);
+        }
+
+        // zip mode
         else if (userKey.uploadMode == 'zip') {
             var zipfiles = _s.myDropzoneUploadFiles.files;
 
@@ -237,7 +409,7 @@
                                         userKey.selectedOption = userKey.selectedOption;
                                     }
                                     _s.userKey.pages = Math.ceil(fileCount / userKey.selectedOption);
-                                    console.log(userKey.filesToSign);
+                                    //console.log(userKey.filesToSign);
                                 });
                             }
                         }

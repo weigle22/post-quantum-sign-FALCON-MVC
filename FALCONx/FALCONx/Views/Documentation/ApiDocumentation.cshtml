@@ -1,0 +1,1275 @@
+﻿
+
+@{
+    ViewBag.Title = "Introduction";
+}
+
+
+<div class="col-12 mb-4" ng-controller="" ng-init="">
+    <div class="card shadow">
+        <div class="card-header">
+            <h1><strong class="card-title">API Documentation</strong></h1>
+        </div>
+        <div class="card-body">
+            <p>
+                Welcome to the FALCON API documentation, providing developers with seamless integration of the FALCON post-quantum digital signature scheme into your applications for secure and efficient cryptographic operations.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="col-12 mb-4">
+
+    <div class="card shadow">
+        <div class="card-header">
+            <h1><strong class="card-title">Text or String Signature Generation</strong></h1>
+        </div>
+        <div class="card-body">
+            <h2><code>GetMessageSignature</code></h2>
+            <br />
+            <h4>Description</h4>
+            <p>
+                This endpoint generates a signature for a given message using a private key provided by the FalconWrapper library.
+            </p>
+            <br />
+            <h4>Endpoint</h4>
+
+            <h4><strong><code>GET /api/GetMessageSignature?message={message}&private_key_str={private_key_str}</code></strong></h4>
+            <br />
+            <h4>Parameters</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr style="text-align:center; background-color: gray">
+                            <th style="color: #fff">Parameter</th>
+                            <th style="color: #fff">Type</th>
+                            <th style="color: #fff">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center;">
+                            <td>message</td>
+                            <td>string</td>
+                            <td>The string/text message to be signed.</td>
+                        </tr>
+                        <tr style="text-align:center;">
+                            <td>private_key_str</td>
+                            <td>string</td>
+                            <td>The private key for signing.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <h4>Responses</h4>
+            <ul>
+                <li>
+                    <b>200 OK:</b>
+                    Returns the generated signature.
+                    <ul>
+                        <li>
+                            Content-Type: application/json
+                        </li>
+                        <li>
+                            Body: Signature object <br />
+                            <code>
+                                {<br />
+                                &nbsp;&nbsp;&nbsp;"logn": 10,<br />
+                                &nbsp;&nbsp;&nbsp;"message": "YourMessage",<br />
+                                &nbsp;&nbsp;&nbsp;"signature_str": "GeneratedSignature"<br />
+                                }<br />
+                            </code>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>400 Bad Request:</b>
+                    If either <b>'message'</b> or <b>'private_key_str'</b> parameters are missing.
+                    <ul>
+                        <li>
+                            Content-Type: application/problem+json
+                        </li>
+                        <li>
+                            Body: Error message
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>500 Internal Server Error:</b>
+                    If an error occurs during signature generation.
+                    <ul>
+                        <li>
+                            Content-Type: application/problem+json
+                        </li>
+                        <li>
+                            Body: Error message
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <br />
+            <h4>Example</h4><br />
+            <h5>Request</h5>
+            <h5><strong><code style="color:green">GET /api/GetMessageSignature?message=Hello&private_key_str=E7C12F...</code></strong></h5>
+            <h5>Response</h5>
+            <code>
+                {<br />
+                &nbsp;&nbsp;&nbsp;"logn": 10,<br />
+                &nbsp;&nbsp;&nbsp;"message": "Hello",<br />
+                &nbsp;&nbsp;&nbsp;"signature_str": "ABCD1234..."<br />
+                }<br />
+            </code>
+            <br />
+            <h4>Models</h4>
+            <h5>Signature</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr style="text-align:center; background-color: gray">
+                            <th style="color: #fff">Field</th>
+                            <th style="color: #fff">Type</th>
+                            <th style="color: #fff">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center;">
+                            <td>logn</td>
+                            <td>int</td>
+                            <td>Logarithm value used for signature generation.</td>
+                        </tr>
+                        <tr style="text-align:center;">
+                            <td>message</td>
+                            <td>string</td>
+                            <td>The message/string that was signed.</td>
+                        </tr>
+                        <tr style="text-align:center;">
+                            <td>signature_str</td>
+                            <td>string</td>
+                            <td>The generated signature.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <h4>Notes</h4>
+            <ul>
+                <li>The signature is generated using the FalconWrapper library with a logarithm value of 10.</li>
+                <li>If either <b>'message'</b> or <b>'private_key_str'</b> parameters are missing, a bad request error will be returned.</li>
+                <li>If an error occurs during signature generation, an error message will be returned instead of the signature.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="col-12 mb-4">
+
+    <div class="card shadow">
+        <div class="card-header">
+            <h1><strong class="card-title">Text or String Signature Verification</strong></h1>
+        </div>
+        <div class="card-body">
+            <h2><code>GetMessageVerification</code></h2>
+            <br />
+            <h4>Description</h4>
+            <p>
+                This endpoint verifies the authenticity of a message using its signature and a provided public key, using the FalconWrapper library.
+            </p>
+            <br />
+            <h4>Endpoint</h4>
+
+            <h4><strong><code>GET /api/GetMessageVerification?message={message}&signature_str={signature_str}&public_key_str={public_key_str}</code></strong></h4>
+            <br />
+            <h4>Parameters</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr style="text-align:center; background-color: gray">
+                            <th style="color: #fff">Parameter</th>
+                            <th style="color: #fff">Type</th>
+                            <th style="color: #fff">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center;">
+                            <td>message</td>
+                            <td>string</td>
+                            <td>The string/text message to be verified.</td>
+                        </tr>
+                        <tr style="text-align:center;">
+                            <td>signature_str</td>
+                            <td>string</td>
+                            <td>The signature of the message.</td>
+                        </tr>
+                        <tr style="text-align:center;">
+                            <td>public_key_str</td>
+                            <td>string</td>
+                            <td>The public key for verification.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <h4>Responses</h4>
+            <ul>
+                <li>
+                    <b>200 OK:</b>
+                    Returns the verification result.
+                    <ul>
+                        <li>
+                            Content-Type: application/json
+                        </li>
+                        <li>
+                            Body: Signature object <br />
+                            <code>
+                                {<br />
+                                &nbsp;&nbsp;&nbsp;"logn": 10,<br />
+                                &nbsp;&nbsp;&nbsp;"message": "YourMessage",<br />
+                                &nbsp;&nbsp;&nbsp;"signature_str": "MessageSignature",<br />
+                                &nbsp;&nbsp;&nbsp;"public_key_str": "PublicKey",<br />
+                                &nbsp;&nbsp;&nbsp;"result": true<br />
+                                }<br />
+                            </code>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>400 Bad Request:</b>
+                    If any of the required parameters are missing.
+                    <ul>
+                        <li>
+                            Content-Type: application/problem+json
+                        </li>
+                        <li>
+                            Body: Error message
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>500 Internal Server Error:</b>
+                    If an error occurs during signature generation.
+                    <ul>
+                        <li>
+                            Content-Type: application/problem+json
+                        </li>
+                        <li>
+                            Body: Error message
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <br />
+            <h4>Example</h4><br />
+            <h5>Request</h5>
+            <h5><strong><code style="color:green">GET /api/GetMessageVerification?message=Hello&signature_str=ABCD1234...&public_key_str=XYZ987...</code></strong></h5>
+            <h5>Response</h5>
+            <code>
+                {<br />
+                &nbsp;&nbsp;&nbsp;"logn": 10,<br />
+                &nbsp;&nbsp;&nbsp;"message": "Hello",<br />
+                &nbsp;&nbsp;&nbsp;"signature_str": "ABCD1234...",<br />
+                &nbsp;&nbsp;&nbsp;"public_key_str": "XYZ987...",<br />
+                &nbsp;&nbsp;&nbsp;"result": true<br />
+                }<br />
+            </code>
+            <br />
+            <h4>Models</h4>
+            <h5>Verification</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr style="text-align:center; background-color: gray">
+                            <th style="color: #fff">Field</th>
+                            <th style="color: #fff">Type</th>
+                            <th style="color: #fff">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center;">
+                            <td>logn</td>
+                            <td>int</td>
+                            <td>Logarithm value used for signature generation.</td>
+                        </tr>
+                        <tr style="text-align:center;">
+                            <td>message</td>
+                            <td>string</td>
+                            <td>The message/string that was signed.</td>
+                        </tr>
+                        <tr style="text-align:center;">
+                            <td>signature_str</td>
+                            <td>string</td>
+                            <td>The generated signature.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <h4>Notes</h4>
+            <ul>
+                <li>The verification is performed using the FalconWrapper library with a logarithm value of 10.</li>
+                <li>If any of the required parameters are missing, a bad request error will be returned.</li>
+                <li>If an error occurs during verification, an error message will be returned instead of the verification result.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="col-12 mb-4">
+
+    <div class="card shadow">
+        <div class="card-header">
+            <h1><strong class="card-title">File Signature Generation</strong></h1>
+        </div>
+        <div class="card-body">
+            <h2><code>GetMessageSignature</code></h2>
+            <br />
+            <h4>Description</h4>
+            <p>
+                This endpoint generates a signature for a user-provided file and packs it into a zip archive along with the original file and the signature file.
+            </p>
+            <br />
+            <h4>Endpoint</h4>
+
+            <h4><strong><code>POST /api/purefile/GetMessageSignature</code></strong></h4>
+            <br />
+            <h4>Request Body</h4>
+            <p>The request body should be of type <b>'multipart/form-data'</b> and contain the following fields:</p>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr style="text-align:center; background-color: gray">
+                            <th style="color: #fff">Field</th>
+                            <th style="color: #fff">Type</th>
+                            <th style="color: #fff">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center;">
+                            <td>userFile</td>
+                            <td>file</td>
+                            <td>The user-provided file to be signed.</td>
+                        </tr>
+                        <tr style="text-align:center;">
+                            <td>privateKeyFile</td>
+                            <td>.key file</td>
+                            <td>The private key file for signing.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <h4>Responses</h4>
+            <ul>
+                <li>
+                    <b>200 OK:</b>
+                    Returns the verification result.
+                    <ul>
+                        <li>
+                            Content-Type: application/zip
+                        </li>
+                        <li>
+                            Body: The zip file containing the original file and its signature. <br />
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>400 Bad Request:</b>
+                    If either the user file or the private key file is missing.
+                    <ul>
+                        <li>
+                            Content-Type: application/problem+json
+                        </li>
+                        <li>
+                            Body: Error message
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>500 Internal Server Error:</b>
+                    If an error occurs during signature generation or zip file creation.
+                    <ul>
+                        <li>
+                            Content-Type: application/problem+json
+                        </li>
+                        <li>
+                            Body: Error message
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <br />
+            <h4>Example</h4><br />
+            <h5>Request</h5>
+            <h5><strong><code style="color:green">POST /api/purefile/GetMessageSignature</code></strong></h5>
+            <h5><strong><code style="color:green">Content-Type: multipart/form-data</code></strong></h5>
+            <br />
+            <br />
+            <h5><strong><code style="color:green">userFile: [file content] </code></strong></h5>
+            <h5><strong><code style="color:green">privateKeyFile: [file content] </code></strong></h5>
+            <br />
+            <h5>Response</h5>
+            <code>
+                Content-Disposition: attachment; filename="SignedFiles.zip"<br />
+                Content-Type: application/zip
+            </code>
+            <br />
+            <br />
+            <h4>Notes</h4>
+            <ul>
+                <li>The signature is generated using the FalconWrapper library with a logarithm value of 10.</li>
+                <li>Both the user file and the private key file are required for signature generation.</li>
+                <li>If either the user file or the private key file is missing, a bad request error will be returned.</li>
+                <li>If an error occurs during signature generation or zip file creation, an error message will be returned.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="col-12 mb-4">
+
+    <div class="card shadow">
+        <div class="card-header">
+            <h1><strong class="card-title">File Signature Verification</strong></h1>
+        </div>
+        <div class="card-body">
+            <h2><code>GetMessageVerification</code></h2>
+            <br />
+            <h4>Description</h4>
+            <p>
+                This endpoint verifies the authenticity of a user-provided file using its signature and a provided public key.
+            </p>
+            <br />
+            <h4>Endpoint</h4>
+
+            <h4><strong><code>POST /api/purefile/GetMessageVerification</code></strong></h4>
+            <br />
+            <h4>Request Body</h4>
+            <p>The request body should be of type <b>'multipart/form-data'</b> and contain the following fields:</p>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr style="text-align:center; background-color: gray">
+                            <th style="color: #fff">Field</th>
+                            <th style="color: #fff">Type</th>
+                            <th style="color: #fff">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center;">
+                            <td>userFile</td>
+                            <td>file</td>
+                            <td>The user-provided file to be signed.</td>
+                        </tr>
+                        <tr style="text-align:center;">
+                            <td>sigFile</td>
+                            <td>.sig file</td>
+                            <td>The signature file of the user file.</td>
+                        </tr>
+                        <tr style="text-align:center;">
+                            <td>publicKeyFile</td>
+                            <td>.key file</td>
+                            <td>The public key file for verification.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <h4>Responses</h4>
+            <ul>
+                <li>
+                    <b>200 OK:</b>
+                    Returns the verification result.
+                    <ul>
+                        <li>
+                            Content-Type: text/plain
+                        </li>
+                        <li>
+                            Body: The verification result. <br />
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>400 Bad Request:</b>
+                    If either the user file or the private key file is missing.
+                    <ul>
+                        <li>
+                            Content-Type: application/problem+json
+                        </li>
+                        <li>
+                            Body: Error message
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>500 Internal Server Error:</b>
+                    If an error occurs during verification.
+                    <ul>
+                        <li>
+                            Content-Type: application/problem+json
+                        </li>
+                        <li>
+                            Body: Error message
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <br />
+            <h4>Example</h4><br />
+            <h5>Request</h5>
+            <h5><strong><code style="color:green">POST /api/purefile/GetMessageVerification</code></strong></h5>
+            <h5><strong><code style="color:green">Content-Type: multipart/form-data</code></strong></h5>
+            <br />
+            <br />
+            <h5><strong><code style="color:green">userFile: [file content] </code></strong></h5>
+            <h5><strong><code style="color:green">sigFile: [file content] </code></strong></h5>
+            <h5><strong><code style="color:green">publicKeyFile: [file content] </code></strong></h5>
+            <br />
+            <h5>Response</h5>
+            <code>
+                Content-Type: text/plain
+
+                "0" - for authentic file
+                "-3" - for invalid requirements
+                "-4" - for bad signature
+            </code>
+            <br />
+            <br />
+            <h4>Notes</h4>
+            <ul>
+                <li>The verification is performed using the FalconWrapper library with a logarithm value of 10.</li>
+                <li>All three files (user file, signature file, and public key file) are required for verification.</li>
+                <li>If any of the required files are missing, a bad request error will be returned.</li>
+                <li>If an error occurs during verification, an error message will be returned.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="col-12 mb-4" ng-controller="" ng-init="">
+    <div class="card shadow">
+        <div class="card-header">
+            <h1><strong class="card-title">API Documentation for Researchers</strong></h1>
+        </div>
+        <div class="card-body">
+            <p>
+                Here's the API documentation for the API endpoint, which allows users to initialize a dynamic logarithm value for research purposes:
+            </p>
+            <h5 class="text-danger">
+                *** NOTE: logn is a uint value from 1 up to 10 only.
+            </h5>
+            <h5 class="text-danger">
+                *** NOTE: logn must be consistent among enpoint usage to get the exact results.
+            </h5>
+        </div>
+    </div>
+</div>
+
+<div class="col-12 mb-4">
+
+    <div class="card shadow">
+        <div class="card-header">
+            <h1><strong class="card-title">Key Pair Generation</strong></h1>
+        </div>
+        <div class="card-body">
+            <h2><code>GetKeyPair</code></h2>
+            <br />
+            <h4>Description</h4>
+            <p>
+                This endpoint generates a key pair (private and public key) with a dynamic logarithm value for research purposes.
+            </p>
+            <br />
+            <h4>Endpoint</h4>
+
+            <h4><strong><code>GET /api/GetKeyPair?logn={logn}</code></strong></h4>
+            <br />
+            <h4>Parameters</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr style="text-align:center; background-color: gray">
+                            <th style="color: #fff">Parameter</th>
+                            <th style="color: #fff">Type</th>
+                            <th style="color: #fff">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center;">
+                            <td>logn</td>
+                            <td>uint</td>
+                            <td>The logarithm value for key pair generation.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <h4>Responses</h4>
+            <ul>
+                <li>
+                    <b>200 OK:</b>
+                    Returns the generated key pair.
+                    <ul>
+                        <li>
+                            Content-Type: application/json
+                        </li>
+                        <li>
+                            Body: KeyPair object <br />
+                            <code>
+                                {<br />
+                                &nbsp;&nbsp;&nbsp;"logn": 2,<br />
+                                &nbsp;&nbsp;&nbsp;"private_key_str": "PrivateKey",<br />
+                                &nbsp;&nbsp;&nbsp;"public_key_str": "PublicKey"<br />
+                                }<br />
+                            </code>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>400 Bad Request:</b>
+                    If the logn parameter is missing or invalid.
+                    <ul>
+                        <li>
+                            Content-Type: application/problem+json
+                        </li>
+                        <li>
+                            Body: Error message
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>500 Internal Server Error:</b>
+                    If an error occurs during signature generation.
+                    <ul>
+                        <li>
+                            Content-Type: application/problem+json
+                        </li>
+                        <li>
+                            Body: Error message
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <br />
+            <h4>Example</h4><br />
+            <h5>Request</h5>
+            <h5><strong><code style="color:green">GET /api/InitializeKeyPair?logn=2</code></strong></h5>
+            <h5>Response</h5>
+            <code>
+                {<br />
+                &nbsp;&nbsp;&nbsp;"logn": 2,<br />
+                &nbsp;&nbsp;&nbsp;"private_key_str": "PrivateKey",<br />
+                &nbsp;&nbsp;&nbsp;"public_key_str": "PublicKey"<br />
+                }<br />
+            </code>
+            <br />
+            <h4>Models</h4>
+            <h5>KeyPair</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr style="text-align:center; background-color: gray">
+                            <th style="color: #fff">Field</th>
+                            <th style="color: #fff">Type</th>
+                            <th style="color: #fff">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center;">
+                            <td>logn</td>
+                            <td>uint</td>
+                            <td>The logarithm value used for key pair generation.</td>
+                        </tr>
+                        <tr style="text-align:center;">
+                            <td>private_key_str</td>
+                            <td>string</td>
+                            <td>The generated private key.</td>
+                        </tr>
+                        <tr style="text-align:center;">
+                            <td>public_key_str</td>
+                            <td>string</td>
+                            <td>The generated public key.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <h4>Notes</h4>
+            <ul>
+                <li>The key pair is generated using the FalconWrapper library with the specified logarithm value.</li>
+                <li>If the logn parameter is missing or invalid, a bad request error will be returned.</li>
+                <li>If an error occurs during key pair generation, an error message will be returned.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="col-12 mb-4">
+
+    <div class="card shadow">
+        <div class="card-header">
+            <h1><strong class="card-title">Private Key ONLY</strong></h1>
+        </div>
+        <div class="card-body">
+            <h2><code>GetPrivateKey</code></h2>
+            <br />
+            <h4>Description</h4>
+            <p>
+                This endpoint generates a private key with a specified logarithm value.
+            </p>
+            <br />
+            <h4>Endpoint</h4>
+
+            <h4><strong><code>GET /api/GeneratePrivateKey?logn={logn}</code></strong></h4>
+            <br />
+            <h4>Parameters</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr style="text-align:center; background-color: gray">
+                            <th style="color: #fff">Parameter</th>
+                            <th style="color: #fff">Type</th>
+                            <th style="color: #fff">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center;">
+                            <td>logn</td>
+                            <td>uint</td>
+                            <td>The logarithm value for key pair generation.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <h4>Responses</h4>
+            <ul>
+                <li>
+                    <b>200 OK:</b>
+                    Returns the generated private key.
+                    <ul>
+                        <li>
+                            Content-Type: application/json
+                        </li>
+                        <li>
+                            Body: PrivateKey object <br />
+                            <code>
+                                {<br />
+                                &nbsp;&nbsp;&nbsp;"private_key_str": "GeneratedPrivateKey"<br />
+                                }<br />
+                            </code>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>400 Bad Request:</b>
+                    If the logn parameter is missing or invalid.
+                    <ul>
+                        <li>
+                            Content-Type: application/problem+json
+                        </li>
+                        <li>
+                            Body: Error message
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>500 Internal Server Error:</b>
+                    If an error occurs during signature generation.
+                    <ul>
+                        <li>
+                            Content-Type: application/problem+json
+                        </li>
+                        <li>
+                            Body: Error message
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <br />
+            <h4>Example</h4><br />
+            <h5>Request</h5>
+            <h5><strong><code style="color:green">GET /api/GeneratePrivateKey?logn=2</code></strong></h5>
+            <h5>Response</h5>
+            <code>
+                {<br />
+                &nbsp;&nbsp;&nbsp;"private_key_str": "GeneratedPrivateKey"<br />
+                }<br />
+            </code>
+            <br />
+            <h4>Models</h4>
+            <h5>PrivateKey</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr style="text-align:center; background-color: gray">
+                            <th style="color: #fff">Field</th>
+                            <th style="color: #fff">Type</th>
+                            <th style="color: #fff">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align:center;">
+                            <td>private_key_str</td>
+                            <td>string</td>
+                            <td>The generated private key.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <h4>Notes</h4>
+            <ul>
+                <li>The private key is generated using the FalconWrapper library with the specified logarithm value.</li>
+                <li>If the logn parameter is missing or invalid, a bad request error will be returned.</li>
+                <li>If an error occurs during private key generation, an error message will be returned.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-12 mb-4">
+
+    <div class="card shadow">
+        <div class="card-header">
+            <h1><strong class="card-title">Public Key ONLY of a given private key</strong></h1>
+        </div>
+        <div class="card-body">
+            <h2><code>GetPublicKey</code></h2>
+            <br />
+            <h4>Description</h4>
+            <p>
+                This endpoint generates a public key from a given private key and logarithm value.
+            </p>
+            <br />
+            <h4>Endpoint</h4>
+
+            <h4><strong><code>GET /api/GeneratePublicKey?logn={logn}&private_key_str={private_key_str}</code></strong></h4>
+            <br />
+            <h4>Parameters</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr style="text-align:center; background-color: gray">
+                            <th style="color: #fff">Parameter</th>
+                            <th style="color: #fff">Type</th>
+                            <th style="color: #fff">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center;">
+                            <td>logn</td>
+                            <td>uint</td>
+                            <td>The logarithm value for public key generation.</td>
+                        </tr>
+                        <tr style="text-align: center;">
+                            <td>private_key_str</td>
+                            <td>string</td>
+                            <td>The private key from which to generate the public key.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <h4>Responses</h4>
+            <ul>
+                <li>
+                    <b>200 OK:</b>
+                    Returns the generated private key.
+                    <ul>
+                        <li>
+                            Content-Type: application/json
+                        </li>
+                        <li>
+                            Body: PrivateKey object <br />
+                            <code>
+                                {<br />
+                                &nbsp;&nbsp;&nbsp;"public_key_str": "GeneratedPublicKey"<br />
+                                }<br />
+                            </code>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>400 Bad Request:</b>
+                    If the logn parameter is missing or invalid.
+                    <ul>
+                        <li>
+                            Content-Type: application/problem+json
+                        </li>
+                        <li>
+                            Body: Error message
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>500 Internal Server Error:</b>
+                    If an error occurs during public key generation.
+                    <ul>
+                        <li>
+                            Content-Type: application/problem+json
+                        </li>
+                        <li>
+                            Body: Error message
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <br />
+            <h4>Example</h4><br />
+            <h5>Request</h5>
+            <h5><strong><code style="color:green">GET /api/GeneratePublicKey?logn=12&private_key_str=GeneratedPrivateKey</code></strong></h5>
+            <h5>Response</h5>
+            <code>
+                {<br />
+                &nbsp;&nbsp;&nbsp;"public_key_str": "GeneratedPublicKey"<br />
+                }<br />
+            </code>
+            <br />
+            <h4>Models</h4>
+            <h5>PublicKey</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr style="text-align:center; background-color: gray">
+                            <th style="color: #fff">Field</th>
+                            <th style="color: #fff">Type</th>
+                            <th style="color: #fff">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align:center;">
+                            <td>public_key_str</td>
+                            <td>string</td>
+                            <td>The generated public key.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <h4>Notes</h4>
+            <ul>
+                <li>The public key is generated using the FalconWrapper library with the specified logarithm value and the provided private key.</li>
+                <li>If either the logn parameter is missing or invalid, or if the private_key_str parameter is missing, a bad request error will be returned.</li>
+                <li>If an error occurs during public key generation, an error message will be returned.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="col-12 mb-4">
+
+    <div class="card shadow">
+        <div class="card-header">
+            <h1><strong class="card-title">Text or String Message Signature</strong></h1>
+        </div>
+        <div class="card-body">
+            <h2><code>GetMessageSignature</code></h2>
+            <br />
+            <h4>Description</h4>
+            <p>
+                This endpoint generates a signature for a given message using a private key and logarithm value.
+            </p>
+            <br />
+            <h4>Endpoint</h4>
+
+            <h4><strong><code>GET /api/GenerateMessageSignature?logn={logn}&message={message}&private_key_str={private_key_str}</code></strong></h4>
+            <br />
+            <h4>Parameters</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr style="text-align:center; background-color: gray">
+                            <th style="color: #fff">Parameter</th>
+                            <th style="color: #fff">Type</th>
+                            <th style="color: #fff">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center;">
+                            <td>logn</td>
+                            <td>uint</td>
+                            <td>The logarithm value for signature generation.</td>
+                        </tr>
+                        <tr style="text-align: center;">
+                            <td>message</td>
+                            <td>string</td>
+                            <td>The message to be signed.</td>
+                        </tr>
+                        <tr style="text-align: center;">
+                            <td>private_key_str</td>
+                            <td>string</td>
+                            <td>The private key used for signing.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <h4>Responses</h4>
+            <ul>
+                <li>
+                    <b>200 OK:</b>
+                    Returns the generated private key.
+                    <ul>
+                        <li>
+                            Content-Type: application/json
+                        </li>
+                        <li>
+                            Body: PrivateKey object <br />
+                            <code>
+                                {<br />
+                                &nbsp;&nbsp;&nbsp;"logn": 10,<br />
+                                &nbsp;&nbsp;&nbsp;"message": "YourMessage",<br />
+                                &nbsp;&nbsp;&nbsp;"signature_str": "GeneratedSignature"<br />
+                                }<br />
+                            </code>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>400 Bad Request:</b>
+                    If either the logn parameter is missing or invalid, the message parameter is missing, or the private_key_str parameter is missing.
+                    <ul>
+                        <li>
+                            Content-Type: application/problem+json
+                        </li>
+                        <li>
+                            Body: Error message
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>500 Internal Server Error:</b>
+                    If an error occurs during signature generation.
+                    <ul>
+                        <li>
+                            Content-Type: application/problem+json
+                        </li>
+                        <li>
+                            Body: Error message
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <br />
+            <h4>Example</h4><br />
+            <h5>Request</h5>
+            <h5><strong><code style="color:green">GET /api/GenerateMessageSignature?logn=12&message=Hello&private_key_str=GeneratedPrivateKey</code></strong></h5>
+            <h5>Response</h5>
+            <code>
+                {<br />
+                &nbsp;&nbsp;&nbsp;"logn": 12,<br />
+                &nbsp;&nbsp;&nbsp;"message": "Hello",<br />
+                &nbsp;&nbsp;&nbsp;"signature_str": "GeneratedSignature"<br />
+                }<br />
+            </code>
+            <br />
+            <h4>Models</h4>
+            <h5>Signature</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr style="text-align:center; background-color: gray">
+                            <th style="color: #fff">Field</th>
+                            <th style="color: #fff">Type</th>
+                            <th style="color: #fff">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align:center;">
+                            <td>logn</td>
+                            <td>uint</td>
+                            <td>The logarithm value used for signature generation.</td>
+                        </tr>
+                        <tr style="text-align:center;">
+                            <td>message</td>
+                            <td>string</td>
+                            <td>The message that was signed.</td>
+                        </tr>
+                        <tr style="text-align:center;">
+                            <td>signature_str</td>
+                            <td>string</td>
+                            <td>The generated signature.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <h4>Notes</h4>
+            <ul>
+                <li>The signature is generated using the FalconWrapper library with the specified logarithm value and the provided private key.</li>
+                <li>If either the logn parameter is missing or invalid, the message parameter is missing, or the private_key_str parameter is missing, a bad request error will be returned.</li>
+                <li>If an error occurs during signature generation, an error message will be returned.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-12 mb-4">
+
+    <div class="card shadow">
+        <div class="card-header">
+            <h1><strong class="card-title">Text or String Message Verification</strong></h1>
+        </div>
+        <div class="card-body">
+            <h2><code>GetMessageVerification</code></h2>
+            <br />
+            <h4>Description</h4>
+            <p>
+                This endpoint verifies the authenticity of a message using its signature, public key, and logarithm value.
+            </p>
+            <br />
+            <h4>Endpoint</h4>
+
+            <h4><strong><code>GET /api/VerifyMessage?logn={logn}&message={message}&signature_str={signature_str}&public_key_str={public_key_str}</code></strong></h4>
+            <br />
+            <h4>Parameters</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr style="text-align:center; background-color: gray">
+                            <th style="color: #fff">Parameter</th>
+                            <th style="color: #fff">Type</th>
+                            <th style="color: #fff">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center;">
+                            <td>logn</td>
+                            <td>uint</td>
+                            <td>The logarithm value used for signature verification.</td>
+                        </tr>
+                        <tr style="text-align: center;">
+                            <td>message</td>
+                            <td>string</td>
+                            <td>The message to be verified.</td>
+                        </tr>
+                        <tr style="text-align: center;">
+                            <td>signature_str</td>
+                            <td>string</td>
+                            <td>The signature of the message.</td>
+                        </tr>
+                        <tr style="text-align: center;">
+                            <td>public_key_str</td>
+                            <td>string</td>
+                            <td>The public key used for verification.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <h4>Responses</h4>
+            <ul>
+                <li>
+                    <b>200 OK:</b>
+                    Returns the verification result.
+                    <ul>
+                        <li>
+                            Content-Type: application/json
+                        </li>
+                        <li>
+                            Body: Verification object <br />
+                                                      <code>
+                                                          {<br />
+                                                          &nbsp;&nbsp;&nbsp;"logn": 10,<br />
+                                                          &nbsp;&nbsp;&nbsp;"message": "YourMessage",<br />
+                                                          &nbsp;&nbsp;&nbsp;"signature_str": "MessageSignature",<br />
+                                                          &nbsp;&nbsp;&nbsp;"public_key_str": "PublicKey",<br />
+                                                          &nbsp;&nbsp;&nbsp;"result": "0"<br />
+                                                          }<br />
+                                                      </code>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>400 Bad Request:</b>
+                    If any of the required parameters are missing or invalid.
+                    <ul>
+                        <li>
+                            Content-Type: application/problem+json
+                        </li>
+                        <li>
+                            Body: Error message
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>500 Internal Server Error:</b>
+                    If an error occurs during signature generation.
+                    <ul>
+                        <li>
+                            Content-Type: application/problem+json
+                        </li>
+                        <li>
+                            Body: Error message
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <br />
+            <h4>Example</h4><br />
+            <h5>Request</h5>
+            <h5><strong><code style="color:green">GET /api/VerifyMessage?logn=12&message=Hello&signature_str=GeneratedSignature&public_key_str=GeneratedPublicKey</code></strong></h5>
+            <h5>Response</h5>
+            <code>
+                {<br />
+                &nbsp;&nbsp;&nbsp;"logn": 2,<br />
+                &nbsp;&nbsp;&nbsp;"message": "Hello",<br />
+                &nbsp;&nbsp;&nbsp;"signature_str": "GeneratedSignature"<br />
+                &nbsp;&nbsp;&nbsp;"public_key_str": "GeneratedPublicKey",<br />
+                &nbsp;&nbsp;&nbsp;"result": "0"<br />
+                }<br />
+            </code>
+            <br />
+            <h4>Models</h4>
+            <h5>Signature</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr style="text-align:center; background-color: gray">
+                            <th style="color: #fff">Field</th>
+                            <th style="color: #fff">Type</th>
+                            <th style="color: #fff">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align:center;">
+                            <td>logn</td>
+                            <td>uint</td>
+                            <td>Logarithm value used for verification.</td>
+                        </tr>
+                        <tr style="text-align:center;">
+                            <td>message</td>
+                            <td>string</td>
+                            <td>The message being verified.</td>
+                        </tr>
+                        <tr style="text-align:center;">
+                            <td>signature_str</td>
+                            <td>string</td>
+                            <td>The signature of the message.</td>
+                        </tr>
+                        <tr style="text-align:center;">
+                            <td>public_key_str</td>
+                            <td>string</td>
+                            <td>The public key used for verification.</td>
+                        </tr>
+                        <tr style="text-align:center;">
+                            <td>result</td>
+                            <td>string</td>
+                            <td>The result of the verification.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <h4>Notes</h4>
+            <ul>
+                <li>The verification is performed using the FalconWrapper library with the specified logarithm value, message, signature, and public key.</li>
+                <li>If any of the required parameters are missing or invalid, a bad request error will be returned.</li>
+                <li>If an error occurs during verification, an error message will be returned.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/AngularJS/Home/About.js"></script>
+}

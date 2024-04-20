@@ -88,7 +88,7 @@
             </div> <!-- /.card -->
         </div>
 
-        <div class="col-md-12 d-flex" @*ng-show="userKey.privateKey"*@>
+        <div class="col-md-12 d-flex" ng-show="userKey.publicKey">
             <div class="card shadow mb-4 w-100">
                 <div class="card-header">
                     <strong class="card-title">Files</strong>
@@ -184,7 +184,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="file in (userKey.filesToSign | fileFilter:searchTerm:extensionType | limitTo:userKey.selectedOption) track by $index" }">
+                                <tr ng-repeat="file in userKey.filesToSign | fileFilter:searchTerm:extensionType | limitTo:userKey.selectedOption" }">
                                     <td>
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="{{ 'd1_' + $index }}">
