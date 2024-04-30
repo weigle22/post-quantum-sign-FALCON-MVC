@@ -18,5 +18,10 @@ namespace FALCONx.Controllers
         {
             return View();
         }
+
+        public ActionResult DirectLinkLibrabry()
+        {
+            return View();
+        }
     }
 }

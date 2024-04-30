@@ -190,6 +190,11 @@
     <Content Include="Code2Night.jpeg" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
+    <Content Include="Content\falcon\falcon_full.dll" />
+    <Content Include="Content\falcon_dll\falcon_full_32.dll" />
+    <Content Include="Content\falcon_dll\falcon_full_64.dll" />
+    <Content Include="Content\img\falcon-32-icon.png" />
+    <Content Include="Content\img\falcon-64-icon.png" />
     <Content Include="Content\img\key-plain-64-private.png" />
     <Content Include="Content\img\key-plain-64-public.png" />
     <Content Include="Content\img\key-plain-64.png" />
@@ -1444,6 +1449,7 @@
     <Content Include="Views\Documentation\Introduction.cshtml" />
     <Content Include="Views\Certificate\Revocation.cshtml" />
     <Content Include="Views\Documentation\ApiDocumentation.cshtml" />
+    <Content Include="Views\Documentation\DirectLinkLibrabry.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

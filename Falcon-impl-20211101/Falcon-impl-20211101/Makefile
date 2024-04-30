@@ -19,14 +19,14 @@ LDFLAGS = #-pg -no-pie
 LIBS = #-lm
 
 # ENABLE THIS TO BUILD IN 64 BIT
-# LD = clang
-# CC = clang
-# DLL_CC = x86_64-w64-mingw32-gcc
+LD = clang
+CC = clang
+DLL_CC = x86_64-w64-mingw32-gcc
 
 # ENABLE THIS TO BUILD IN 32 BIT
-LD = i686-w64-mingw32-gcc
-CC = i686-w64-mingw32-gcc
-DLL_CC = i686-w64-mingw32-gcc
+# LD = i686-w64-mingw32-gcc
+# CC = i686-w64-mingw32-gcc
+# DLL_CC = i686-w64-mingw32-gcc
 
 DLL_LDFLAGS = -shared
 

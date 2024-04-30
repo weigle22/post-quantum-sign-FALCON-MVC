@@ -25,6 +25,23 @@
 
     }
 
+    _s.downloadDLL = function (type) {
+        var dllUrl = ""; // Provide the URL of the DLL file here
+        if (type == '32') {
+            dllUrl = "/Content/falcon_dll/falcon_full_32.dll";
+        } else if (type == '64') {
+            dllUrl = "/Content/falcon_dll/falcon_full_64.dll";
+        }
+
+        // Create a temporary <a> element to initiate the download
+        var link = document.createElement("a");
+        link.href = dllUrl;
+        link.download = dllUrl.split("/").pop(); // Extracting the file name for the download attribute
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
     _rs.$on('executeOnLoad', function () {
         _s.onLoad();
     });
