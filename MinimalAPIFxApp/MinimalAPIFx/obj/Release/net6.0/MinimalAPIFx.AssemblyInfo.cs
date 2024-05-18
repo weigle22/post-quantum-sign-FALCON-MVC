@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MinimalAPIFx")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+39f3b3977ec907692b1a73ae6ae1e9064ed60b68")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ff66c7da41f353a27773fef942dd8034fbcde732")]
 [assembly: System.Reflection.AssemblyProductAttribute("MinimalAPIFx")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MinimalAPIFx")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

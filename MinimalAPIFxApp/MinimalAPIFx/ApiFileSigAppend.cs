@@ -1,6 +1,9 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.IO.Compression;
+using System.Net.Mime;
 using System.Text;
 
 namespace MinimalAPIFx

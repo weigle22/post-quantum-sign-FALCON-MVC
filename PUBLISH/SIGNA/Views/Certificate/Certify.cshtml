@@ -1,0 +1,172 @@
+﻿
+@{
+    ViewBag.Title = "Certify";
+}
+
+@*<h2>Certify</h2>*@
+@* 4610 private *@
+@* 3586 public *@
+@* 2536 signature *@
+<style>
+    .dz-remove {
+        display: inline-block !important;
+        width: 1.5em;
+        height: 1.5em;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        z-index: 1000;
+        font-size: 1.5em !important;
+        line-height: 1em;
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid gray !important;
+        border-radius: 1.5em;
+        color: red;
+        background-color: white;
+        opacity: .5;
+        padding-top: 3px;
+    }
+
+        .dz-remove:hover {
+            text-decoration: none !important;
+            opacity: 1;
+        }
+</style>
+
+<div class="col-12" ng-app="" ng-controller="CertifyController" ng-init="onLoad();">
+    <h2 class="page-title">Certify</h2>
+    <p class="text-muted">Certify your personal information here to receive a certificate</p>
+
+    <div class="row align-items-stretch mb-2">
+        <div class="col-md-12 d-flex">
+            <div class="card shadow mb-4 w-100">
+                <div class="card-header">
+                    <strong class="card-title">Certification form</strong>
+                </div>
+                <div class="card-body">
+                    <div class="row mt-5 align-items-center">
+                        <div class="col-md-3 text-center mb-5">
+                            <div class="avatar avatar-xl">
+                                <img ng-src="~/Certificate/GetImage?userID={{session.userID}}&type=0" class="avatar-img rounded-circle">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row align-items-center">
+                                <div class="col-md-7">
+                                    <h4 class="mb-1">{{ session.family_name }} {{ session.given_name }}</h4>
+                                    <p class="small mb-3"><span class="badge badge-dark">Fullname</span></p>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <div class="row">
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="given_name">First name</label>
+                            <input type="text" id="given_name" class="form-control" ng-disabled="session.signature !== null" ng-model="session.given_name" maxlength="100">
+                        </div>
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="family_name">Last name</label>
+                            <input type="text" id="family_name" class="form-control" ng-disabled="session.signature !== null" ng-model="session.family_name" maxlength="100">
+                        </div>
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="middle_name">Middle name</label>
+                            <input type="text" id="middle_name" class="form-control" ng-disabled="session.signature !== null" ng-model="session.middle_name" maxlength="100">
+                        </div>
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" class="form-control" ng-model="session.username" disabled maxlength="20">
+                        </div>
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="email">Email</label>
+                            <input type="text" id="email" class="form-control" ng-model="session.email" disabled>
+                        </div>
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="mobile_number">Mobile number</label>
+                            <input type="text" id="mobile_number" class="form-control" ng-disabled="session.signature !== null" ng-model="session.mobile_number" maxlength="20">
+                        </div>
+                        <div class="form-group mb-3 col-md-12">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" class="form-control" ng-disabled="session.signature !== null" ng-model="session.address" maxlength="100">
+                        </div>
+                        <div class="form-group mb-3 col-md-6">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" class="form-control" ng-disabled="session.signature !== null" ng-model="session.company" maxlength="100">
+                        </div>
+                        <div class="form-group mb-3 col-md-6">
+                            <label for="position">Position</label>
+                            <input type="text" id="position" class="form-control" ng-disabled="session.signature !== null" ng-model="session.position" maxlength="100">
+                        </div>
+                        <div class="form-group mb-3 col-md-12">
+                            <button type="submit" class="btn btn-primary" ng-disabled="session.signature !== null" ng-click="UpdateUser(session)">Update Information</button>
+                        </div>
+
+                        <div class="form-group mb-3 col-md-4">
+                            <div class="form-group mb-3">
+                                <label for="example-fileinput">Profile picture</label>
+                                <input type="file" id="example-fileinput" class="form-control-file" ng-show="session.signature == null" files-input ng-model="profile_picture">
+                            </div>
+                            <div class="col-md-3 text-center mb-5">
+                                <div class="avatar avatar-xl">
+                                    <img ng-src="{{profile_pictureUrl}}" class="avatar-img rounded-circle">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" ng-click="uploadFile(session, 'profile_picture', profile_picture)" ng-show="profile_picture != null">Upload</button>
+                        </div>
+                        <div class="form-group mb-3 col-md-4">
+                            <div class="form-group mb-3">
+                                <label for="example-fileinput">First valid ID</label>
+                                <input type="file" id="example-fileinput" class="form-control-file" ng-show="session.signature == null" files-input ng-model="valid_id1">
+                            </div>
+                            <div class="col-md-3 text-center mb-5">
+                                <div class="avatar avatar-xl">
+                                    <img ng-src="{{valid_id1Url}}">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" ng-click="uploadFile(session, 'valid_id1', valid_id1)" ng-show="valid_id1 != null">Upload</button>
+                        </div>
+                        <div class="form-group mb-3 col-md-4">
+                            <div class="form-group mb-3">
+                                <label for="example-fileinput">Second valid ID</label>
+                                <input type="file" id="example-fileinput" class="form-control-file" ng-show="session.signature == null" files-input ng-model="valid_id2">
+                            </div>
+                            <div class="col-md-3 text-center mb-5">
+                                <div class="avatar avatar-xl">
+                                    <img ng-src="{{valid_id2Url}}">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" ng-click="uploadFile(session, 'valid_id2', valid_id2)" ng-show="valid_id2 != null">Upload</button>
+                        </div>
+
+                        <div class="form-group mb-3 col-md-6">
+                            <label for="publicKey">Public Key</label>
+                            <textarea class="form-control" placeholder="Empty ..." rows="9" disabled ng-model="sessionKeys.publicKey"></textarea>
+                        </div>
+                        <div class="form-group mb-3 col-md-6">
+                            <label for="publicKey">Private Key</label>
+                            <textarea class="form-control" placeholder="Empty ..." rows="9" disabled ng-model="sessionKeys.privateKey"></textarea>
+                        </div>
+                        <div class="form-group mb-3 col-md-12">
+                            <label for="publicKey">Certificate</label>
+                            <textarea class="form-control" placeholder="Empty ..." rows="9" disabled ng-model="session.signature"></textarea>
+                        </div>
+
+
+                        <div class="form-group mb-3 col-md-12">
+                            <button type="submit" class="btn btn-success" ng-show="sessionKeys.privateKey && session.signature === null" ng-click="Certify(session, sessionKeys)">Certify</button>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- /.card -->
+        </div>
+    </div>
+
+</div> <!-- .col-12 -->
+
+@section scripts{
+    <script src="~/Scripts/AngularJS/Certificate/Certify.js"></script>
+}

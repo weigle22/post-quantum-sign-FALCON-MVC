@@ -375,7 +375,15 @@ namespace FALCONx.Controllers
                 })
                 .FirstOrDefault();
 
-            return Json(new { signerKey }, JsonRequestBehavior.AllowGet);
+            if(signerKey == null)
+            {
+                return Json(new
+                {
+                    message = "User does not have active unrevoked public key",
+                }, JsonRequestBehavior.AllowGet);
+            }
+
+            return Json(new { message = "Success", signerKey }, JsonRequestBehavior.AllowGet);
 
         }
 
@@ -425,6 +433,37 @@ namespace FALCONx.Controllers
                 sessionKeys
             }, JsonRequestBehavior.AllowGet);
 
+        }
+
+        [HttpPost]
+        public ActionResult PublicKeyInfo(tUserKey _tUserKey)
+        {
+            var userKeyInfo = dbFlcn.tUserKeys.Where(a => a.publicKey == _tUserKey.publicKey).FirstOrDefault();
+
+            if (userKeyInfo == null)
+            {
+                return Json(new
+                {
+                    message = "Public key not found",
+                }, JsonRequestBehavior.AllowGet);
+            }
+
+            var userInfo = dbFlcn.tUsers.Where(a => a.userID == userKeyInfo.userID).FirstOrDefault();
+
+            if (userInfo == null)
+            {
+                return Json(new
+                {
+                    message = "User info not found",
+                }, JsonRequestBehavior.AllowGet);
+            }
+
+            return Json(new
+            {
+                message = "Success",
+                userKeyInfo,
+                userInfo
+            }, JsonRequestBehavior.AllowGet);
         }
 
     }

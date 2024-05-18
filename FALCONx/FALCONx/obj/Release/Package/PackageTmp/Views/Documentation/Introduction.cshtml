@@ -1,0 +1,190 @@
+﻿
+@{
+    ViewBag.Title = "Introduction";
+}
+
+
+<div class="col-12 mb-4" ng-controller="" ng-init="">
+    <div class="card shadow">
+        <div class="card-header">
+            <h1><strong class="card-title">FALCON Documentation</strong></h1>
+        </div>
+        <div class="card-body">
+            <h2>Introduction</h2>
+            <p>
+                Falcon is a cryptographic signature algorithm submitted to NIST Post-Quantum Cryptography Project on November 30th, 2017. It has been designed by: Pierre-Alain Fouque, Jeffrey Hoffstein, Paul Kirchner, Vadim Lyubashevsky, Thomas Pornin, Thomas Prest, Thomas Ricosset, Gregor Seiler, William Whyte, Zhenfei Zhang.
+            </p>
+            <p>
+                The point of a post-quantum cryptographic algorithm is to keep on ensuring its security characteristics even faced with quantum computers. Quantum computers are deemed feasible, according to our current understanding of the laws of physics, but some significant technological issues remain to be solved in order to build a fully operational unit. Such a quantum computer would very efficiently break the usual asymmetric encryption and digitial signature algorithms based on number theory (RSA, DSA, Diffie-Hellman, ElGamal, and their elliptic curve variants).
+            </p>
+            <p>
+                Falcon is based on the theoretical framework of Gentry, Peikert and Vaikuntanathan for lattice-based signature schemes. We instantiate that framework over NTRU lattices, with a trapdoor sampler called "fast Fourier sampling". The underlying hard problem is the short integer solution problem (SIS) over NTRU lattices, for which no efficient solving algorithm is currently known in the general case, even with the help of quantum computers.
+            </p>
+            <p>
+                FALCON (FAst Fourier Lattice-based Compact Signatures Over NTRU) is a cryptographic signature scheme based on lattice-based cryptography, specifically utilizing the NTRU encryption scheme and fast Fourier transform (FFT) techniques. It offers a combination of security, efficiency, and compactness, making it suitable for various applications, including those with constrained resources such as IoT devices or embedded systems.
+            </p>
+            <h5>Website: 
+                <a href="https://falcon-sign.info/">falcon-sign.info</a>
+            </h5>
+            <hr />
+            <h2>Algorithm Highlights</h2>
+            <p>
+                Falcon offers the following features:
+            </p>
+            <ul>
+                <li>
+                    <b>Security:</b>
+                    a true Gaussian sampler is used internally, which guarantees negligible leakage of information on the secret key up to a practically infinite number of signatures (more than 2^64).
+                </li>
+                <li>
+                    <b>Compactness:</b>
+                    thanks to the use of NTRU lattices, signatures are substantially shorter than in any lattice-based signature scheme with the same security guarantees, while the public keys are around the same size.
+                </li>
+                <li>
+                    <b>Speed:</b>
+                    use of fast Fourier sampling allows for very fast implementations, in the thousands of signatures per second on a common computer; verification is five to ten times faster.
+                </li>
+                <li>
+                    <b>Scalability:</b>
+                    operations have cost O(n log n) for degree n, allowing the use of very long-term security parameters at moderate cost.
+                </li>
+                <li>
+                    <b>RAM Economy:</b>
+                    the enhanced key generation algorithm of Falcon uses less than 30 kilobytes of RAM, a hundredfold improvement over previous designs such as NTRUSign. Falcon is compatible with small, memory-constrained embedded devices.
+                </li>
+            </ul>
+            <hr />
+            <h2>Performance</h2>
+            <p>
+                While resistance to quantum computers is the main drive for the design and development of Falcon, the algorithm may achieve significant adoption only if it is also reasonably efficient in our current world, where quantum computers do not really exist. Using the reference implementation on a common desktop computer (Intel® Core® i5-8259U at 2.3 GHz, TurboBoost disabled), Falcon achieves the following performance:
+            </p>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr style="text-align:center;">
+                            <th style="color: #000">variant</th>
+                            <th style="color: #000">keygen (ms)</th>
+                            <th style="color: #000">keygen (RAM)</th>
+                            <th style="color: #000">sign/s</th>
+                            <th style="color: #000">verify/s</th>
+                            <th style="color: #000">pub size</th>
+                            <th style="color: #000">sig size</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center;">
+                            <td>Falcon-512</td>
+                            <td>8.64</td>
+                            <td>14336</td>
+                            <td>5948.1</td>
+                            <td>27933.0</td>
+                            <td>897</td>
+                            <td>666</td>
+                        </tr>
+                        <tr style="text-align:center;">
+                            <td>Falcon-1024</td>
+                            <td>27.45</td>
+                            <td>28672</td>
+                            <td>2913.0</td>
+                            <td>13650.0</td>
+                            <td>1793</td>
+                            <td>1280</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                Sizes (key generation RAM usage, public key size, signature size) are expressed in bytes. Key generation time is given in milliseconds. Private key size (not listed above) is about three times that of a signature, and it could be theoretically compressed down to a small PRNG seed (say, 32 bytes), if the signer accepts to run the key generation algorithm every time the key must be loaded.
+            </p>
+            <p>
+                To give a point of comparison, Falcon-512 is roughly equivalent, in classical security terms, to RSA-2048, whose signatures and public keys use 256 bytes each. On the specific system on which these measures were taken, OpenSSL's thoroughly optimized assembly implementation achieves about 1140 signatures per second; thus, Falcon's reference implementation, which is portable and uses no inline assembly on x86 CPUs, is already more than five times faster, and it scales better to larger sizes (for long-term security).
+            </p>
+            <hr />
+            <h2>Features</h2>
+            <h4>Security</h4>
+            <p>
+                FALCON derives its security from the hardness of lattice problems, particularly those related to the NTRU encryption scheme. The scheme offers strong security guarantees against various cryptographic attacks, including quantum attacks.
+            </p>
+            <h4>Efficiency</h4>
+            <p>
+                FALCON is designed with efficiency in mind, leveraging FFT techniques to optimize computation speed. This allows for fast generation and verification of signatures, making it suitable for real-time applications.
+            </p>
+            <h4>Compactness</h4>
+            <p>
+                One of the key features of FALCON is its compact signature size. The signatures produced by FALCON are small in size, making them suitable for applications with limited bandwidth or storage capacity.
+            </p>
+            <hr />
+            <h2>Components</h2>
+            <h4>NTRU Encryption Scheme</h4>
+            <p>
+                FALCON utilizes the NTRU encryption scheme as its underlying cryptographic primitive. NTRU is a lattice-based public key cryptosystem known for its efficiency and security.
+            </p>
+            <h4>Fast Fourier Transform (FFT)</h4>
+            <p>
+                FFT is employed in FALCON to efficiently perform polynomial arithmetic, which is crucial for signature generation and verification. By leveraging FFT, FALCON achieves improved computational efficiency.
+            </p>
+            <hr />
+            <h2>Usage</h2>
+            <h3>Signature Generation</h3>
+            <ol>
+                <li><b>Key Generation: </b>Generate public and private keys using the NTRU encryption scheme.</li>
+                <li><b>Message Encoding: </b>Encode the message to be signed into a suitable format.</li>
+                <li><b>Signature Generation: </b>Use the private key and the encoded message to generate a signature using FALCON.</li>
+            </ol>
+            <h3>Signature Verification</h3>
+            <ol>
+                <li><b>Key Retrieval (optional): </b>Retrieve the public key corresponding to the signer.</li>
+                <li><b>Signature Decoding: </b>Decode the received signature.</li>
+                <li><b>Signature Verification: </b>Use the public key and the decoded signature to verify the authenticity of the message.</li>
+            </ol>
+            <hr />
+            <h2>Security Considerations</h2>
+            <p>
+                While FALCON offers strong security guarantees, it's essential to consider implementation-specific security factors, such as key management, side-channel attacks, and secure random number generation.
+            </p>
+            <hr />
+            <h2>Applications</h2>
+            <p>FALCON can be applied in various scenarios, including:</p>
+            <ul>
+                <li>Digital product authentication</li>
+                <li>Secure communication in IoT networks</li>
+                <li>Digital signatures for financial transactions</li>
+                <li>Authentication in distributed systems</li>
+                <li>Secure firmware updates for embedded devices</li>
+            </ul>
+            <hr />
+            <h2>Related works</h2>
+            <ul>
+                <li>
+                    Thomas Pornin and Thomas Prest <br />
+                    <i>More Efficient Algorithms for the NTRU Key Generation using the Field Norm</i>
+                    <a href="https://eprint.iacr.org/2019/015.pdf">[pdf]</a>
+                </li>
+                <li>
+                    Xingye Lu, Man Ho Au and Zhenfei Zhang <br />
+                    <i>Raptor: A Practical Lattice-Based (Linkable) Ring Signature</i>
+                    <a href="https://eprint.iacr.org/2018/857.pdf">[pdf]</a>
+                </li>
+                <li>
+                    Thomas Pornin <br />
+                    <i>New Efficient, Constant-Time Implementations of Falcon</i>
+                    <a href="https://eprint.iacr.org/2019/893.pdf">[pdf]</a>
+                </li>
+                <li>
+                    Pierre-Alain Fouque, Paul Kirchner, Mehdi Tibouchi, Alexandre Wallet and Yang Yu<br />
+                    <i>Key Recovery from Gram-Schmidt Norm Leakage in Hash-and-Sign Signatures over NTRU Lattices</i>
+                    <a href="https://eprint.iacr.org/2019/1180.pdf">[pdf]</a>
+                </li>
+                <li>
+                    James Howe, Thomas Prest, Thomas Ricosset and Mélissa Rossi <br />
+                    <i>Isochronous Gaussian Sampling: From Inception to Implementation</i>
+                    <a href="https://eprint.iacr.org/2019/1411.pdf">[pdf]</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/AngularJS/Home/About.js"></script>
+}

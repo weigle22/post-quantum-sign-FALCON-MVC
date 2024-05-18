@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FLCNX_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__RefactorLog">
+    <Key>
+      <PropertyRef Name="OperationKey" />
+    </Key>
+    <Property Name="OperationKey" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tUser">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+    <Property Name="given_name" Type="varchar" MaxLength="100" />
+    <Property Name="family_name" Type="varchar" MaxLength="100" />
+    <Property Name="middle_name" Type="varchar" MaxLength="100" />
+    <Property Name="company" Type="varchar" MaxLength="100" />
+    <Property Name="position" Type="varchar" MaxLength="100" />
+    <Property Name="mobile_number" Type="varchar" MaxLength="20" />
+    <Property Name="address" Type="varchar" MaxLength="100" />
+    <Property Name="username" Type="varchar" MaxLength="20" />
+    <Property Name="password" Type="varchar" MaxLength="70" />
+    <Property Name="date_added" Type="datetime" />
+    <Property Name="role" Type="varchar" MaxLength="10" />
+    <Property Name="isActive" Type="bit" />
+    <Property Name="signature" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tUserImage">
+    <Key>
+      <PropertyRef Name="recNo" />
+    </Key>
+    <Property Name="recNo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="profile_picture" Type="image" />
+    <Property Name="valid_id1" Type="image" />
+    <Property Name="valid_id2" Type="image" />
+    <Property Name="userID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tUserKey">
+    <Key>
+      <PropertyRef Name="keyID" />
+    </Key>
+    <Property Name="keyID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="userID" Type="varchar" MaxLength="50" />
+    <Property Name="privateKey" Type="varchar(max)" />
+    <Property Name="publicKey" Type="varchar(max)" />
+    <Property Name="revoked" Type="bit" />
+    <Property Name="dtCreated" Type="datetime" />
+    <Property Name="dtModified" Type="datetime" />
+    <Property Name="dtRevoked" Type="datetime" />
+    <Property Name="accepted" Type="bit" />
+    <Property Name="privAccepted" Type="bit" />
+    <Property Name="pubAccepted" Type="bit" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Function Name="spUser_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spUser_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spUser_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spUser_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spUser_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="FLCNX_DBModelStoreContainer">
+    <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tUser" EntityType="Self.tUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tUserImage" EntityType="Self.tUserImage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tUserKey" EntityType="Self.tUserKey" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

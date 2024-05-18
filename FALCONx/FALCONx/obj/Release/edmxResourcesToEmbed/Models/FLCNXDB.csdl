@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FLCNX_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__RefactorLog">
+    <Key>
+      <PropertyRef Name="OperationKey" />
+    </Key>
+    <Property Name="OperationKey" Type="Guid" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="FLCNX_DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <FunctionImport Name="spUser_Delete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spUser_Get" ReturnType="Collection(FLCNX_DBModel.spUser_Get_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spUser_GetAll" ReturnType="Collection(FLCNX_DBModel.spUser_GetAll_Result)" />
+    <FunctionImport Name="spUser_Insert">
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spUser_Update">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tUserKeys" EntityType="FLCNX_DBModel.tUserKey" />
+    <EntitySet Name="tUserImages" EntityType="FLCNX_DBModel.tUserImage" />
+    <EntitySet Name="tUsers" EntityType="FLCNX_DBModel.tUser" />
+  </EntityContainer>
+  <ComplexType Name="spUser_Get_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spUser_GetAll_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="tUserKey">
+    <Key>
+      <PropertyRef Name="keyID" />
+    </Key>
+    <Property Name="keyID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="userID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="privateKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="publicKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="revoked" Type="Boolean" />
+    <Property Name="dtCreated" Type="DateTime" Precision="3" />
+    <Property Name="dtModified" Type="DateTime" Precision="3" />
+    <Property Name="dtRevoked" Type="DateTime" Precision="3" />
+    <Property Name="accepted" Type="Boolean" />
+    <Property Name="privAccepted" Type="Boolean" />
+    <Property Name="pubAccepted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tUserImage">
+    <Key>
+      <PropertyRef Name="recNo" />
+    </Key>
+    <Property Name="recNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="profile_picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="valid_id1" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="valid_id2" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="userID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tUser">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="given_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="family_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="middle_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="company" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="position" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="mobile_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="date_added" Type="DateTime" Precision="3" />
+    <Property Name="role" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="signature" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

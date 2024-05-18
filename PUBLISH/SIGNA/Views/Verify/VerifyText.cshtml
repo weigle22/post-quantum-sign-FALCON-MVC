@@ -1,0 +1,212 @@
+﻿
+@{
+    ViewBag.Title = "VerifyText";
+}
+
+
+<style>
+    .flex-display {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .dz-remove {
+        display: inline-block !important;
+        width: 1.5em;
+        height: 1.5em;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        z-index: 1000;
+        font-size: 1.5em !important;
+        line-height: 1em;
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid gray !important;
+        border-radius: 1.5em;
+        color: red;
+        background-color: white;
+        opacity: .5;
+        padding-top: 3px;
+    }
+
+        .dz-remove:hover {
+            text-decoration: none !important;
+            opacity: 1;
+        }
+</style>
+
+<div class="col-12" ng-app="" ng-controller="VerifyTextController" ng-init="onLoad();">
+    <h2 class="page-title">Verify String/Text</h2>
+    <p class="text-muted">Let's verify signatures of your texts</p>
+
+    <div class="row align-items-stretch mb-2">
+
+        @* message file *@
+
+        <div class="col-md-4 d-flex">
+            <div class="card shadow mb-4 w-100">
+                <div class="card-header">
+                    <strong class="card-title">Text file to verify</strong>
+                </div>
+                <div class="card-body text-center justify-content-center">
+                    <form action="/" class="dropzone bg-light rounded-lg" id="myDropzoneTextFile">
+                        <div class="dz-message needsclick">
+                            <div class="circle circle-lg bg-primary">
+                                <i class="fe fe-upload fe-24 text-white"></i>
+                            </div>
+                            <h5 class="text-muted mt-4">Drop txt file her or click to upload</h5>
+                        </div>
+                    </form>
+                </div> <!-- /.card-body -->
+            </div> <!-- /.card -->
+        </div>
+        <div class="col-md-8 d-flex">
+            <div class="card shadow mb-4 w-100">
+                <div class="card-header">
+                    <strong class="card-title">File content</strong>
+                </div>
+                <div class="card-body">
+                    <form class="needs-validation" novalidate="">
+                        <div class="form-group mb-3">
+                            <textarea class="form-control" id="validationTextarea" ng-disabled="true" ng-readonly="true" placeholder="Empty ..." rows="9" ng-model="userKey.textMessage"></textarea>
+                            <div class="invalid-feedback"> Please enter a message in the textarea. </div>
+                        </div>
+                    </form>
+                </div> <!-- /.card-body -->
+            </div> <!-- /.card -->
+        </div>
+
+        @* message file *@
+
+        @* signature file *@
+
+        <div class="col-md-4 d-flex" @*ng-show="userKey.textMessage !== null"*@>
+            <div class="card shadow mb-4 w-100">
+                <div class="card-header">
+                    <strong class="card-title">Signature file</strong>
+                </div>
+                <div class="card-body text-center justify-content-center">
+                    <form action="/" class="dropzone bg-light rounded-lg" id="myDropzoneTextSignature">
+                        <div class="dz-message needsclick">
+                            <div class="circle circle-lg bg-primary">
+                                <i class="fe fe-upload fe-24 text-white"></i>
+                            </div>
+                            <h5 class="text-muted mt-4">Drop .sig file or click to upload</h5>
+                        </div>
+                    </form>
+                </div> <!-- /.card-body -->
+            </div> <!-- /.card -->
+        </div>
+        <div class="col-md-8 d-flex" @*ng-show="userKey.textMessage !== null"*@>
+            <div class="card shadow mb-4 w-100">
+                <div class="card-header">
+                    <strong class="card-title">Signature content</strong>
+                    <div class="custom-control custom-switch float-right" ng-show="userKey.textSignature">
+                        <input type="checkbox" class="custom-control-input" id="c1" ng-model="userKey.showTextSignature" ng-change="toggleShow(userKey, 'textSignature')">
+                        <label class="custom-control-label" for="c1">Show</label>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form class="needs-validation" novalidate="">
+                        <div class="form-group mb-3">
+                            <textarea class="form-control" id="validationTextarea" ng-disabled="!userKey.showPrivateKey" ng-readonly="true" placeholder="Empty ..." rows="9" ng-model="userKey.textSignature"></textarea>
+                            <div class="invalid-feedback"> Please enter a message in the textarea. </div>
+                        </div>
+                    </form>
+                </div> <!-- /.card-body -->
+            </div> <!-- /.card -->
+        </div>
+
+        @* signature file *@
+
+        @* public key file *@
+
+        <div class="col-md-4 d-flex" @*ng-show="userKey.textSignature !== null"*@>
+            <div class="card shadow mb-4 w-100">
+                <div class="card-header">
+                    <strong class="card-title">Public key file</strong>
+                </div>
+                <div class="card-body text-center justify-content-center">
+                
+                    <div class="form-group mb-3">
+                        <label>Toggle upload signer public key</label>
+                        <div class="custom-control custom-switch">
+
+                            <input type="checkbox" class="custom-control-input float-right" id="c3" ng-model="userKey.uploadPublicKey" ng-change="toggleUploadPublicKey(userKey)">
+                            <label class="custom-control-label" for="c3">Upload public key</label>
+                        </div>
+                    </div>
+
+                    <form action="/" class="dropzone bg-light rounded-lg" id="myDropzonePublicKey" ng-show="userKey.uploadPublicKey">
+                        <div class="dz-message needsclick">
+                            <div class="circle circle-lg bg-primary">
+                                <i class="fe fe-upload fe-24 text-white"></i>
+                            </div>
+                            <h5 class="text-muted mt-4">Drop public key file here or click to upload</h5>
+                        </div>
+                    </form>
+                </div> <!-- /.card-body -->
+            </div> <!-- /.card -->
+        </div>
+        <div class="col-md-8 d-flex" @*ng-show="userKey.textSignature !== null"*@>
+            <div class="card shadow mb-4 w-100">
+                <div class="card-header">
+                    <strong class="card-title">Public key content</strong>
+                </div>
+                <div class="card-body">
+
+                    <div class="form-group mb-3">
+                        <label for="user-select2">Search signer's name or username here. Use @@ when searching for username.</label>
+                        <select class="form-control select2" id="user-select2" ng-disabled="userKey.uploadPublicKey" ng-change="SignerKey(userKey.selectedUser)" ng-model="userKey.selectedUser" ng-options="user.userID as user.full_name for user in users">
+                            <option value="">-- Select User --</option>
+                        </select>
+                    </div> <!-- form-group -->
+
+                    <form class="needs-validation" novalidate="">
+                        <div class="form-group mb-3">
+                            <textarea class="form-control" id="validationTextarea" ng-disabled="!userKey.showPrivateKey" ng-readonly="true" placeholder="Empty ..." rows="9" ng-model="userKey.publicKey"></textarea>
+                            <div class="invalid-feedback"> Please enter a message in the textarea. </div>
+                        </div>
+                    </form>
+                </div> <!-- /.card-body -->
+            </div> <!-- /.card -->
+        </div>
+
+        @* public key file *@
+
+        <div class="col-md-6" ng-show="userKey.textMessage !== null && userKey.textSignature !== null && userKey.publicKey !== null">
+            <div class="card shadow bg-primary text-center mb-4">
+                <div class="card-body p-5">
+                    <span class="circle circle-lg bg-primary-light">
+                        <i class="fe fe-shield fe-24 text-white"></i>
+                    </span>
+                    <h3 class="h1 mt-4 mb-1 text-white">Verify</h3>
+                    <p class="text-white mb-4">The requirements for verification are the file, its signature, and the signer''s public key.</p>
+                    <a href="" class="btn btn-lg bg-primary-light text-white" ng-click="VerifyText(userKey)">
+                        Verify file authenticity
+                        <i class="fe fe-arrow-right fe-16 ml-2"></i>
+                    </a>
+                </div> <!-- .card-body -->
+            </div> <!-- .card -->
+        </div> <!-- .col-md-->
+        <div class="col-md-6" ng-show="userKey.verificationResult && userKey.publicKey !== null">
+            <div class="card shadow text-center mb-4" ng-class="userKey.cardBg">
+                <div class="card-body p-5">
+                    <span class="circle circle-lg" ng-class="userKey.circleBg">
+                        <i class="fe fe-24 text-white" ng-class="userKey.resultIcon"></i>
+                    </span>
+                    <h3 class="h1 mt-4 mb-1 text-white">{{ userKey.resultText }}</h3>
+                    <p class="text-white mb-4">{{ userKey.resultExplaination }}</p>
+                    <a href="#" class="btn btn-lg text-white" ng-class="userKey.buttonBg">Reset<i class="fe fe-refresh-cw fe-16 ml-2"></i></a>
+                </div> <!-- .card-body -->
+            </div> <!-- .card -->
+        </div> <!-- .col-md-->
+
+    </div>
+</div> <!-- .col-12 -->
+
+@section scripts{
+    <script src="~/Scripts/AngularJS/Verify/VerifyText.js"></script>
+}
+

@@ -24,6 +24,7 @@
                 reader.onload = function (event) {
                     _s.userKey.publicKey = event.target.result;
                     _s.$apply(); // Apply changes to AngularJS scope
+                    _s.PublicKeyInfo(_s.userKey)
                 };
 
                 _s.$apply(function () {
@@ -35,6 +36,8 @@
             this.on("removedfile", function (file) {
                 _s.userKey.publicKey = null; // Clear the privateKey
                 _s.userKey.verificationResult = null;
+                _s.userInfo = {};
+                _s.userKeyInfo = {};
                 var index = _s.userKey.publicKeyFile.indexOf(file);
                 if (index !== -1) {
                     _s.userKey.publicKeyFile.splice(index, 1); // Remove file from uploadedFiles array
@@ -65,6 +68,39 @@
     });
 
 
+    _s.PublicKeyInfo = function (userKey) {
+        _h.post('../Certificate/PublicKeyInfo', { _tUserKey: userKey }).then(function (c) {
+            if (c.data.message == 'Success') {
+                _s.userInfo = c.data.userInfo;
+                _s.userKeyInfo = c.data.userKeyInfo;
+                _s.userKeyInfo.dtRevoked = (_s.userKeyInfo.dtRevoked == null) ? null : new Date(parseInt((_s.userKeyInfo.dtRevoked).substr(6)));
+                //_s.userKeyInfo.dtRevoked = new Date(c.data.userKeyInfo.dtRevoked);
+            } else if (c.data.message == 'Public key not found') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Not found',
+                    text: 'Public key not known',
+                });
+                _s.userKey.publicKey = null;
+            } else if (c.data.message == 'User info not found') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'User Not found',
+                    text: 'User not known',
+                });
+                _s.userKey.publicKey = null;
+            } 
+
+        }, function () {
+            Swal.fire({
+                icon: 'error',
+                title: 'Warning',
+                text: 'Something went wrong!',
+            });
+        });
+    }
+
+
     _s.onLoad = function () {
         _h.post("../Key/GetUserKeys").then(function (c) {
             _s.userKey = c.data.userKey;
@@ -80,6 +116,8 @@
             _s.userKey.showPrivateKey = false;
             _s.userKey.publicKey = null;
             _s.searchTerm = '';
+            _s.userInfo = {};
+            _s.userKeyInfo = {};
         }).catch(function () {
             // Error handling for user keys retrieval
             Swal.fire({
@@ -525,6 +563,8 @@
     });
 
     _s.toggleUploadPublicKey = function (userKey) {
+        _s.userInfo = {};
+        _s.userKeyInfo = {};
         if (userKey.uploadPublicKey) {
             userKey.publicKey = null;
             userKey.selectedUser = null;
@@ -539,8 +579,16 @@
         console.log(userID);
         _h.post("../Certificate/SignerKey", { userID: userID }).then(function (c) {
 
-            _s.userKey.publicKey = c.data.signerKey.publicKey;
-
+            if (c.data.message == 'Success') {
+                _s.userKey.publicKey = c.data.signerKey.publicKey;
+            }
+            else {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'No active public keys',
+                    text: c.data.message,
+                });
+            }
         }).catch(function () {
             // Error handling for fetching users
             Swal.fire({

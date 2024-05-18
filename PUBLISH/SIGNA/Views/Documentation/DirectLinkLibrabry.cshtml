@@ -1,0 +1,146 @@
+﻿
+
+@{
+    ViewBag.Title = "Direct Link Library";
+}
+
+
+<div class="col-12 mb-4" ng-controller="" ng-init="">
+    <div class="card shadow">
+        <div class="card-header">
+            <h1><strong class="card-title">Direct Link Library (DLL) Documentation</strong></h1>
+        </div>
+        <div class="card-body">
+            <p>
+                Welcome to the FALCON Direct Link Library (DLL) documentation, providing developers with seamless integration of the FALCON post-quantum digital signature scheme into your applications for secure and efficient cryptographic operations.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="col-12 mb-4">
+
+    <div class="card shadow">
+        <div class="card-header">
+            <h1><strong class="card-title"><code>generateKeyPair</code></strong></h1>
+        </div>
+        <div class="card-body">
+            <h4>Overview</h4>
+            <p>
+                The <b><code>'generateKeyPair'</code></b> function generates a pair of public and private keys for the Falcon cryptographic scheme. The keys are returned as hexadecimal strings.
+            </p>
+            <br />
+            <h4>Function Signature</h4>
+
+            <h4><strong><code>__declspec(dllexport) char *generateKeyPair(unsigned logn);</code></strong></h4>
+            <br />
+            <h4>Parameters</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr style="text-align:center; background-color: gray">
+                            <th style="color: #fff">Parameter</th>
+                            <th style="color: #fff">Type</th>
+                            <th style="color: #fff">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center;">
+                            <td>logn</td>
+                            <td>unsigned</td>
+                            <td>An unsigned integer representing the logarithmic size parameter for the Falcon key pair generation. This parameter determines the security level of the generated keys.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <h4>Return Value</h4>
+            <ul>
+                <li>
+                    If successful, the function returns a string containing the generated private and public keys in hexadecimal format.
+                </li>
+                <li>
+                    If an error occurs during key generation or memory allocation, the function returns 'NULL'.
+                </li>
+            </ul>
+            <br />
+            <h4>Memory Management</h4>
+            <br />
+            <p>The function dynamically allocates memory for the keys and temporary buffers during execution. It is the responsibility of the caller to free the memory allocated for the returned string using the free() function when it is no longer needed.</p>
+            <br />
+            <br />
+            <h4>Error Handling</h4>
+            <ul>
+                <li>
+                    If memory allocation fails during execution, the function returns NULL.
+                </li>
+                <li>
+                    If key generation fails, the function prints an error message to stderr and returns NULL.
+                </li>
+            </ul>
+            <h4>Usage Example</h4>
+            <br />
+            <h5>C Language</h5>
+            <code>
+                #include &lt;stdio.h&gt;<br />
+                #include &lt;stdlib.h&gt;<br />
+                #include "falcon.h"<br /><br />
+
+                int main() {
+                &nbsp;&nbsp;&nbsp;unsigned logn = 10; // Set the logarithmic size parameter<br />
+                &nbsp;&nbsp;&nbsp;char *keys = generateKeyPair(logn); // Generate key pair<br />
+                &nbsp;&nbsp;&nbsp;if (keys != NULL) {<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Generated key pair: %s\n", keys);<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;free(keys); // Free memory allocated for keys<br />
+                &nbsp;&nbsp;&nbsp;} else {<br />
+                &nbsp;&nbsp;&nbsp;printf("Key generation failed\n");<br />
+                &nbsp;&nbsp;&nbsp;}<br />
+                &nbsp;&nbsp;&nbsp;return 0;<br />
+                }<br />
+            </code>
+            <br />
+            <h5>Python</h5>
+            <code>
+
+                import ctypes<br />
+                import os<br />
+
+                # Get the full path of the current directory<br />
+                current_directory = os.path.dirname(os.path.abspath(__file__))<br />
+                <br />
+                # Load the DLL<br />
+                dll_path = os.path.join(current_directory, "falcon_full_64.dll")<br />
+                falcon_dll = ctypes.CDLL(dll_path)<br />
+                <br />
+                # Define the argument and return types for the generateKeyPair function<br />
+                falcon_dll.generateKeyPair.argtypes = [ctypes.c_uint]<br />
+                falcon_dll.generateKeyPair.restype = ctypes.c_char_p<br />
+                <br />
+                def generate_key_pair(logn):<br />
+                # Call the DLL function<br />
+                &nbsp;&nbsp;&nbsp;private_and_public_key = falcon_dll.generateKeyPair(logn)<br />
+                &nbsp;&nbsp;&nbsp;if private_and_public_key is None:<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Error: Key generation failed.")<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return None, None<br />
+                <br />
+                # Split the returned string into private and public keys<br />
+                private_key_str, public_key_str = private_and_public_key.split(b', ')<br />
+                <br />
+                return private_key_str.decode(), public_key_str.decode()<br />
+                <br />
+                # Example usage<br />
+                logn = 10  # Example logn value<br />
+                private_key, public_key = generate_key_pair(logn)<br />
+                print("Private Key:", private_key)<br />
+                print("Public Key:", public_key)<br />
+                <br />
+
+            </code>
+            <br />
+            <h4>Dependencies</h4>
+            <ul>
+                <li>This function relies on the Falcon cryptographic scheme implemented in the <b>'falcon.h'</b> header file.</li>
+            </ul>
+        </div>
+    </div>
+</div>

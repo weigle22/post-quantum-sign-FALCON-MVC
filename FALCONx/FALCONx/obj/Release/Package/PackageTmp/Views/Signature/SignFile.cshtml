@@ -1,0 +1,185 @@
+﻿
+@{
+    ViewBag.Title = "SignFile";
+}
+
+
+<div class="col-12" ng-app="" ng-controller="SignFileController" ng-init="onLoad();">
+    <h2 class="page-title">Sign Files</h2>
+    <p class="text-muted">Let's generate signatures to your files</p>
+
+    <div class="row align-items-stretch mb-2">
+        
+        <div class="col-md-12 d-flex">
+            <div class="card shadow mb-4 w-100">
+                <div class="card-header">
+                    <strong class="card-title">Private Key Content</strong>
+                    <div class="custom-control custom-switch float-right" ng-show="userKey.privateKey">
+                        <input type="checkbox" class="custom-control-input" id="c1" ng-model="userKey.showPrivateKey" ng-change="toggleShow(userKey, 'privateKey')">
+                        <label class="custom-control-label" for="c1">Show</label>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form class="needs-validation" novalidate="">
+                        <div class="form-group mb-3">
+                            <textarea class="form-control" id="validationTextarea" ng-disabled="!userKey.showPrivateKey" ng-readonly="true" placeholder="Empty ..." rows="9" ng-model="userKey.privateKey"></textarea>
+                            <div class="invalid-feedback"> Please enter a message in the textarea. </div>
+                        </div>
+                    </form>
+                </div> <!-- /.card-body -->
+            </div> <!-- /.card -->
+        </div>
+
+        <div class="col-md-12 d-flex" @*ng-show="userKey.privateKey"*@>
+            <div class="card shadow mb-4 w-100">
+                <div class="card-header">
+                    <strong class="card-title">Files</strong>
+                    <div class="toolbar row mb-3">
+                        <div class="col">
+                            <form class="form-inline">
+                                <div class="form-row">
+                                    <div class="form-group col-auto">
+                                        <label class="my-1 mr-2 sr-only" for="inlineFormCustomSelectPref1">Show</label>
+                                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelectPref1" ng-model="userKey.selectedOption">
+                                            <option value="" ng-if="!userKey.filesToSign.length">No files</option>
+                                            <option value="" ng-if="userKey.filesToSign.length > 0">...</option>
+                                            <option ng-repeat="option in optionValues" ng-value="option">{{ option }}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-auto">
+                                        <label for="search" class="sr-only">Search</label>
+                                        <input type="text" class="form-control" id="search" placeholder="Search" ng-model="searchTerm">
+                                    </div>
+                                    <div class="form-group col-auto">
+                                        <label class="my-1 mr-2 sr-only" for="inlineFormCustomSelectPref">Status</label>
+                                        <select class="custom-select my-1 mr-sm-2" ng-model="extensionType" id="inlineFormCustomSelectPref">
+                                            @*<option selected="" disabled>File types...</option>*@
+                                            <option value="">All types</option>
+                                            <option ng-repeat="fileType in userKey.uniqueExtensionsArray">{{ fileType }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col ml-auto">
+                            <div class="dropdown float-right">
+                                <button type="button" data-toggle="modal" data-target="#uploadFilesModal" class="btn mb-2 btn-info float-right ml-3"><span class="fe fe-upload-cloud fe-16 mr-2"></span>Upload Files</button>
+                                @*<button class="btn btn-primary float-right ml-3" type="button">Add more +</button>*@
+                                <!-- Modal -->
+                                <div class="modal fade" id="uploadFilesModal" tabindex="-1" role="dialog" aria-labelledby="uploadFilesModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="uploadFilesModalLabel">Upload files</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="/" class="dropzone bg-light rounded-lg" id="myDropzoneUploadFiles">
+                                                    <div class="dz-message needsclick">
+                                                        <div class="circle circle-lg bg-primary">
+                                                            <i class="fe fe-upload fe-24 text-white"></i>
+                                                        </div>
+                                                        <h5 class="text-muted mt-4">Drop private key file here or click to upload</h5>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn mb-2 btn-primary" ng-click="AddToList(userKey)">Add to List</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal -->
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="actionMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action </button>
+                                <div class="dropdown-menu" aria-labelledby="actionMenuButton" style="">
+                                    <a class="dropdown-item" href="" ng-click="SignAllFiles(userKey)"><span class="fe fe-hash fe-16 mr-2"></span>Sign all</a>
+                                    <a class="dropdown-item" href="" ng-click="removeAllFiles(userKey)"><span class="fe fe-trash fe-16 mr-2"></span>Remove all</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group mb-3 float-right">
+                        <div class="custom-control custom-switch" ng-show="userKey.filesToSign.length != 0">
+                            <input type="checkbox" class="custom-control-input" id="c3" ng-model="userKey.includePublicKey" ng-change="toggleIncludePublicKey(userKey)">
+                            <label class="custom-control-label" for="c3">Include public key on download</label>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="chall">
+                                            <label class="custom-control-label" for="chall"></label>
+                                        </div>
+                                    </th>
+                                    <th>#</th>
+                                    <th>Filename</th>
+                                    <th>Size</th>
+                                    <th>Type</th>
+                                    <th>Date Modified</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="file in userKey.filesToSign | fileFilter:searchTerm:extensionType | limitTo:userKey.selectedOption" }">
+                                    <td>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="{{ 'd1_' + $index }}">
+                                            <label class="custom-control-label" for="{{ 'd1_' + $index }}"></label>
+                                        </div>
+                                    </td>
+                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{ file.name }}</td>
+                                    <td>{{ file.size | bytesToMB }}</td>
+                                    <td>{{ file.name | fileExtension }}</td>
+                                    <td>{{ file.lastModifiedDate | date: 'short' }}</td>
+                                    <td>
+                                        <span class="badge badge-pill" ng-class="{'badge-warning': !file.signedFile, 'badge-success': file.signedFile}" ng-hide="file.status === 'SIGNING'">{{ file.status }}</span>
+                                        <div class="spinner-grow mr-3 text-primary" role="status" ng-show="file.status === 'SIGNING'">
+                                            <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm dropdown-toggle" type="button" id="dr1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="text-muted sr-only">Action</span>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dr1" style="">
+                                                <a class="dropdown-item" href="" ng-click="SignFile(file, userKey)" ng-show="file.status == 'UNSIGNED'"><span class="fe fe-hash fe-16 mr-2"></span>Sign</a>
+                                                <a class="dropdown-item" href="" ng-click="DownloadSignedFile(file)" ng-show="file.status == 'SIGNED'"><span class="fe fe-download fe-16 mr-2"></span>Download Signature</a>
+                                                <a class="dropdown-item" href="" ng-click="removeFile($index)"><span class="fe fe-trash fe-16 mr-2"></span>Remove</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <nav aria-label="Table Paging" class="mb-0 text-muted">
+                            <ul class="pagination justify-content-end mb-0">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item" ng-repeat="page in [].constructor(userKey.pages) track by $index">
+                                    <a class="page-link" href="" ng-click="changePage($index + 1)">{{ $index + 1 }}</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div> <!-- /.card-body -->
+            </div> <!-- /.card -->
+        </div>
+    </div>
+
+</div> <!-- .col-12 -->
+
+@section scripts{
+    <script src="~/Scripts/AngularJS/Signature/SignFile.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}
