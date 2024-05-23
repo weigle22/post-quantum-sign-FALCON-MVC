@@ -24,6 +24,7 @@
                 reader.onload = function (event) {
                     _s.userKey.publicKey = event.target.result;
                     _s.$apply(); // Apply changes to AngularJS scope
+                    _s.PublicKeyInfo(_s.userKey)
                 };
 
                 _s.$apply(function () {
@@ -35,6 +36,8 @@
             this.on("removedfile", function (file) {
                 _s.userKey.publicKey = null; // Clear the privateKey
                 _s.userKey.verificationResult = null;
+                _s.userInfo = {};
+                _s.userKeyInfo = {};
                 var index = _s.userKey.publicKeyFile.indexOf(file);
                 if (index !== -1) {
                     _s.userKey.publicKeyFile.splice(index, 1); // Remove file from uploadedFiles array
@@ -53,16 +56,63 @@
 
     _s.myDropzoneUploadFiles = new Dropzone("#myDropzoneUploadFiles", {
         addRemoveLinks: true,
+        //maxFilesize: 500, // 500 MB
+        maxFilesize: 200, // 200 MB
         dictRemoveFile: '<i class="fe fe-trash"></i>',
+        dictCancelUpload: '<i class="fe fe-x"></i>',
         init: function () {
             this.on("addedfile", function (file) {
-
+                // Check if file size exceeds 500MB
+                //if (file.size > 500 * 1024 * 1024) { // Convert MB to Bytes
+                if (file.size > 200 * 1024 * 1024) { // Convert MB to Bytes
+                    // Show swal indicating file size exceeds limit
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'File Too Large',
+                        text: 'The file size should not exceed 200MB.'
+                    });
+                    // Remove the file from Dropzone
+                    this.removeFile(file);
+                }
             });
             this.on("removedfile", function (file) {
 
             });
         }
     });
+
+
+    _s.PublicKeyInfo = function (userKey) {
+        _h.post('../Certificate/PublicKeyInfo', { _tUserKey: userKey }).then(function (c) {
+            if (c.data.message == 'Success') {
+                _s.userInfo = c.data.userInfo;
+                _s.userKeyInfo = c.data.userKeyInfo;
+                _s.userKeyInfo.dtRevoked = (_s.userKeyInfo.dtRevoked == null) ? null : new Date(parseInt((_s.userKeyInfo.dtRevoked).substr(6)));
+                //_s.userKeyInfo.dtRevoked = new Date(c.data.userKeyInfo.dtRevoked);
+            } else if (c.data.message == 'Public key not found') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Not found',
+                    text: 'Public key not known',
+                });
+                _s.userKey.publicKey = null;
+            } else if (c.data.message == 'User info not found') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'User Not found',
+                    text: 'User not known',
+                });
+                _s.userKey.publicKey = null;
+            } 
+
+        }, function () {
+            Swal.fire({
+                icon: 'error',
+                title: 'Warning',
+                text: 'Something went wrong!',
+            });
+        });
+    }
 
 
     _s.onLoad = function () {
@@ -80,6 +130,8 @@
             _s.userKey.showPrivateKey = false;
             _s.userKey.publicKey = null;
             _s.searchTerm = '';
+            _s.userInfo = {};
+            _s.userKeyInfo = {};
         }).catch(function () {
             // Error handling for user keys retrieval
             Swal.fire({
@@ -525,6 +577,8 @@
     });
 
     _s.toggleUploadPublicKey = function (userKey) {
+        _s.userInfo = {};
+        _s.userKeyInfo = {};
         if (userKey.uploadPublicKey) {
             userKey.publicKey = null;
             userKey.selectedUser = null;
@@ -539,8 +593,16 @@
         console.log(userID);
         _h.post("../Certificate/SignerKey", { userID: userID }).then(function (c) {
 
-            _s.userKey.publicKey = c.data.signerKey.publicKey;
-
+            if (c.data.message == 'Success') {
+                _s.userKey.publicKey = c.data.signerKey.publicKey;
+            }
+            else {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'No active public keys',
+                    text: c.data.message,
+                });
+            }
         }).catch(function () {
             // Error handling for fetching users
             Swal.fire({

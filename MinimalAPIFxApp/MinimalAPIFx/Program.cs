@@ -14,12 +14,16 @@ builder.Services.AddSwaggerGen(c =>
 
 builder.Services.AddSingleton<ISqlDataAccess, SqlDataAccess>();
 builder.Services.AddSingleton<IUserData, UserData>();
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = int.MaxValue; //524288000; // 500MB in bytes
+});
 
 builder.WebHost.ConfigureKestrel(options =>
 {
-    options.Limits.MaxRequestBodySize = 52428800; //50MB
-    options.Limits.MaxRequestBufferSize = 302768;
-    options.Limits.MaxRequestLineSize = 302768;
+    options.Limits.MaxRequestBodySize = int.MaxValue; //500MB
+    options.Limits.MaxRequestBufferSize = int.MaxValue;
+    options.Limits.MaxRequestLineSize = int.MaxValue;
 });
 
 var app = builder.Build();

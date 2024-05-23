@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\FALCONx\FALCONx\bin\app.publish\</_PublishTargetUrl>
-    <History>True|2024-05-03T04:58:58.6558399Z;</History>
+    <History>True|2024-05-23T01:59:52.8935255Z;True|2024-05-18T10:33:56.6967478+08:00;True|2024-05-18T10:33:38.1669910+08:00;True|2024-05-03T12:58:58.6558399+08:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -22,10 +22,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/23/2017 13:15:20</publishTime>
     </File>
     <File Include="bin/FALCONx.dll">
-      <publishTime>05/11/2024 10:51:56</publishTime>
+      <publishTime>05/23/2024 16:42:07</publishTime>
     </File>
     <File Include="bin/FALCONx.pdb">
-      <publishTime>05/11/2024 10:51:56</publishTime>
+      <publishTime>05/23/2024 16:42:07</publishTime>
     </File>
     <File Include="bin/GoogleAuthentication.dll">
       <publishTime>01/30/2022 23:20:18</publishTime>
@@ -1390,19 +1390,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/02/2024 14:02:07</publishTime>
     </File>
     <File Include="Scripts/AngularJS/Signa/Home.js">
-      <publishTime>04/05/2024 19:30:53</publishTime>
+      <publishTime>05/17/2024 10:06:47</publishTime>
     </File>
     <File Include="Scripts/AngularJS/Signature/SignFile.js">
-      <publishTime>04/06/2024 21:18:07</publishTime>
+      <publishTime>05/23/2024 16:34:11</publishTime>
     </File>
     <File Include="Scripts/AngularJS/Signature/SignText.js">
       <publishTime>04/06/2024 18:51:06</publishTime>
     </File>
     <File Include="Scripts/AngularJS/Verify/VerifyFile.js">
-      <publishTime>04/18/2024 22:22:01</publishTime>
+      <publishTime>05/23/2024 16:35:03</publishTime>
     </File>
     <File Include="Scripts/AngularJS/Verify/VerifyText.js">
-      <publishTime>04/10/2024 19:56:54</publishTime>
+      <publishTime>05/17/2024 15:32:06</publishTime>
     </File>
     <File Include="Scripts/errors.json">
       <publishTime>02/20/2024 19:17:14</publishTime>
@@ -3871,7 +3871,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/20/2024 21:20:35</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>04/05/2024 21:33:39</publishTime>
+      <publishTime>05/17/2024 09:28:29</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
       <publishTime>12/07/2023 15:22:09</publishTime>
@@ -3889,10 +3889,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/07/2023 15:22:09</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>04/30/2024 13:51:10</publishTime>
+      <publishTime>05/17/2024 15:47:23</publishTime>
     </File>
     <File Include="Views/Signa/Home.cshtml">
-      <publishTime>04/06/2024 12:11:18</publishTime>
+      <publishTime>05/17/2024 10:07:05</publishTime>
     </File>
     <File Include="Views/Signature/SignFile.cshtml">
       <publishTime>04/06/2024 18:40:59</publishTime>
@@ -3901,10 +3901,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/06/2024 21:27:10</publishTime>
     </File>
     <File Include="Views/Verify/VerifyFile.cshtml">
-      <publishTime>04/21/2024 00:02:41</publishTime>
+      <publishTime>05/17/2024 15:04:22</publishTime>
     </File>
     <File Include="Views/Verify/VerifyText.cshtml">
-      <publishTime>04/20/2024 23:57:31</publishTime>
+      <publishTime>05/17/2024 15:30:02</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>12/07/2023 15:22:09</publishTime>
@@ -3913,7 +3913,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/05/2024 19:28:54</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/03/2024 12:58:34</publishTime>
+      <publishTime>05/23/2024 16:12:06</publishTime>
     </File>
   </ItemGroup>
 </Project>

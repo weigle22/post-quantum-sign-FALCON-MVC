@@ -56,10 +56,24 @@
 
     _s.myDropzoneUploadFiles = new Dropzone("#myDropzoneUploadFiles", {
         addRemoveLinks: true,
+        //maxFilesize: 500, // 500 MB
+        maxFilesize: 200, // 200 MB
         dictRemoveFile: '<i class="fe fe-trash"></i>',
+        dictCancelUpload: '<i class="fe fe-x"></i>',
         init: function () {
             this.on("addedfile", function (file) {
-
+                // Check if file size exceeds 500MB
+                //if (file.size > 500 * 1024 * 1024) { // Convert MB to Bytes
+                if (file.size > 200 * 1024 * 1024) { // Convert MB to Bytes
+                    // Show swal indicating file size exceeds limit
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'File Too Large',
+                        text: 'The file size should not exceed 200MB.'
+                    });
+                    // Remove the file from Dropzone
+                    this.removeFile(file);
+                }
             });
             this.on("removedfile", function (file) {
 
