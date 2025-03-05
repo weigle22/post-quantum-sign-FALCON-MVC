@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\models\\flcnxdb.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|d:\\dev files\\projects\\post-quantum-sign-falcon-mvc\\falconx\\falconx\\views\\signature\\signfile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\FALCONx\\falconx\\views\\signature\\signfile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\views\\signature\\signfile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
@@ -171,8 +171,7 @@
               "RelativeToolTip": "FALCONx\\Views\\Signature\\SignFile.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-23T01:49:23.006Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-23T01:49:23.006Z"
             },
             {
               "$type": "Document",
