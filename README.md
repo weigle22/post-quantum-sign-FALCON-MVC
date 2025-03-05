@@ -51,6 +51,27 @@ To use Falcon in this project, you need to generate a DLL from the official Falc
      make clean
      ```
 
+### Building 32-bit or 64-bit DLL
+
+You can build either a **32-bit** or **64-bit** version of the DLL by modifying the **Makefile**.
+
+- Open the `Makefile` and **enable** the required compiler settings based on your target build.
+- **Disable** the other set of compilers.
+
+```makefile
+# ENABLE THIS TO BUILD IN 64 BIT
+LD = clang
+CC = clang
+DLL_CC = x86_64-w64-mingw32-gcc
+
+# ENABLE THIS TO BUILD IN 32 BIT
+# LD = i686-w64-mingw32-gcc
+# CC = i686-w64-mingw32-gcc
+# DLL_CC = i686-w64-mingw32-gcc
+```
+
+You can also use your preferred C compiler by modifying the `CC` flags.
+
 ---
 
 ### Step 2: Set Up the Falcon API
@@ -92,6 +113,13 @@ To use Falcon in this project, you need to generate a DLL from the official Falc
 
 #### 4. Follow the User Guide  
    - 📖 [User Guide.pdf](https://github.com/weigle22/post-quantum-sign-FALCON-MVC/blob/main/FALCONx/User%20Guide.pdf) for detailed usage instructions.
+
+---
+
+### Python Implementation
+
+In addition to the C implementation, there is a **Python version** available for reference.  
+📂 **Location:** `PyRun/py_falcon/`
 
 ---
 
