@@ -58,7 +58,7 @@ To use Falcon in this project, you need to build a DLL from the official Falcon 
 
 #### 3. Copy the DLL
 
-Copy the `falcon_full.dll` file to your preferred location for use in the project.
+Copy the `falcon_full.dll` file to your preferred location for use in your other projects.
 
 #### 4. Clean Up (Optional)
 
@@ -78,7 +78,7 @@ make clean
 
 #### 2. Run the API Locally
 
-- Start the API and test it using **Swagger UI**.
+- Start the API and test it using **Swagger UI** or **Postman**.
 - The API **does not require authentication** by default, but you may add security configurations as needed.
 - Database integration is available through the `DataAccess` component (sample `UserData` database access is included).
 - Refer to `Program.cs` and `FalconWrapper.cs` to understand how the DLL is utilized.
