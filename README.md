@@ -1,8 +1,14 @@
-# Falcon Post-Quantum Signature Implementation using C, ASP.NET MVC (AngularJS) and ASP.NET Core Minimal API
+# Falcon Post-Quantum Signature Implementation
 
 This repository provides an implementation of the **Falcon post-quantum signature scheme** using **ASP.NET MVC (AngularJS)** and **ASP.NET Core Minimal API**.
 
 Falcon (**FAst Fourier Lattice-based COmpact signatures over NTRU**) is a post-quantum cryptographic signature scheme designed for secure digital signatures. More details can be found on the official Falcon website: [https://falcon-sign.info/](https://falcon-sign.info/).
+
+---
+
+## Disclaimer
+
+🚨 **This repository is for demonstration purposes only.** It is not intended for production use or deployment in security-critical applications. Use at your own risk.
 
 ---
 
@@ -145,7 +151,9 @@ You can also use a different C compiler by modifying the `CC` flags accordingly.
 
 ---
 
+## Conclusion
 
+This project demonstrates how to integrate **Falcon post-quantum cryptography** into a web-based application using **ASP.NET Core Minimal API** and **ASP.NET MVC with AngularJS**. It provides a comprehensive setup guide to build, configure, and deploy the application.
 
-🚀 **HAPPY CODING!**
+🚀 **Happy coding!**
 
