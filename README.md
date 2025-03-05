@@ -151,9 +151,5 @@ You can also use a different C compiler by modifying the `CC` flags accordingly.
 
 ---
 
-## Conclusion
-
-This project demonstrates how to integrate **Falcon post-quantum cryptography** into a web-based application using **ASP.NET Core Minimal API** and **ASP.NET MVC with AngularJS**. It provides a comprehensive setup guide to build, configure, and deploy the application.
-
 🚀 **Happy coding!**
 
