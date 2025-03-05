@@ -4,7 +4,7 @@ This repository implements the Falcon post-quantum signature scheme using **ASP.
 
 Falcon stands for **FAst Fourier Lattice-based COmpact signatures over NTRU**. More details can be found on the official Falcon website: [https://falcon-sign.info/](https://falcon-sign.info/).
 
-This project integrates Falcon's **post-quantum cryptography** into a web environment, utilizing:  
+This project integrates Falcon's **post-quantum cryptography** into a web environment, utilizing:    
 ✅ **Falcon post-quantum signature scheme written in C**  
 ✅ **ASP.NET Core Minimal API**  
 ✅ **ASP.NET MVC with AngularJS**  
