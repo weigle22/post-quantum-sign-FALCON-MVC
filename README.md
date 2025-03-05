@@ -7,7 +7,7 @@ Falcon stands for **FAst Fourier Lattice-based COmpact signatures over NTRU**. M
 This project integrates Falcon's **post-quantum cryptography** into a web environment, utilizing:  
 ✅ **ASP.NET MVC with AngularJS**  
 ✅ **ASP.NET Core Minimal API**  
-✅ **Falcon post-quantum signature scheme written in C** 
+✅ **Falcon post-quantum signature scheme written in C**
 
 ---
 
@@ -18,8 +18,12 @@ This project integrates Falcon's **post-quantum cryptography** into a web enviro
 To use Falcon in this project, you need to generate a DLL from the official Falcon reference implementation.
 
 #### 1. Install GnuWin32 Make for Windows  
-   Download and install **GnuWin32 Make**:  
-   👉 [https://gnuwin32.sourceforge.net/packages/make.htm](https://gnuwin32.sourceforge.net/packages/make.htm)
+   - Download and install **GnuWin32 Make**:  
+     👉 [https://gnuwin32.sourceforge.net/packages/make.htm](https://gnuwin32.sourceforge.net/packages/make.htm)
+   - If you're looking for alternatives, consider:  
+     - **Cygwin**  
+     - **MinGW (Minimalist GNU for Windows)**  
+     - **Windows Subsystem for Linux (WSL)** (to access a native Linux `make` command in Windows)  
 
 #### 2. Download and Open the Falcon Reference Implementation  
    - Download the Falcon reference implementation:  
@@ -35,7 +39,7 @@ To use Falcon in this project, you need to generate a DLL from the official Falc
    - This will generate:  
      - **Object files (`.o`)**
      - **Executable files (`.exe`)** for running Falcon functions in a C environment  
-     - A **DLL file (`falcon_full.dll`)** used in the MVC project.  
+     - A **DLL file (`falcon_full.dll`)** used in the MVC project  
    - To view the DLL’s source code, check the `falcon_dll.c` file.
 
 #### 4. Copy the DLL  
@@ -52,7 +56,7 @@ To use Falcon in this project, you need to generate a DLL from the official Falc
 ### Step 2: Set Up the Falcon API
 
 #### 1. Reference the DLL in the API  
-   - If you made modifications to `falcon_full.dll`, place the updated DLL inside the `FalconDLL` folder in the API directory.
+   - If you modified `falcon_full.dll`, place the updated DLL inside the `FalconDLL` folder in the API directory.
 
 #### 2. Run the API Locally  
    - Start the API and test it via **Swagger UI**.
@@ -87,10 +91,8 @@ To use Falcon in this project, you need to generate a DLL from the official Falc
    Alternatively, you can **sign up for a new account**.
 
 #### 4. Follow the User Guide  
-   - Refer to `User Guide.pdf` for detailed usage instructions.
+   - 📖 [User Guide.pdf](https://github.com/weigle22/post-quantum-sign-FALCON-MVC/blob/main/FALCONx/User%20Guide.pdf) for detailed usage instructions.
 
---- 
-
-You can use the API separately in other projects or test Falcon's cryptographic functions through the provided MVC demo.
+---
 
 Happy coding! 🚀
