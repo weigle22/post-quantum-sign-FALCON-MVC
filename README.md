@@ -2,7 +2,9 @@
 
 This repository provides an implementation of the **Falcon post-quantum signature scheme** using **ASP.NET MVC (AngularJS)** and **ASP.NET Core Minimal API**.
 
-Falcon (**FAst Fourier Lattice-based COmpact signatures over NTRU**) is a post-quantum cryptographic signature scheme. More details can be found on the official Falcon website: [https://falcon-sign.info/](https://falcon-sign.info/).
+Falcon (**FAst Fourier Lattice-based COmpact signatures over NTRU**) is a post-quantum cryptographic signature scheme designed for secure digital signatures. More details can be found on the official Falcon website: [https://falcon-sign.info/](https://falcon-sign.info/).
+
+---
 
 ## Features
 
@@ -22,7 +24,7 @@ To use Falcon in this project, you need to build a DLL from the official Falcon 
 
 #### 1. Install GnuWin32 Make for Windows
 
-- Download and install **GnuWin32 Make**:\
+- Download and install **GnuWin32 Make**:  
   👉 [https://gnuwin32.sourceforge.net/packages/make.htm](https://gnuwin32.sourceforge.net/packages/make.htm)
 - Alternative options:
   - **Cygwin**
@@ -31,9 +33,8 @@ To use Falcon in this project, you need to build a DLL from the official Falcon 
 
 #### 2. Build the DLL
 
-📌 **Note:** The `Falcon-impl-20211101` in this repository has been modified to build the Falcon DLL and run tests.
+📌 **Note:** The `Falcon-impl-20211101` in this repository has been modified to support DLL generation and testing. If you're curious about the original Falcon reference implementation, you can find it here:
 
-You can download the original Falcon reference implementation here:\
 📥 [Falcon-impl-20211101.zip](https://falcon-sign.info/Falcon-impl-20211101.zip)
 
 **Steps to build the DLL:**
@@ -44,10 +45,10 @@ You can download the original Falcon reference implementation here:\
    make all
    ```
 3. The following files will be generated:
-   - **Object files (**``**)**
-   - **Executable files (**``**)** (for running Falcon functions in a C environment)
-   - **DLL file (**``**)** (used in the MVC project)
-4. The DLL source code can be found in `falcon_dll.c`.
+   - **Object files (`.o`)**
+   - **Executable files (`.exe`)** (for running Falcon functions in a C environment)
+   - **DLL file (`falcon_full.dll`)** (used in the MVC project)
+4. The DLL source code is available in `falcon_dll.c`.
 
 #### 3. Copy the DLL
 
@@ -74,7 +75,7 @@ make clean
 - Start the API and test it using **Swagger UI**.
 - The API **does not require authentication** by default, but you may add security configurations as needed.
 - Database integration is available through the `DataAccess` component (sample `UserData` database access is included).
-- Refer to `Program.cs` and `FalconWrapper.cs` to understand how the DLL is used.
+- Refer to `Program.cs` and `FalconWrapper.cs` to understand how the DLL is utilized.
 
 #### 3. Publish the API
 
@@ -84,11 +85,11 @@ Once tested, you can publish the API and integrate it into your applications.
 
 ### Step 3: Set Up the MVC Project
 
-💡 **Note:** The ASP.NET MVC solution demonstrates API functionality using controller calls. You may use the API directly in other front-end projects.
+💡 **Note:** The ASP.NET MVC solution demonstrates API functionality using controller calls. You may also use the API directly in other front-end projects.
 
 #### 1. Restore the Database
 
-- Locate the **SQL Server backup file**:\
+- Locate the **SQL Server backup file**:
   📂 `FALCONx/db_schema/FLCNX_DB.bak`
 - Restore it in your local SQL Server instance.
 
@@ -116,7 +117,7 @@ Alternatively, you can **sign up for a new account**.
 
 ### Optional: Python Implementation
 
-A **Python version** of the Falcon implementation is available for reference.\
+A **Python version** of the Falcon implementation is available for reference.  
 📂 **Location:** `PyRun/py_falcon/`
 
 ---
@@ -146,7 +147,7 @@ You can also use a different C compiler by modifying the `CC` flags accordingly.
 
 ## Conclusion
 
-This project demonstrates how to integrate **Falcon post-quantum cryptography** into a web-based application using **ASP.NET Core Minimal API** and **ASP.NET MVC with AngularJS**. It provides a complete setup guide to build, configure, and deploy the application.
+This project demonstrates how to integrate **Falcon post-quantum cryptography** into a web-based application using **ASP.NET Core Minimal API** and **ASP.NET MVC with AngularJS**. It provides a comprehensive setup guide to build, configure, and deploy the application.
 
 🚀 **Happy coding!**
 
