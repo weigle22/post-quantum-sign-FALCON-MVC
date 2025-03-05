@@ -1,4 +1,4 @@
-# Falcon Post-Quantum Signature Implementation
+# Falcon Post-Quantum Signature Implementation using C, ASP.NET MVC (AngularJS) and ASP.NET Core Minimal API
 
 This repository provides an implementation of the **Falcon post-quantum signature scheme** using **ASP.NET MVC (AngularJS)** and **ASP.NET Core Minimal API**.
 
