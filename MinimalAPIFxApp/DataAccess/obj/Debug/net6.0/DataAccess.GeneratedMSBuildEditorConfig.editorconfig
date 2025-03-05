@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DataAccess
-build_property.ProjectDir = D:\DEV FILES\MIT CAPSTONE\MIT CAPSTONE-repo\MinimalAPIFxApp\DataAccess\
+build_property.ProjectDir = D:\DEV FILES\PROJECTS\post-quantum-sign-FALCON-MVC\MinimalAPIFxApp\DataAccess\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

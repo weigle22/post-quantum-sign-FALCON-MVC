@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MinimalAPIFx")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38ce4d5e76ab79108e45d787b59b20762ca6683b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba97bbfe48e88f714b7de7bd95fa95b0ec539a43")]
 [assembly: System.Reflection.AssemblyProductAttribute("MinimalAPIFx")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MinimalAPIFx")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

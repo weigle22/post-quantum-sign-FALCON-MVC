@@ -37,7 +37,7 @@ OBJ = codec.o common.o falcon.o fft.o fpr.o keygen.o rng.o shake.o sign.o vrfy.o
 all: test_falcon speed main_program sign_files sign_a_message falcon_full.dll
 
 clean:
-	del /Q $(OBJ) test_falcon test_falcon.o speed speed.o main_program main_program.o sign_files sign_files.o generate_sk_pk generate_sk_pk.o sign_a_message sign_a_message.o falcon_full.dll falcon_full.o
+	del /Q $(OBJ) test_falcon test_falcon.o speed speed.o main_program main_program.o sign_files sign_files.o generate_sk_pk generate_sk_pk.o sign_a_message sign_a_message.o falcon_full.dll falcon_full.o main_program.exe sign_a_message.exe sign_files.exe speed.exe test_falcon.exe
 
 test_falcon: test_falcon.o $(OBJ)
 	$(LD) $(LDFLAGS) -o test_falcon test_falcon.o $(OBJ) $(LIBS)

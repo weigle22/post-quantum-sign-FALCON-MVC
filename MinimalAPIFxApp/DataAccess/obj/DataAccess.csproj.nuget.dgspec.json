@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\DataAccess\\DataAccess.csproj": {}
+    "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\MinimalAPIFxApp\\DataAccess\\DataAccess.csproj": {}
   },
   "projects": {
-    "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\DataAccess\\DataAccess.csproj": {
+    "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\MinimalAPIFxApp\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\MinimalAPIFxApp\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\DataAccess\\DataAccess.csproj",
+        "projectPath": "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\MinimalAPIFxApp\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\emman\\.nuget\\packages\\",
-        "outputPath": "D:\\DEV FILES\\MIT CAPSTONE\\MIT CAPSTONE-repo\\MinimalAPIFxApp\\DataAccess\\obj\\",
+        "outputPath": "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\MinimalAPIFxApp\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\emman\\AppData\\Roaming\\NuGet\\NuGet.Config",
