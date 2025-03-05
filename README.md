@@ -6,7 +6,7 @@ Falcon stands for **FAst Fourier Lattice-based COmpact signatures over NTRU**. M
 
 This project integrates Falcon's **post-quantum cryptography** into a web environment, utilizing:  
 ✅ **Falcon post-quantum signature scheme written in C**  
-✅ **ASP.NET Core Minimal API** 
+✅ **ASP.NET Core Minimal API**  
 ✅ **ASP.NET MVC with AngularJS**  
 
 ---
