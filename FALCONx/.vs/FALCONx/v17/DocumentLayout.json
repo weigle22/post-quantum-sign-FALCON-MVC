@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\FALCONx\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|d:\\dev files\\projects\\post-quantum-sign-falcon-mvc\\falconx\\falconx\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|d:\\dev files\\projects\\post-quantum-sign-falcon-mvc\\falconx\\falconx\\models\\flcnxdb.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
       "RelativeMoniker": "D:0:0:{7F34CCA2-3491-4967-BA04-3F7690B732C8}|FALCONx\\FALCONx.csproj|solutionrelative:falconx\\models\\flcnxdb.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
     },
@@ -91,6 +95,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\FALCONx\\FALCONx\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "FALCONx\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\FALCONx\\FALCONx\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "FALCONx\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAgwCYAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T00:03:06.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "FLCNXDB.edmx [Diagram1]",
               "DocumentMoniker": "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\FALCONx\\FALCONx\\Models\\FLCNXDB.edmx",
               "RelativeDocumentMoniker": "FALCONx\\Models\\FLCNXDB.edmx",
@@ -102,7 +119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "VerifyFile.js",
               "DocumentMoniker": "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\FALCONx\\FALCONx\\Scripts\\AngularJS\\Verify\\VerifyFile.js",
               "RelativeDocumentMoniker": "FALCONx\\Scripts\\AngularJS\\Verify\\VerifyFile.js",
@@ -114,7 +131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "SignFile.js",
               "DocumentMoniker": "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\FALCONx\\FALCONx\\Scripts\\AngularJS\\Signature\\SignFile.js",
               "RelativeDocumentMoniker": "FALCONx\\Scripts\\AngularJS\\Signature\\SignFile.js",
@@ -126,7 +143,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "FalconApiClient.cs",
               "DocumentMoniker": "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\FALCONx\\FALCONx\\Controllers\\FalconApiClient.cs",
               "RelativeDocumentMoniker": "FALCONx\\Controllers\\FalconApiClient.cs",
@@ -138,7 +155,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "SignatureController.cs",
               "DocumentMoniker": "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\FALCONx\\FALCONx\\Controllers\\SignatureController.cs",
               "RelativeDocumentMoniker": "FALCONx\\Controllers\\SignatureController.cs",
@@ -150,7 +167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Web.config",
               "DocumentMoniker": "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\FALCONx\\FALCONx\\Web.config",
               "RelativeDocumentMoniker": "FALCONx\\Web.config",
@@ -163,7 +180,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "SignFile.cshtml",
               "DocumentMoniker": "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\FALCONx\\FALCONx\\Views\\Signature\\SignFile.cshtml",
               "RelativeDocumentMoniker": "FALCONx\\Views\\Signature\\SignFile.cshtml",
@@ -175,7 +192,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "myApp.js",
               "DocumentMoniker": "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\FALCONx\\FALCONx\\Scripts\\myApp.js",
               "RelativeDocumentMoniker": "FALCONx\\Scripts\\myApp.js",
@@ -187,7 +204,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "MenuController.js",
               "DocumentMoniker": "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\FALCONx\\FALCONx\\Scripts\\AngularJS\\Account\\MenuController.js",
               "RelativeDocumentMoniker": "FALCONx\\Scripts\\AngularJS\\Account\\MenuController.js",
@@ -199,7 +216,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\FALCONx\\FALCONx\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "FALCONx\\Views\\Shared\\_Layout.cshtml",
@@ -211,7 +228,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "VerifyText.cshtml",
               "DocumentMoniker": "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\FALCONx\\FALCONx\\Views\\Verify\\VerifyText.cshtml",
               "RelativeDocumentMoniker": "FALCONx\\Views\\Verify\\VerifyText.cshtml",
@@ -223,7 +240,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "VerifyText.js",
               "DocumentMoniker": "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\FALCONx\\FALCONx\\Scripts\\AngularJS\\Verify\\VerifyText.js",
               "RelativeDocumentMoniker": "FALCONx\\Scripts\\AngularJS\\Verify\\VerifyText.js",
@@ -235,7 +252,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "CertificateController.cs",
               "DocumentMoniker": "D:\\DEV FILES\\PROJECTS\\post-quantum-sign-FALCON-MVC\\FALCONx\\FALCONx\\Controllers\\CertificateController.cs",
               "RelativeDocumentMoniker": "FALCONx\\Controllers\\CertificateController.cs",
